@@ -1,0 +1,204 @@
+import Link from "next/link";
+import { Camera, Play, Send, Video } from "lucide-react";
+
+import {
+  primaryActionButtonClassName,
+  primaryActionIconClassName,
+} from "@/components/ui/action-styles";
+import { cn } from "@/lib/utils";
+
+const footerColumns = [
+  {
+    title: "TROKO",
+    links: [
+      { label: "Despre noi", href: "/despre" },
+      { label: "Cum funcționează", href: "/siguranta" },
+      { label: "Siguranță", href: "/siguranta" },
+      { label: "Blog", href: "/blog" },
+      { label: "Contact", href: "/contact" },
+    ],
+  },
+  {
+    title: "Categorii populare",
+    links: [
+      { label: "Electronice", href: "/categorii/electronice" },
+      { label: "Auto", href: "/categorii/auto" },
+      { label: "Imobiliare", href: "/categorii/imobiliare" },
+      { label: "Casă & grădină", href: "/categorii/casa-gradina" },
+      { label: "Fashion", href: "/categorii/fashion" },
+      { label: "Sport", href: "/categorii/sport" },
+      { label: "Copii & bebe", href: "/categorii/copii-bebe" },
+      { label: "Servicii", href: "/categorii/servicii" },
+      { label: "Închirieri", href: "/categorii/inchirieri" },
+      { label: "Schimburi", href: "/categorii/schimburi" },
+    ],
+  },
+  {
+    title: "Suport",
+    links: [
+      { label: "Întrebări frecvente", href: "/siguranta" },
+      { label: "Reguli de publicare", href: "/siguranta" },
+      { label: "Sfaturi pentru cumpărători", href: "/siguranta" },
+      { label: "Sfaturi pentru vânzători", href: "/siguranta" },
+      { label: "Raportează un anunț", href: "/siguranta" },
+    ],
+  },
+  {
+    title: "Contul tău",
+    links: [
+      { label: "Anunțurile mele", href: "/cont/anunturi" },
+      { label: "Mesaje", href: "/mesaje" },
+      { label: "Favorite", href: "/cont/favorite" },
+      { label: "Căutări salvate", href: "/cont/cautari-salvate" },
+      { label: "Notificări", href: "/notificari" },
+    ],
+  },
+];
+
+const legalLinks = [
+  { label: "Termeni și condiții", href: "/termeni" },
+  { label: "Confidențialitate", href: "/confidentialitate" },
+  { label: "Cookies", href: "/cookies" },
+  { label: "Politica de conținut interzis", href: "/siguranta" },
+];
+
+const socialLinks = [
+  { label: "Facebook", content: "f" },
+  { label: "Instagram", icon: Camera },
+  { label: "YouTube", icon: Video },
+  { label: "TikTok", icon: Play },
+];
+
+export function Footer() {
+  const currentYear = new Date().getFullYear();
+
+  return (
+    <footer className="siteFooter isolate overflow-visible text-[#123F37]">
+      <div className="relative z-10 mx-auto w-full max-w-[1440px] px-5 pb-8 pt-20 sm:px-8 sm:pt-24 lg:px-10 lg:pb-10 lg:pt-28">
+        <div className="grid gap-10 lg:grid-cols-[1.15fr_2.85fr_1.35fr] lg:gap-12">
+          <section aria-label="Despre TROKO" className="max-w-sm">
+            <Link
+              href="/"
+              aria-label="TROKO.ro acasă"
+              className="inline-flex text-3xl font-black leading-none text-[#0F4A43]"
+            >
+              TROKO<span className="text-[#E9B44C]">.ro</span>
+            </Link>
+            <p className="mt-5 max-w-xs text-sm leading-6 text-[#52645F]">
+              Marketplace-ul românesc pentru vânzare, cumpărare, închiriere și
+              schimb.
+            </p>
+
+            <div className="mt-6 flex flex-wrap gap-3">
+              {socialLinks.map((social) => {
+                const Icon = "icon" in social ? social.icon : null;
+
+                return (
+                  <Link
+                    key={social.label}
+                    href="/"
+                    aria-label={social.label}
+                    className="grid size-10 place-items-center rounded-full border border-[#E8E1D8] bg-[#FFFDF8]/75 text-[#0F4A43] shadow-sm transition hover:-translate-y-0.5 hover:border-[#2F6F65]/40 hover:bg-white"
+                  >
+                    {Icon ? (
+                      <Icon className="size-4" aria-hidden="true" />
+                    ) : (
+                      <span className="text-base font-black" aria-hidden="true">
+                        {social.content}
+                      </span>
+                    )}
+                  </Link>
+                );
+              })}
+            </div>
+          </section>
+
+          <nav
+            aria-label="Linkuri footer"
+            className="grid grid-cols-2 gap-8 sm:grid-cols-4 lg:gap-10"
+          >
+            {footerColumns.map((column) => (
+              <div key={column.title}>
+                <h2 className="text-xs font-black uppercase tracking-normal text-[#0F4A43]">
+                  {column.title}
+                </h2>
+                <ul className="mt-5 space-y-3">
+                  {column.links.map((link) => (
+                    <li key={`${column.title}-${link.href}-${link.label}`}>
+                      <Link
+                        href={link.href}
+                        className="text-sm font-medium text-[#52645F] transition-colors hover:text-[#0F4A43]"
+                      >
+                        {link.label}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </nav>
+
+          <section aria-labelledby="footer-newsletter">
+            <h2
+              id="footer-newsletter"
+              className="text-xs font-black uppercase tracking-normal text-[#0F4A43]"
+            >
+              Fii la curent
+            </h2>
+            <p className="mt-5 text-sm leading-6 text-[#52645F]">
+              Abonează-te la noutăți și sfaturi utile din lumea anunțurilor.
+            </p>
+            <form className="mt-5 space-y-3" aria-label="Abonare newsletter">
+              <label htmlFor="footer-email" className="sr-only">
+                Emailul tău
+              </label>
+              <input
+                id="footer-email"
+                type="email"
+                placeholder="Emailul tău"
+                className="h-12 w-full rounded-full border border-[#E8E1D8] bg-[#FFFDF8]/82 px-5 text-sm text-[#123F37] outline-none transition placeholder:text-[#8A918E] focus:border-[#2F6F65] focus:ring-3 focus:ring-[#2F6F65]/20"
+              />
+              <button
+                type="button"
+                className={cn(
+                  primaryActionButtonClassName,
+                  "inline-flex h-12 w-full items-center justify-center gap-3 px-5 text-sm font-bold focus-visible:outline-none focus-visible:ring-3",
+                )}
+              >
+                Abonează-te
+                <Send
+                  className={cn("size-4", primaryActionIconClassName)}
+                  aria-hidden="true"
+                />
+              </button>
+            </form>
+          </section>
+        </div>
+
+        <div className="mt-12 pt-6">
+          <div className="mx-auto h-px w-2/5 bg-[#E8E1D8]" />
+          <div className="mt-6 flex flex-col items-center gap-4 text-center">
+            <nav
+              aria-label="Linkuri legale"
+              className="flex flex-wrap justify-center gap-x-6 gap-y-2"
+            >
+              {legalLinks.map((link) => (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  className="text-xs font-medium text-[#123F37] transition-colors hover:text-[#2F6F65]"
+                >
+                  {link.label}
+                </Link>
+              ))}
+            </nav>
+
+            <p className="text-xs text-[#5F6D68]">
+              © {currentYear} TROKO.ro - Toate drepturile rezervate.
+            </p>
+          </div>
+        </div>
+      </div>
+    </footer>
+  );
+}
