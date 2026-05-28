@@ -33,7 +33,7 @@ export default async function TrustCenterPage() {
   const user = await getCurrentUser();
 
   if (!user) {
-    redirect("/login?redirectTo=/cont/incredere");
+    redirect("/?auth=login&redirectTo=/cont/incredere");
   }
 
   const supabase = await createClient();
@@ -70,7 +70,7 @@ export default async function TrustCenterPage() {
               <p className="text-sm font-bold uppercase text-primary">
                 Semnale de incredere
               </p>
-              <h1 className="mt-2 text-4xl font-black leading-tight text-foreground sm:text-5xl">
+              <h1 className="mt-2 text-3xl font-black leading-tight text-foreground sm:text-4xl min-[1800px]:text-5xl">
                 Centrul de incredere
               </h1>
               <p className="mt-4 text-base leading-7 text-muted-foreground">
@@ -147,8 +147,8 @@ export default async function TrustCenterPage() {
                     </div>
                   )}
                 </div>
-                <Button asChild className="mt-4 h-11 rounded-full bg-primary px-5 font-bold text-primary-foreground">
-                  <Link href="/onboarding">Completeaza/verifica profilul</Link>
+                <Button asChild className="mt-4 h-11 rounded-full bg-action px-5 font-bold text-action-foreground hover:bg-action-hover">
+                  <Link href="/cont/profil">Editează profilul</Link>
                 </Button>
               </article>
 
@@ -172,4 +172,3 @@ export default async function TrustCenterPage() {
     </div>
   );
 }
-

@@ -10,6 +10,7 @@ import { Header } from "@/components/site/header";
 import { MobileBottomNav } from "@/components/site/mobile-bottom-nav";
 import { Breadcrumbs } from "@/components/ui/breadcrumbs";
 import { Button } from "@/components/ui/button";
+import { getAuthDrawerPath } from "@/lib/auth/redirect";
 import { getCurrentUser } from "@/lib/auth/user";
 import { isSupabaseConfigured } from "@/lib/db/env";
 import { getUserListings } from "@/lib/db/listings";
@@ -50,7 +51,7 @@ export default async function PromoteListingPage({
   const user = await getCurrentUser();
 
   if (!user) {
-    redirect(`/login?redirectTo=/cont/anunturi/${id}/promoveaza`);
+    redirect(getAuthDrawerPath("login", `/cont/anunturi/${id}/promoveaza`));
   }
 
   const supabase = await createClient();
@@ -107,14 +108,14 @@ export default async function PromoteListingPage({
             </Button>
           </div>
           {activePromotion ? (
-            <p className="mt-4 rounded-[1rem] border border-[#D5E4DF] bg-[#E8F1EE] p-3 text-sm font-semibold leading-6 text-muted-foreground">
+            <p className="mt-4 rounded-[1rem] border border-brand-border bg-brand-soft p-3 text-sm font-semibold leading-6 text-muted-foreground">
               Acest anunț are deja o promovare activă. Poți trimite o solicitare
               nouă pentru o campanie viitoare, iar echipa TROKO o va analiza
               manual.
             </p>
           ) : null}
           {disabledReason ? (
-            <p className="mt-4 rounded-[1rem] border border-[#F3D88D] bg-[#FFF2CF] p-3 text-sm font-semibold leading-6 text-[#7A5718]">
+            <p className="mt-4 rounded-[1rem] border border-warm/45 bg-secondary p-3 text-sm font-semibold leading-6 text-warm-foreground">
               {disabledReason}
             </p>
           ) : null}
@@ -163,7 +164,7 @@ function PromoteFrame({
                 { label: title },
               ]}
             />
-            <h1 className="mt-8 text-4xl font-black text-foreground sm:text-5xl">
+            <h1 className="mt-8 text-3xl font-black text-foreground sm:text-4xl min-[1800px]:text-5xl">
               {title}
             </h1>
             <p className="mt-4 max-w-2xl text-base leading-7 text-muted-foreground">
@@ -185,11 +186,11 @@ function PromoteFrame({
 
 function SetupState() {
   return (
-    <div className="rounded-[1.75rem] border border-[#F3D88D] bg-[#FFF2CF] p-6 shadow-soft-sm">
+    <div className="rounded-[1.75rem] border border-warm/45 bg-secondary p-6 shadow-soft-sm">
       <h2 className="text-2xl font-black text-foreground">
         Promovarea reală are nevoie de configurarea Supabase.
       </h2>
-      <p className="mt-2 text-sm leading-6 text-[#7A5718]">
+      <p className="mt-2 text-sm leading-6 text-warm-foreground">
         Aplică migrarea pentru promovări și autentifică-te pentru a trimite
         solicitări reale. Paginile publice rămân disponibile în modul demo.
       </p>

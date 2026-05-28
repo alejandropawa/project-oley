@@ -19,3 +19,16 @@ export function getSafeRedirectPath(value: string | null | undefined) {
     return "/cont";
   }
 }
+
+export function getAuthDrawerPath(
+  mode: "login" | "register",
+  redirectTo?: string | null,
+) {
+  const params = new URLSearchParams({ auth: mode });
+
+  if (redirectTo) {
+    params.set("redirectTo", getSafeRedirectPath(redirectTo));
+  }
+
+  return `/?${params.toString()}`;
+}

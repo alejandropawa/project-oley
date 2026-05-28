@@ -8,6 +8,7 @@ import { Header } from "@/components/site/header";
 import { MobileBottomNav } from "@/components/site/mobile-bottom-nav";
 import { Breadcrumbs } from "@/components/ui/breadcrumbs";
 import { Button } from "@/components/ui/button";
+import { getAuthDrawerPath } from "@/lib/auth/redirect";
 import { getCurrentUser } from "@/lib/auth/user";
 import { getUserListingById } from "@/lib/db/listings";
 import { createClient } from "@/lib/supabase/server";
@@ -31,7 +32,7 @@ export default async function EditListingPage({
   const [{ id }, user] = await Promise.all([params, getCurrentUser()]);
 
   if (!user) {
-    redirect(`/login?redirectTo=/cont/anunturi/${id}/editeaza`);
+    redirect(getAuthDrawerPath("login", `/cont/anunturi/${id}/editeaza`));
   }
 
   const supabase = await createClient();
@@ -55,7 +56,7 @@ export default async function EditListingPage({
                 { label: "Editează" },
               ]}
             />
-            <h1 className="mt-8 text-4xl font-black text-foreground sm:text-5xl">
+            <h1 className="mt-8 text-3xl font-black text-foreground sm:text-4xl min-[1800px]:text-5xl">
               Editează detaliile
             </h1>
             <p className="mt-4 max-w-2xl text-base leading-7 text-muted-foreground">

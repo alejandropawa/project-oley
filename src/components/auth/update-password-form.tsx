@@ -21,7 +21,7 @@ export function UpdatePasswordForm() {
     setSuccess("");
 
     if (password.length < 8) {
-      setError("Parola trebuie să aibă cel puțin 8 caractere.");
+      setError("Parola trebuie să aibă minimum 8 caractere.");
       return;
     }
 
@@ -90,7 +90,7 @@ export function UpdatePasswordForm() {
       ) : null}
 
       {success ? (
-        <div className="rounded-[1rem] border border-[#D5E4DF] bg-[#E8F1EE] p-3 text-sm font-semibold text-primary">
+        <div className="rounded-[1rem] border border-brand-border bg-brand-soft p-3 text-sm font-semibold text-primary">
           <p>{success}</p>
           <Link href="/cont" className="mt-1 inline-block underline">
             Mergi la cont
@@ -100,7 +100,7 @@ export function UpdatePasswordForm() {
 
       <Button
         disabled={pending}
-        className="h-12 rounded-full bg-primary font-bold text-primary-foreground"
+        className="h-12 rounded-full bg-action font-bold text-action-foreground hover:bg-action-hover"
       >
         <KeyRound className="size-4" aria-hidden="true" />
         {pending ? "Se actualizează..." : "Actualizează parola"}

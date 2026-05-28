@@ -14,7 +14,7 @@ export function HeroSection() {
           <p className="text-sm font-black uppercase text-primary">
             troko.ro
           </p>
-          <h1 className="mx-auto mt-4 max-w-4xl text-balance text-4xl font-black leading-[1.04] text-foreground sm:text-6xl lg:text-7xl">
+          <h1 className="mx-auto mt-4 max-w-4xl text-balance text-3xl font-black leading-[1.04] text-foreground sm:text-5xl lg:text-6xl min-[1800px]:text-7xl">
             Găsește ce ai nevoie, aproape de tine.
           </h1>
           <p className="mx-auto mt-5 max-w-2xl text-pretty text-base leading-7 text-muted-foreground sm:text-lg">
@@ -43,7 +43,7 @@ export function HeroSection() {
                 className="h-12 border-0 bg-transparent p-0 text-base shadow-none placeholder:text-muted-foreground focus-visible:ring-0 sm:text-lg"
               />
             </div>
-            <Button className="h-14 rounded-[1.35rem] bg-primary px-7 text-base font-black text-primary-foreground shadow-soft-sm hover:bg-primary/90">
+            <Button className="h-14 rounded-[1.35rem] bg-action px-7 text-base font-black text-action-foreground shadow-soft-sm hover:bg-action-hover">
               Caută
               <ArrowRight className="size-5" aria-hidden="true" />
             </Button>

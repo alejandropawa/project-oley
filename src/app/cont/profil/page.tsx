@@ -2,13 +2,13 @@ import Link from "next/link";
 import type { Metadata } from "next";
 import { redirect } from "next/navigation";
 
-import { OnboardingFlow } from "@/components/onboarding/onboarding-flow";
+import { ProfileForm } from "@/components/account/profile-form";
 import { Footer } from "@/components/site/footer";
 import { Header } from "@/components/site/header";
 import { MobileBottomNav } from "@/components/site/mobile-bottom-nav";
 import { Button } from "@/components/ui/button";
 import { Breadcrumbs } from "@/components/ui/breadcrumbs";
-import { getCurrentUser } from "@/lib/auth/user";
+import { getCurrentUser, getDisplayName } from "@/lib/auth/user";
 import { getCurrentProfile } from "@/lib/db/profiles";
 import { syncCurrentUserTrustProfile } from "@/lib/db/trust";
 import { noIndexRobots } from "@/lib/seo/metadata";
@@ -26,7 +26,7 @@ export default async function AccountProfilePage() {
   const user = await getCurrentUser();
 
   if (!user) {
-    redirect("/login?redirectTo=/cont/profil");
+    redirect("/?auth=login&redirectTo=/cont/profil");
   }
 
   const supabase = await createClient();
@@ -50,7 +50,7 @@ export default async function AccountProfilePage() {
               <p className="text-sm font-bold uppercase text-primary">
                 Profil public
               </p>
-              <h1 className="mt-2 text-4xl font-black leading-tight text-foreground sm:text-5xl">
+              <h1 className="mt-2 text-3xl font-black leading-tight text-foreground sm:text-4xl min-[1800px]:text-5xl">
                 Profilul meu
               </h1>
               <p className="mt-4 text-base leading-7 text-muted-foreground">
@@ -70,10 +70,11 @@ export default async function AccountProfilePage() {
 
         <section className="py-8 sm:py-12">
           <div className="mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8">
-            <OnboardingFlow
-              profile={profileResult.profile}
-              privateSettings={profileResult.privateSettings}
-              isUnavailable={profileResult.source === "unavailable"}
+            <ProfileForm
+              initialProfile={profileResult.profile}
+              initialPrivateSettings={profileResult.privateSettings}
+              initialDisplayName={getDisplayName(user)}
+              isProfileUnavailable={profileResult.source === "unavailable"}
             />
           </div>
         </section>
@@ -83,4 +84,3 @@ export default async function AccountProfilePage() {
     </div>
   );
 }
-

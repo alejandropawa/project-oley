@@ -35,7 +35,7 @@ export default async function AccountNotificationSettingsPage() {
   const user = await getCurrentUser();
 
   if (!user) {
-    redirect("/login?redirectTo=/cont/notificari");
+    redirect("/?auth=login&redirectTo=/cont/notificari");
   }
 
   const supabase = await createClient();
@@ -67,7 +67,7 @@ function NotificationSettingsFrame({
                 { label: "Setări notificări" },
               ]}
             />
-            <h1 className="mt-8 text-4xl font-black text-foreground sm:text-5xl">
+            <h1 className="mt-8 text-3xl font-black text-foreground sm:text-4xl min-[1800px]:text-5xl">
               Setări notificări
             </h1>
             <p className="mt-4 max-w-2xl text-base leading-7 text-muted-foreground">
@@ -90,11 +90,11 @@ function NotificationSettingsFrame({
 
 function SetupState() {
   return (
-    <div className="rounded-[1.75rem] border border-[#F3D88D] bg-[#FFF2CF] p-6 shadow-soft-sm">
+    <div className="rounded-[1.75rem] border border-warm/45 bg-secondary p-6 shadow-soft-sm">
       <h2 className="text-2xl font-black text-foreground">
         Preferințele de notificare vor fi disponibile după configurarea Supabase.
       </h2>
-      <p className="mt-2 text-sm leading-6 text-[#7A5718]">
+      <p className="mt-2 text-sm leading-6 text-warm-foreground">
         Aplică migrarea de notificări pentru a salva preferințele reale ale
         contului.
       </p>

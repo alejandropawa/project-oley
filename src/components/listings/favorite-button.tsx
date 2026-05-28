@@ -25,7 +25,7 @@ export function FavoriteButton({
         variant="outline"
         className="h-12 rounded-full border-border bg-background px-5 font-bold"
       >
-        <Link href="/login?redirectTo=/cont/favorite">
+        <Link href="/?auth=login&redirectTo=/cont/favorite">
           <Heart className="size-4" aria-hidden="true" />
           Salvează
         </Link>

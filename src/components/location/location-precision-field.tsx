@@ -36,7 +36,7 @@ export function LocationPrecisionField({
               className={cn(
                 "rounded-[1.25rem] border p-4 text-left transition hover:border-primary/50",
                 selected
-                  ? "border-primary bg-[#E8F1EE]"
+                  ? "border-primary bg-brand-soft"
                   : "border-border bg-background",
               )}
             >

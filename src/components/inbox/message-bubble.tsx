@@ -39,7 +39,7 @@ export function MessageBubble({ message }: { message: ConversationMessage }) {
               "mt-3 grid gap-1 rounded-[0.9rem] p-2 text-xs font-semibold",
               message.isCurrentUser
                 ? "bg-white/12 text-primary-foreground"
-                : "bg-[#FFF2CF] text-[#7A5718]",
+                : "bg-secondary text-warm-foreground",
             )}
           >
             {message.safetyHints.map((hint) => (
@@ -56,7 +56,7 @@ export function MessageBubble({ message }: { message: ConversationMessage }) {
               entityType="message"
               entityId={message.id}
               isAuthenticated
-              loginHref="/login?redirectTo=/mesaje"
+              loginHref="/?auth=login&redirectTo=/mesaje"
               buttonLabel="Raportează mesaj"
               successMessage="Mesajul a fost raportat."
               compact

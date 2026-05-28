@@ -81,6 +81,39 @@ export type Database = {
         };
         Relationships: [];
       };
+      user_legal_acceptances: {
+        Row: {
+          id: string;
+          user_id: string;
+          terms_version: string;
+          privacy_version: string;
+          accepted_terms_at: string;
+          acknowledged_privacy_at: string;
+          source: string;
+          created_at: string;
+        };
+        Insert: {
+          id?: string;
+          user_id: string;
+          terms_version: string;
+          privacy_version: string;
+          accepted_terms_at?: string;
+          acknowledged_privacy_at?: string;
+          source?: string;
+          created_at?: string;
+        };
+        Update: {
+          id?: string;
+          user_id?: string;
+          terms_version?: string;
+          privacy_version?: string;
+          accepted_terms_at?: string;
+          acknowledged_privacy_at?: string;
+          source?: string;
+          created_at?: string;
+        };
+        Relationships: [];
+      };
       profile_private_settings: {
         Row: {
           user_id: string;
@@ -928,30 +961,6 @@ export type Database = {
           reviewed_at?: string | null;
           created_at?: string;
           updated_at?: string;
-        };
-        Relationships: [];
-      };
-      onboarding_events: {
-        Row: {
-          id: string;
-          user_id: string;
-          event: string;
-          metadata: Json;
-          created_at: string;
-        };
-        Insert: {
-          id?: string;
-          user_id: string;
-          event: string;
-          metadata?: Json;
-          created_at?: string;
-        };
-        Update: {
-          id?: string;
-          user_id?: string;
-          event?: string;
-          metadata?: Json;
-          created_at?: string;
         };
         Relationships: [];
       };

@@ -10,6 +10,7 @@ import { Footer } from "@/components/site/footer";
 import { Header } from "@/components/site/header";
 import { MobileBottomNav } from "@/components/site/mobile-bottom-nav";
 import { Breadcrumbs } from "@/components/ui/breadcrumbs";
+import { getAuthDrawerPath } from "@/lib/auth/redirect";
 import { getCurrentUser } from "@/lib/auth/user";
 import { getPublicProfileBySlug } from "@/lib/db/public-profiles";
 import { breadcrumbJsonLd } from "@/lib/seo/json-ld";
@@ -97,7 +98,7 @@ export default async function PublicProfilePage({
                 <PublicProfileReviews reviews={publicProfile.reviews} />
               </div>
               <aside className="grid gap-5 lg:sticky lg:top-24">
-                <div className="rounded-[1.5rem] border border-[#D5E4DF] bg-[#E8F1EE] p-5">
+                <div className="rounded-[1.5rem] border border-brand-border bg-brand-soft p-5">
                   <h2 className="font-black text-foreground">
                     Discutati in siguranta
                   </h2>
@@ -118,7 +119,7 @@ export default async function PublicProfilePage({
                       entityType="user"
                       entityId={publicProfile.profile.id}
                       isAuthenticated={Boolean(user)}
-                      loginHref={`/login?redirectTo=/profil/${slug}`}
+                      loginHref={getAuthDrawerPath("login", `/profil/${slug}`)}
                       buttonLabel="Raporteaza utilizatorul"
                       disabledReason={
                         isOwnProfile
@@ -140,4 +141,3 @@ export default async function PublicProfilePage({
     </div>
   );
 }
-

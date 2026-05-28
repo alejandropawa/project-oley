@@ -21,10 +21,10 @@ import { cn } from "@/lib/utils";
 import type { Listing, ListingType } from "@/lib/mock-data";
 
 const typeStyles: Record<ListingType, string> = {
-  sell: "border-[#CFE3DD] bg-[#E8F1EE] text-[#2F6F65]",
-  buy: "border-[#F3D88D] bg-[#FFF2CF] text-[#7A5718]",
-  rent: "border-[#D8CBB8] bg-[#F7EFE3] text-[#6B4D34]",
-  swap: "border-[#D8E5DD] bg-[#F1F7F4] text-[#2F6F65]",
+  sell: "border-brand-border bg-brand-soft text-brand",
+  buy: "border-warm/45 bg-secondary text-warm-foreground",
+  rent: "border-brand-border bg-brand-surface text-brand-ink",
+  swap: "border-brand-border bg-brand-surface text-brand",
 };
 
 export function ListingCard({ listing }: { listing: Listing }) {
@@ -91,7 +91,7 @@ export function ListingCard({ listing }: { listing: Listing }) {
               {formatListingPrice(listing)}
             </p>
             {listing.isNegotiable ? (
-              <Badge className="rounded-full bg-[#FFF2CF] px-2 py-0.5 text-xs font-bold text-[#7A5718]">
+              <Badge className="rounded-full bg-secondary px-2 py-0.5 text-xs font-bold text-warm-foreground">
                 Negociabil
               </Badge>
             ) : null}

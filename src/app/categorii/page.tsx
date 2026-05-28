@@ -36,7 +36,7 @@ export default function CategoriesPage() {
               <p className="text-sm font-bold uppercase text-primary">
                 Categorii TROKO
               </p>
-              <h1 className="mt-2 text-4xl font-black leading-tight text-foreground sm:text-5xl">
+              <h1 className="mt-2 text-3xl font-black leading-tight text-foreground sm:text-4xl min-[1800px]:text-5xl">
                 Explorează anunțuri pe categorii
               </h1>
               <p className="mt-4 text-base leading-7 text-muted-foreground">

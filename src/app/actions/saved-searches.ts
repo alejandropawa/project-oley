@@ -21,7 +21,7 @@ export async function saveSearchAction(formData: FormData) {
   } = await supabase.auth.getUser();
 
   if (!user) {
-    redirect("/login?redirectTo=/anunturi");
+    redirect("/?auth=login&redirectTo=/anunturi");
   }
 
   const rawFilters = String(formData.get("filters") ?? "{}");

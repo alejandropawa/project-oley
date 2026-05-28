@@ -20,7 +20,7 @@ export function RatingStars({
               key={value}
               type="button"
               onClick={() => onChange(value)}
-              className="rounded-full p-1 text-[#E9B44C] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+              className="rounded-full p-1 text-warm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
               aria-label={`${value} stele`}
               aria-checked={active}
               role="radio"
@@ -37,7 +37,7 @@ export function RatingStars({
           <Star
             key={value}
             className={cn(
-              "size-4 text-[#E9B44C]",
+              "size-4 text-warm",
               active ? "fill-current" : "fill-none",
             )}
             aria-hidden="true"

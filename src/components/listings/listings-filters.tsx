@@ -162,7 +162,7 @@ export function ListingsFilters({
         >
           <Link href={resetHref}>Resetează</Link>
         </Button>
-        <Button className="h-11 rounded-full bg-primary px-5 font-bold text-primary-foreground">
+        <Button className="h-11 rounded-full bg-action px-5 font-bold text-action-foreground hover:bg-action-hover">
           Aplică filtrele
         </Button>
       </div>

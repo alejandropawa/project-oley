@@ -29,7 +29,7 @@ const trustItems = [
 
 export function TrustSection() {
   return (
-    <section id="siguranta" className="bg-[#E8F1EE] py-12 sm:py-16">
+    <section id="siguranta" className="bg-brand-soft py-12 sm:py-16">
       <div className="mx-auto grid w-full max-w-7xl gap-8 px-4 sm:px-6 lg:grid-cols-[0.9fr_1.1fr] lg:px-8">
         <div className="flex flex-col justify-center">
           <p className="text-sm font-bold uppercase text-primary">
@@ -53,9 +53,9 @@ export function TrustSection() {
             return (
               <article
                 key={item.title}
-                className="rounded-[1.5rem] border border-[#D5E4DF] bg-card p-5 shadow-soft-sm"
+                className="rounded-[1.5rem] border border-brand-border bg-card p-5 shadow-soft-sm"
               >
-                <span className="grid size-11 place-items-center rounded-[1rem] bg-[#FFF2CF] text-primary">
+                <span className="grid size-11 place-items-center rounded-[1rem] bg-secondary text-primary">
                   <Icon className="size-5" aria-hidden="true" />
                 </span>
                 <h3 className="mt-4 text-lg font-black text-foreground">

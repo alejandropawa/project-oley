@@ -27,7 +27,7 @@ export function PublicProfileHeader({
               {displayName}
             </h1>
             {profile.is_verified_seller ? (
-              <Badge className="rounded-full bg-[#E8F1EE] px-3 py-1 text-xs font-black text-primary">
+              <Badge className="rounded-full bg-brand-soft px-3 py-1 text-xs font-black text-primary">
                 Profil verificat partial
               </Badge>
             ) : null}

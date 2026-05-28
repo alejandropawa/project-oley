@@ -1,4 +1,7 @@
-import type { CreateListingValues } from "@/lib/create-listing-validation";
+import {
+  parseCreateListingPrice,
+  type CreateListingValues,
+} from "@/lib/create-listing-validation";
 import { getCommonListingFields } from "@/lib/categories/attribute-definitions";
 import {
   getCityCoordinates,
@@ -100,7 +103,7 @@ export function mapDbListingToListing(
     },
     featured: false,
     visualStyle:
-      "linear-gradient(135deg, #E8F1EE 0%, #FFF2CF 52%, #E9B44C 100%)",
+      "linear-gradient(135deg, #E8F1EE 0%, #F2F3DF 52%, #005F3F 100%)",
     imageUrls: getImageUrl
       ? sortedImages.map((image) => getImageUrl(image.storage_path))
       : [],
@@ -111,15 +114,9 @@ export function mapDbListingToListing(
 }
 
 export function priceToCents(price: string) {
-  const trimmed = price.trim();
+  const parsed = parseCreateListingPrice(price);
 
-  if (!trimmed) {
-    return null;
-  }
-
-  const parsed = Number(trimmed.replace(",", "."));
-
-  if (!Number.isFinite(parsed)) {
+  if (!parsed) {
     return null;
   }
 

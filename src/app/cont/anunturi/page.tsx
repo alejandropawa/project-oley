@@ -25,7 +25,7 @@ export default async function AccountListingsPage() {
   const user = await getCurrentUser();
 
   if (!user) {
-    redirect("/login?redirectTo=/cont/anunturi");
+    redirect("/?auth=login&redirectTo=/cont/anunturi");
   }
 
   const supabase = await createClient();
@@ -147,7 +147,7 @@ function AccountSubpageFrame({
                 { label: title },
               ]}
             />
-            <h1 className="mt-8 text-4xl font-black text-foreground sm:text-5xl">
+            <h1 className="mt-8 text-3xl font-black text-foreground sm:text-4xl min-[1800px]:text-5xl">
               {title}
             </h1>
             <p className="mt-4 max-w-2xl text-base leading-7 text-muted-foreground">

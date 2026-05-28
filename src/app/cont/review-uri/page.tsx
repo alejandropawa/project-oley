@@ -23,7 +23,7 @@ export default async function AccountReviewsPage() {
   const user = await getCurrentUser();
 
   if (!user) {
-    redirect("/login?redirectTo=/cont/review-uri");
+    redirect("/?auth=login&redirectTo=/cont/review-uri");
   }
 
   const supabase = await createClient();
@@ -46,7 +46,7 @@ export default async function AccountReviewsPage() {
               <p className="text-sm font-bold uppercase text-primary">
                 Reputatie
               </p>
-              <h1 className="mt-2 text-4xl font-black leading-tight text-foreground sm:text-5xl">
+              <h1 className="mt-2 text-3xl font-black leading-tight text-foreground sm:text-4xl min-[1800px]:text-5xl">
                 Review-urile mele
               </h1>
               <p className="mt-4 text-base leading-7 text-muted-foreground">
@@ -89,4 +89,3 @@ export default async function AccountReviewsPage() {
     </div>
   );
 }
-

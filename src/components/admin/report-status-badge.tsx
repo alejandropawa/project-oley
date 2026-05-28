@@ -4,8 +4,8 @@ import { cn } from "@/lib/utils";
 import type { Enums } from "@/types/database";
 
 const styles: Record<Enums<"report_status">, string> = {
-  open: "bg-[#FFF2CF] text-[#7A5718]",
-  in_review: "bg-[#E8F1EE] text-primary",
+  open: "bg-secondary text-warm-foreground",
+  in_review: "bg-brand-soft text-primary",
   resolved: "bg-muted text-primary",
   dismissed: "bg-background text-muted-foreground",
 };

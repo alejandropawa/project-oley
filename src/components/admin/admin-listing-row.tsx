@@ -17,7 +17,7 @@ export function AdminListingRow({ row }: { row: AdminListingSummary }) {
               {listing.status}
             </Badge>
             {row.reportCount > 0 ? (
-              <Badge className="rounded-full bg-[#FFF2CF] px-3 py-1 text-xs font-bold text-[#7A5718]">
+              <Badge className="rounded-full bg-secondary px-3 py-1 text-xs font-bold text-warm-foreground">
                 {row.reportCount} rapoarte
               </Badge>
             ) : null}

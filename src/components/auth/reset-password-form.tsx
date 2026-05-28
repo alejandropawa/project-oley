@@ -72,14 +72,14 @@ export function ResetPasswordForm() {
       ) : null}
 
       {success ? (
-        <p className="rounded-[1rem] border border-[#D5E4DF] bg-[#E8F1EE] p-3 text-sm font-semibold text-primary">
+        <p className="rounded-[1rem] border border-brand-border bg-brand-soft p-3 text-sm font-semibold text-primary">
           {success}
         </p>
       ) : null}
 
       <Button
         disabled={pending}
-        className="h-12 rounded-full bg-primary font-bold text-primary-foreground"
+        className="h-12 rounded-full bg-action font-bold text-action-foreground hover:bg-action-hover"
       >
         <MailCheck className="size-4" aria-hidden="true" />
         {pending ? "Se trimite..." : "Trimite email de resetare"}

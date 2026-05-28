@@ -29,7 +29,7 @@ export default async function AdminTrustPage() {
   const user = await getCurrentUser();
 
   if (!user) {
-    redirect("/login?redirectTo=/admin/incredere");
+    redirect("/?auth=login&redirectTo=/admin/incredere");
   }
 
   const supabase = await createClient();
@@ -185,4 +185,3 @@ export default async function AdminTrustPage() {
     </AdminLayout>
   );
 }
-

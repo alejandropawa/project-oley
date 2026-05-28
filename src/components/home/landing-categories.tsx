@@ -3,30 +3,85 @@ import Link from "next/link";
 import { categoryIcons } from "@/components/categories/category-icons";
 import { categories } from "@/lib/mock-data";
 
+const landingCategorySlugs = [
+  "electronice",
+  "imobiliare",
+  "auto",
+  "casa-gradina",
+  "sport",
+  "fashion",
+  "copii-bebe",
+  "servicii",
+  "inchirieri",
+  "schimburi",
+  "joburi",
+  "afaceri-echipamente",
+  "animale",
+  "agricultura",
+  "hobby-arta",
+  "turism-evenimente",
+] as const;
+
+type LandingCategorySlug = (typeof landingCategorySlugs)[number];
+type Category = (typeof categories)[number];
+
+const landingCategoryLabels: Record<LandingCategorySlug, string> = {
+  imobiliare: "Imobiliare",
+  auto: "Auto",
+  electronice: "Electronice",
+  "casa-gradina": "Casă",
+  fashion: "Fashion",
+  sport: "Sport",
+  "copii-bebe": "Copii",
+  servicii: "Servicii",
+  inchirieri: "Închirieri",
+  schimburi: "Schimburi",
+  joburi: "Joburi",
+  "afaceri-echipamente": "Afaceri",
+  animale: "Animale",
+  agricultura: "Agricultură",
+  "hobby-arta": "Hobby",
+  "turism-evenimente": "Turism",
+};
+
+function isCategory(category: Category | undefined): category is Category {
+  return Boolean(category);
+}
+
 export function LandingCategories() {
+  const landingCategories = landingCategorySlugs
+    .map((slug) => categories.find((category) => category.slug === slug))
+    .filter(isCategory);
+
   return (
-    <nav aria-label="Categorii rapide" className="mt-14 w-full pb-1 sm:mt-16">
-      <div className="mx-auto w-full max-w-[44rem]">
-        <div className="grid grid-cols-5 items-start justify-items-center gap-x-0.5 gap-y-7 min-[520px]:gap-x-2 sm:gap-x-4 sm:gap-y-8 lg:gap-x-5">
-          {categories.map((category) => {
+    <nav
+      aria-label="Categorii populare"
+      className="landingCategoryNav mt-8 w-full pb-1 sm:mt-10 min-[1800px]:mt-12"
+    >
+      <div className="landingCategoryWrap mx-auto w-full max-w-[62rem] pb-2 min-[1800px]:max-w-[64rem]">
+        <div className="landingCategoryGrid grid grid-cols-4 items-start justify-items-center gap-x-1 gap-y-4 sm:gap-x-2 sm:gap-y-5 md:grid-cols-8 lg:gap-x-3 xl:gap-y-5">
+          {landingCategories.map((category) => {
             const Icon = categoryIcons[category.iconName];
+            const label =
+              landingCategoryLabels[category.slug as LandingCategorySlug] ??
+              category.name;
 
             return (
               <Link
                 key={category.slug}
                 href={`/categorii/${category.slug}`}
                 aria-label={`Vezi categoria ${category.name}`}
-                className="group flex min-h-[5.8rem] w-full min-w-0 flex-col items-center justify-start gap-2.5 text-center text-[#153C36] transition hover:-translate-y-1 hover:text-[#2F6F65] focus-visible:outline-none focus-visible:ring-3 focus-visible:ring-[#2F6F65]/30"
+                className="landingCategoryItem group flex min-h-[5.1rem] w-full max-w-[5.25rem] min-w-0 flex-col items-center justify-start gap-1.5 rounded-[0.9rem] px-1 py-1 text-center text-brand-ink transition hover:-translate-y-0.5 hover:text-primary focus-visible:outline-none focus-visible:ring-3 focus-visible:ring-primary/30 sm:min-h-[5.35rem] xl:min-h-[5.2rem]"
               >
-                <span className="grid size-11 place-items-center rounded-[1rem] border border-[#DDE8E4] bg-[#FFFDF8]/90 shadow-[0_12px_30px_rgba(15,70,61,0.08)] transition duration-300 group-hover:scale-105 group-hover:border-[#2F6F65]/35 group-hover:bg-white group-hover:shadow-[0_18px_38px_rgba(15,70,61,0.13)] min-[390px]:size-12 min-[520px]:size-14 sm:rounded-[1.15rem] lg:size-16 lg:rounded-[1.25rem]">
+                <span className="landingCategoryIcon grid size-11 shrink-0 place-items-center rounded-[0.95rem] border border-brand-border bg-card/90 shadow-[0_10px_24px_rgba(15,70,61,0.075)] transition duration-300 group-hover:scale-105 group-hover:border-primary/35 group-hover:bg-white group-hover:shadow-[0_14px_30px_rgba(15,70,61,0.12)] min-[390px]:size-12 sm:rounded-[1rem] md:size-12">
                   <Icon
-                    className="size-5 text-[#0F4A43] min-[520px]:size-6 lg:size-7"
+                    className="size-5 text-brand"
                     aria-hidden="true"
                   />
                 </span>
 
-                <span className="max-w-full whitespace-nowrap text-[0.5rem] font-bold leading-tight text-[#153C36] [text-shadow:0_1px_14px_rgba(255,253,248,0.96)] min-[390px]:text-[0.52rem] min-[520px]:text-[0.68rem] sm:text-xs lg:text-[0.82rem]">
-                  {category.name}
+                <span className="landingCategoryLabel flex min-h-7 w-full max-w-[6.25rem] items-start justify-center text-center text-[0.66rem] font-bold leading-tight text-brand-ink [text-shadow:0_1px_14px_rgba(255,254,252,0.96)] min-[390px]:text-[0.7rem] sm:text-[0.72rem] xl:max-w-[5.5rem]">
+                  {label}
                 </span>
               </Link>
             );

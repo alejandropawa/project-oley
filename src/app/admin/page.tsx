@@ -49,7 +49,7 @@ export default async function AdminPage() {
   const admin = await isCurrentUserAdmin(supabase);
 
   if (!admin.user) {
-    redirect("/login?redirectTo=/admin");
+    redirect("/?auth=login&redirectTo=/admin");
   }
 
   if (admin.source === "unavailable") {
@@ -109,7 +109,9 @@ export default async function AdminPage() {
         </section>
 
         <section className="rounded-[1.75rem] border border-border bg-card p-5 shadow-soft-sm">
-          <h2 className="text-2xl font-black text-foreground">Quick links</h2>
+          <h2 className="text-2xl font-black text-foreground">
+            Linkuri rapide
+          </h2>
           <div className="mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-6">
             {quickLinks.map((link) => (
               <Link

@@ -47,7 +47,7 @@ export function CategorySection() {
                   <span className="grid size-10 place-items-center rounded-[0.9rem] bg-muted text-primary transition group-hover:bg-primary group-hover:text-primary-foreground">
                     <Icon className="size-4" aria-hidden="true" />
                   </span>
-                  <Badge className="rounded-full bg-[#FFF2CF] px-2 py-0.5 text-[0.7rem] font-bold text-[#7A5718]">
+                  <Badge className="rounded-full bg-secondary px-2 py-0.5 text-[0.7rem] font-bold text-warm-foreground">
                     {count}
                   </Badge>
                 </div>

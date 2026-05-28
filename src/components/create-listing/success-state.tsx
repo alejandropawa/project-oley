@@ -17,8 +17,8 @@ export function SuccessState({
   onReset: () => void;
 }) {
   return (
-    <div className="rounded-[1.75rem] border border-[#D5E4DF] bg-card p-6 text-center shadow-soft sm:p-10">
-      <div className="mx-auto grid size-16 place-items-center rounded-full bg-[#E8F1EE] text-primary">
+    <div className="rounded-[1.75rem] border border-brand-border bg-card p-6 text-center shadow-soft sm:p-10">
+      <div className="mx-auto grid size-16 place-items-center rounded-full bg-brand-soft text-primary">
         <CheckCircle2 className="size-8" aria-hidden="true" />
       </div>
       <h2 className="mt-5 text-3xl font-black text-foreground">{title}</h2>

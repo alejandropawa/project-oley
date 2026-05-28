@@ -74,7 +74,7 @@ export default async function CityDetailPage({ params }: CityPageProps) {
   return (
     <div className="min-h-screen overflow-x-hidden pb-20 md:pb-0">
       <Header />
-      <main className="bg-[#FFFDF8]">
+      <main className="bg-card">
         <JsonLd
           data={[
             cityPageJsonLd(city, absoluteUrl(`/orase/${city.slug}`)),
@@ -85,7 +85,7 @@ export default async function CityDetailPage({ params }: CityPageProps) {
             ]),
           ]}
         />
-        <section className="relative isolate overflow-hidden border-b border-[#E8E1D8]">
+        <section className="relative isolate overflow-hidden border-b border-border">
           <div className="mx-auto w-full max-w-7xl px-4 py-10 sm:px-6 sm:py-14 lg:px-8">
             <Breadcrumbs
               items={[

@@ -22,7 +22,6 @@ export async function createPhoneVerificationRequestAction(input: {
   }
 
   revalidatePath("/cont/incredere");
-  revalidatePath("/onboarding");
   return { success: true };
 }
 
@@ -45,4 +44,3 @@ function getVerificationError(error: string) {
 
   return "Nu am putut trimite cererea de verificare.";
 }
-

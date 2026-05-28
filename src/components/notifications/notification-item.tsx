@@ -26,7 +26,7 @@ export function NotificationItem({
       <div className="min-w-0 flex-1">
         <div className="flex flex-wrap items-center gap-2">
           {!isRead ? (
-            <Badge className="rounded-full bg-[#FFF2CF] px-2 py-0.5 text-[0.7rem] font-black text-[#7A5718]">
+            <Badge className="rounded-full bg-secondary px-2 py-0.5 text-[0.7rem] font-black text-warm-foreground">
               Necitită
             </Badge>
           ) : null}
@@ -61,7 +61,7 @@ export function NotificationItem({
     <article
       className={cn(
         "grid gap-3 rounded-[1.25rem] border border-border bg-card p-4 shadow-soft-sm",
-        !isRead && "border-[#D5E4DF] bg-[#FFFDF8]",
+        !isRead && "border-brand-border bg-card",
         !compact && "sm:grid-cols-[1fr_auto] sm:items-center",
       )}
     >

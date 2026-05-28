@@ -28,7 +28,7 @@ export default async function AdminUsersPage() {
   const admin = await isCurrentUserAdmin(supabase);
 
   if (!admin.user) {
-    redirect("/login?redirectTo=/admin/utilizatori");
+    redirect("/?auth=login&redirectTo=/admin/utilizatori");
   }
 
   if (admin.source === "unavailable") {

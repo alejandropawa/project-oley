@@ -46,11 +46,18 @@ export function ProfileForm({
   const [error, setError] = useState("");
   const [pending, setPending] = useState(false);
   const [logoutPending, setLogoutPending] = useState(false);
+  const selectedLocation = romanianLocations.find((item) => item.city === city);
+  const locationValue =
+    city && county
+      ? `${city}|${county}`
+      : selectedLocation
+        ? `${selectedLocation.city}|${selectedLocation.county}`
+        : "";
 
   function onCityChange(value: string) {
-    const location = romanianLocations.find((item) => item.city === value);
-    setCity(value);
-    setCounty(location?.county ?? "");
+    const [selectedCity = "", selectedCounty = ""] = value.split("|");
+    setCity(selectedCity);
+    setCounty(selectedCounty);
   }
 
   async function onSubmit(event: React.FormEvent<HTMLFormElement>) {
@@ -93,17 +100,36 @@ export function ProfileForm({
   }
 
   async function logout() {
-    const supabase = createClient();
-
-    if (!supabase) {
-      router.push("/login");
+    if (logoutPending) {
       return;
     }
 
+    const supabase = createClient();
+
+    if (!supabase) {
+      router.push("/");
+      return;
+    }
+
+    setError("");
+    setMessage("");
     setLogoutPending(true);
-    await supabase.auth.signOut();
-    setLogoutPending(false);
-    router.push("/login");
+
+    try {
+      const { error: signOutError } = await supabase.auth.signOut();
+
+      if (signOutError) {
+        setError("Deconectarea nu a putut fi finalizată. Încercați din nou.");
+        setLogoutPending(false);
+        return;
+      }
+    } catch {
+      setError("Deconectarea nu a putut fi finalizată. Încercați din nou.");
+      setLogoutPending(false);
+      return;
+    }
+
+    router.push("/");
     router.refresh();
   }
 
@@ -118,7 +144,7 @@ export function ProfileForm({
       </div>
 
       {isProfileUnavailable ? (
-        <p className="mb-4 rounded-[1rem] border border-[#F3D88D] bg-[#FFF2CF] p-3 text-sm font-semibold leading-6 text-[#7A5718]">
+        <p className="mb-4 rounded-[1rem] border border-warm/45 bg-secondary p-3 text-sm font-semibold leading-6 text-warm-foreground">
           Profilul din baza de date nu este disponibil încă. Aplică migrarea
           Supabase pentru salvare reală.
         </p>
@@ -147,14 +173,17 @@ export function ProfileForm({
         <div className="grid gap-4 sm:grid-cols-2">
           <Field label="Oraș">
             <select
-              value={city}
+              value={locationValue}
               onChange={(event) => onCityChange(event.target.value)}
               className="h-12 w-full rounded-[1rem] border border-input bg-background px-3 text-base outline-none focus-visible:border-ring focus-visible:ring-3 focus-visible:ring-ring/50"
             >
               <option value="">Alege orașul</option>
               {romanianLocations.map((location) => (
-                <option key={location.city} value={location.city}>
-                  {location.city}
+                <option
+                  key={`${location.city}-${location.county}`}
+                  value={`${location.city}|${location.county}`}
+                >
+                  {location.city}, {location.county}
                 </option>
               ))}
             </select>
@@ -193,7 +222,7 @@ export function ProfileForm({
         ) : null}
 
         {message ? (
-          <p className="rounded-[1rem] border border-[#D5E4DF] bg-[#E8F1EE] p-3 text-sm font-semibold text-primary">
+          <p className="rounded-[1rem] border border-brand-border bg-brand-soft p-3 text-sm font-semibold text-primary">
             {message}
           </p>
         ) : null}

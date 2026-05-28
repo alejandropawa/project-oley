@@ -28,7 +28,7 @@ export function ConversationListItem({
       className={cn(
         "grid grid-cols-[64px_1fr] gap-3 rounded-[1.25rem] border p-3 transition hover:border-primary/40 hover:bg-background",
         selected
-          ? "border-primary/40 bg-[#E8F1EE]"
+          ? "border-primary/40 bg-brand-soft"
           : "border-border bg-card",
       )}
     >

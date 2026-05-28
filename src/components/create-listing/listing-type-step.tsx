@@ -1,113 +1,73 @@
-import { KeyRound, Repeat2, Search, Tag } from "lucide-react";
-import type { ComponentType } from "react";
-
+import { categoryIcons } from "@/components/categories/category-icons";
 import { cn } from "@/lib/utils";
-import { listingTypeLabels } from "@/lib/listing-utils";
+import { categories } from "@/lib/mock-data";
 import type {
   CreateListingErrors,
   CreateListingValues,
 } from "@/lib/create-listing-validation";
-import type { ListingType } from "@/lib/mock-data";
-
-const typeOptions: Array<{
-  type: ListingType;
-  title: string;
-  description: string;
-  icon: ComponentType<{ className?: string }>;
-}> = [
-  {
-    type: "sell",
-    title: "Vând",
-    description: "Publică un produs sau serviciu pe care vrei să îl vinzi.",
-    icon: Tag,
-  },
-  {
-    type: "buy",
-    title: "Cumpăr",
-    description: "Spune comunității ce cauți.",
-    icon: Search,
-  },
-  {
-    type: "rent",
-    title: "Închiriez",
-    description: "Oferă sau caută ceva pentru închiriere.",
-    icon: KeyRound,
-  },
-  {
-    type: "swap",
-    title: "Schimb",
-    description: "Propune un schimb avantajos.",
-    icon: Repeat2,
-  },
-];
 
 export function ListingTypeStep({
   values,
   errors,
-  onChange,
+  onCategoryChange,
 }: {
   values: CreateListingValues;
   errors: CreateListingErrors;
-  onChange: (type: ListingType) => void;
+  onCategoryChange: (categorySlug: string) => void;
 }) {
   return (
     <div>
       <div className="mb-5">
-        <h2 className="text-2xl font-black text-foreground">Ce vrei să publici?</h2>
+        <h2 className="text-xl font-black text-foreground">
+          1. Alege tipul anunțului
+        </h2>
         <p className="mt-2 text-sm leading-6 text-muted-foreground">
-          Alege tipul anunțului. Îl poți ajusta mai târziu înainte de preview.
+          Selectează categoria care se potrivește cel mai bine anunțului tău.
         </p>
       </div>
 
-      <div className="grid gap-3 sm:grid-cols-2">
-        {typeOptions.map((option) => {
-          const Icon = option.icon;
-          const selected = values.type === option.type;
+      <div className="grid gap-3 sm:grid-cols-2 xl:grid-cols-3">
+        {categories.map((category) => {
+          const Icon = categoryIcons[category.iconName];
+          const selected = values.categorySlug === category.slug;
 
           return (
             <button
-              key={option.type}
+              key={category.slug}
               type="button"
               aria-pressed={selected}
-              onClick={() => onChange(option.type)}
+              onClick={() => onCategoryChange(category.slug)}
               className={cn(
-                "flex min-h-36 items-start gap-4 rounded-[1.5rem] border bg-background p-4 text-left transition hover:-translate-y-0.5 hover:border-primary/50",
+                "flex min-h-32 flex-col items-center justify-center rounded-[0.9rem] border bg-background p-4 text-center transition hover:-translate-y-0.5 hover:border-primary/50 focus-visible:outline-none focus-visible:ring-3 focus-visible:ring-ring/40",
                 selected
-                  ? "border-primary bg-[#E8F1EE] shadow-soft-sm"
+                  ? "border-primary bg-brand-soft shadow-soft-sm"
                   : "border-border shadow-soft-sm",
               )}
             >
               <span
                 className={cn(
-                  "grid size-12 shrink-0 place-items-center rounded-[1rem]",
+                  "grid size-14 shrink-0 place-items-center rounded-full",
                   selected
                     ? "bg-primary text-primary-foreground"
-                    : "bg-card text-primary",
+                    : "bg-brand-soft text-primary",
                 )}
               >
-                <Icon className="size-5" aria-hidden="true" />
+                <Icon className="size-7" aria-hidden="true" />
               </span>
-              <span>
-                <span className="block text-lg font-black text-foreground">
-                  {option.title}
-                </span>
-                <span className="mt-2 block text-sm leading-6 text-muted-foreground">
-                  {option.description}
-                </span>
-                {selected ? (
-                  <span className="mt-3 inline-flex rounded-full bg-card px-2.5 py-1 text-xs font-bold text-primary">
-                    Selectat: {listingTypeLabels[option.type]}
-                  </span>
-                ) : null}
+              <span className="mt-3 block text-sm font-black text-foreground">
+                {category.name}
+              </span>
+              <span className="mt-1 block text-xs leading-5 text-muted-foreground">
+                {category.description}
               </span>
             </button>
           );
         })}
       </div>
 
-      {errors.type ? (
+      {errors.categorySlug ? (
         <p className="mt-3 text-sm font-semibold text-destructive">
-          {errors.type}
+          {errors.categorySlug}
         </p>
       ) : null}
     </div>

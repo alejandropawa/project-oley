@@ -62,7 +62,7 @@ export function SearchFilters({
             lockedCategory={lockedCategory}
             lockedCitySlug={lockedCitySlug}
           />
-          <Button className="h-11 rounded-full bg-primary px-5 font-bold text-primary-foreground">
+          <Button className="h-11 rounded-full bg-action px-5 font-bold text-action-foreground hover:bg-action-hover">
             Aplică filtrele
           </Button>
         </form>
@@ -79,7 +79,7 @@ export function SearchFilters({
             lockedCategory={lockedCategory}
             lockedCitySlug={lockedCitySlug}
           />
-          <Button className="h-11 rounded-full bg-primary px-5 font-bold text-primary-foreground">
+          <Button className="h-11 rounded-full bg-action px-5 font-bold text-action-foreground hover:bg-action-hover">
             Aplică filtrele
           </Button>
         </form>
@@ -348,7 +348,7 @@ function FilterFields({
                     value="true"
                     type="checkbox"
                     defaultChecked={value === true || value === "true"}
-                    className="mt-1 size-4 accent-[#2F6F65]"
+                    className="mt-1 size-4 accent-brand"
                   />
                   <span className="text-sm font-bold text-foreground">
                     {definition.label}

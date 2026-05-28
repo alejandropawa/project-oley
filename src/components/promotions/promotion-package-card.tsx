@@ -26,7 +26,7 @@ export function PromotionPackageCard({
       className={cn(
         "relative flex h-full flex-col rounded-[1.5rem] border border-border bg-card p-5 shadow-soft-sm",
         selected && "border-primary shadow-soft",
-        recommended && "bg-[#FFFDF8]",
+        recommended && "bg-card",
       )}
     >
       {recommended ? (

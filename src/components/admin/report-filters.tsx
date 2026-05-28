@@ -28,7 +28,7 @@ export function ReportFilters({ filters }: { filters: ReportFilters }) {
           </option>
         ))}
       </Field>
-      <button className="h-12 self-end rounded-full bg-primary px-5 text-sm font-bold text-primary-foreground">
+      <button className="h-12 self-end rounded-full bg-action px-5 text-sm font-bold text-action-foreground hover:bg-action-hover">
         Filtrează
       </button>
     </form>

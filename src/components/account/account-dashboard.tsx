@@ -185,7 +185,7 @@ export function AccountDashboard({
                 {card.title}
               </h2>
               {card.title === "Notificări" && unreadNotificationCount > 0 ? (
-                <span className="mt-2 inline-flex rounded-full bg-[#FFF2CF] px-3 py-1 text-xs font-black text-[#7A5718]">
+                <span className="mt-2 inline-flex rounded-full bg-secondary px-3 py-1 text-xs font-black text-warm-foreground">
                   {unreadNotificationCount} necitite
                 </span>
               ) : null}

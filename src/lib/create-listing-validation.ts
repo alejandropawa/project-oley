@@ -1,4 +1,4 @@
-import type { ListingCondition, ListingType } from "@/lib/mock-data";
+import { categories, type ListingCondition, type ListingType } from "@/lib/mock-data";
 import {
   getFallbackAttributeDefinitions,
   stringifyAttribute,
@@ -45,7 +45,7 @@ export type CreateListingValues = {
 export type CreateListingErrors = Partial<Record<keyof CreateListingValues, string>>;
 
 export const initialCreateListingValues: CreateListingValues = {
-  type: "",
+  type: "sell",
   title: "",
   categorySlug: "",
   subcategory: "",
@@ -68,8 +68,8 @@ export const initialCreateListingValues: CreateListingValues = {
 export const createListingSteps = [
   "Tip anunț",
   "Detalii",
-  "Fotografii & locație",
-  "Preview",
+  "Fotografii",
+  "Preview și publicare",
 ] as const;
 
 export function validateCreateListingStep(
@@ -77,7 +77,7 @@ export function validateCreateListingStep(
   values: CreateListingValues,
 ) {
   if (step === 0) {
-    return validateTypeStep(values);
+    return validateCategoryStep(values);
   }
 
   if (step === 1) {
@@ -85,7 +85,7 @@ export function validateCreateListingStep(
   }
 
   if (step === 2) {
-    return validateMediaLocationStep(values);
+    return validateMediaLocationStep();
   }
 
   return validateAll(values);
@@ -93,17 +93,17 @@ export function validateCreateListingStep(
 
 export function validateAll(values: CreateListingValues) {
   return {
-    ...validateTypeStep(values),
+    ...validateCategoryStep(values),
     ...validateDetailsStep(values),
-    ...validateMediaLocationStep(values),
+    ...validateMediaLocationStep(),
   };
 }
 
-function validateTypeStep(values: CreateListingValues) {
+function validateCategoryStep(values: CreateListingValues) {
   const errors: CreateListingErrors = {};
 
-  if (!values.type) {
-    errors.type = "Alege tipul anunțului.";
+  if (!values.categorySlug) {
+    errors.categorySlug = "Alege categoria anunțului.";
   }
 
   return errors;
@@ -123,6 +123,23 @@ function validateDetailsStep(values: CreateListingValues) {
 
   if (!values.categorySlug) {
     errors.categorySlug = "Alege o categorie.";
+  }
+
+  const selectedCategory = categories.find(
+    (category) => category.slug === values.categorySlug,
+  );
+
+  if (!values.type) {
+    errors.type = "Alege tipul anunțului.";
+  } else if (
+    selectedCategory &&
+    !selectedCategory.allowedListingTypes.includes(values.type)
+  ) {
+    errors.type = "Alege un tip de anunț disponibil pentru categoria selectată.";
+  }
+
+  if (!values.subcategory) {
+    errors.subcategory = "Alege o subcategorie.";
   }
 
   const missingRequiredAttributes = getFallbackAttributeDefinitions(
@@ -151,30 +168,45 @@ function validateDetailsStep(values: CreateListingValues) {
   }
 
   if (price) {
-    const numericPrice = Number(price.replace(",", "."));
+    const numericPrice = parseCreateListingPrice(price);
 
-    if (!Number.isFinite(numericPrice) || numericPrice <= 0) {
+    if (!numericPrice || numericPrice <= 0) {
       errors.price = "Prețul trebuie să fie un număr pozitiv.";
     }
+  }
+
+  if (!values.city) {
+    errors.city = "Alege localitatea.";
+  }
+
+  if (!values.county) {
+    errors.county = "Alege localitatea.";
   }
 
   return errors;
 }
 
-function validateMediaLocationStep(values: CreateListingValues) {
+function validateMediaLocationStep() {
   const errors: CreateListingErrors = {};
-
-  if (!values.city) {
-    errors.city = "Alege orașul.";
-  }
-
-  if (!values.county) {
-    errors.county = "Alege județul.";
-  }
 
   return errors;
 }
 
 export function hasValidationErrors(errors: CreateListingErrors) {
   return Object.keys(errors).length > 0;
+}
+
+export function parseCreateListingPrice(price: string) {
+  const compactPrice = price.trim().replace(/\s/g, "");
+
+  if (!compactPrice) {
+    return null;
+  }
+
+  const normalizedPrice = compactPrice.includes(",")
+    ? compactPrice.replace(/\./g, "").replace(",", ".")
+    : compactPrice.replace(/\.(?=\d{3}(\D|$))/g, "");
+  const numericPrice = Number(normalizedPrice);
+
+  return Number.isFinite(numericPrice) ? numericPrice : null;
 }

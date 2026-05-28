@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
 
 import { CreateListingFlow } from "@/components/create-listing/create-listing-flow";
+import { PublishListingDialogShell } from "@/components/create-listing/publish-listing-dialog-shell";
 import { Footer } from "@/components/site/footer";
 import { Header } from "@/components/site/header";
 import { MobileBottomNav } from "@/components/site/mobile-bottom-nav";
-import { Breadcrumbs } from "@/components/ui/breadcrumbs";
 import { getCurrentUser } from "@/lib/auth/user";
 import { isSupabaseConfigured } from "@/lib/db/env";
 
@@ -24,50 +24,28 @@ export default async function PublishListingPage() {
   return (
     <div className="min-h-screen overflow-x-hidden pb-20 md:pb-0">
       <Header />
-      <main className="bg-background">
-        <section className="border-b border-border bg-background">
-          <div className="mx-auto w-full max-w-7xl px-4 py-10 sm:px-6 sm:py-14 lg:px-8">
-            <Breadcrumbs
-              items={[{ label: "Acasă", href: "/" }, { label: "Publică anunț" }]}
-            />
-            <div className="mt-8 max-w-3xl">
-              <p className="text-sm font-bold uppercase text-primary">
-                Publicare anunț
-              </p>
-              <h1 className="mt-2 text-4xl font-black leading-tight text-foreground sm:text-5xl">
-                Creează un anunț clar în câteva minute
-              </h1>
-              <p className="mt-4 text-base leading-7 text-muted-foreground">
-                Alege tipul anunțului, completează detaliile, adaugă fotografii
-                local și verifică preview-ul înainte de publicare.
-              </p>
-            </div>
+      <main className="bg-transparent">
+        <section className="min-h-[calc(100svh-4rem)] px-5 py-8 text-center sm:px-7 lg:min-h-[calc(100svh-4.5rem)] lg:py-12">
+          <div className="mx-auto flex min-h-[22rem] w-full max-w-3xl flex-col items-center justify-center">
+            <p className="text-xs font-black uppercase tracking-normal text-primary sm:text-sm">
+              Publicare TROKO
+            </p>
+            <h1 className="mt-3 text-balance font-serif text-[2.15rem] font-semibold leading-[1.05] text-brand sm:text-[2.75rem]">
+              Pregătește anunțul într-un flow ghidat.
+            </h1>
+            <p className="mt-4 max-w-xl text-sm font-semibold leading-6 text-brand-muted">
+              Editorul se deschide într-un panou dedicat ca să poți completa
+              pașii fără distrageri.
+            </p>
           </div>
-        </section>
 
-        <section className="py-8 sm:py-12">
-          <div className="mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8">
-            {!isAuthenticated ? (
-              <div className="mb-5 rounded-[1.5rem] border border-[#D5E4DF] bg-[#E8F1EE] p-4 text-sm font-semibold leading-6 text-muted-foreground shadow-soft-sm">
-                <span className="font-black text-foreground">
-                  Poți pregăti anunțul acum.
-                </span>{" "}
-                Pentru publicare finală, va trebui să intri în cont.
-              </div>
-            ) : null}
-
-            {!isSupabaseReady ? (
-              <div className="mb-5 rounded-[1.5rem] border border-[#F3D88D] bg-[#FFF2CF] p-4 text-sm font-semibold leading-6 text-[#7A5718] shadow-soft-sm">
-                Publicarea reală are nevoie de configurarea Supabase. Poți
-                continua să pregătești anunțul și să verifici preview-ul.
-              </div>
-            ) : null}
-
+          <PublishListingDialogShell>
             <CreateListingFlow
               isAuthenticated={isAuthenticated}
               isSupabaseReady={isSupabaseReady}
+              surface="dialog"
             />
-          </div>
+          </PublishListingDialogShell>
         </section>
       </main>
       <Footer />

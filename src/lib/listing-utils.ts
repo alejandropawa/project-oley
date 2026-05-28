@@ -20,17 +20,17 @@ export type ListingFilters = {
 export type SearchParams = Record<string, string | string[] | undefined>;
 
 export const listingTypeLabels: Record<ListingType, string> = {
-  sell: "Vând",
-  buy: "Cumpăr",
-  rent: "Închiriez",
+  sell: "Vânzare",
+  buy: "Cumpărare",
+  rent: "Închiriere",
   swap: "Schimb",
 };
 
 export const listingTypeOptions = [
   { value: "all", label: "Toate" },
-  { value: "sell", label: "Vând" },
-  { value: "buy", label: "Cumpăr" },
-  { value: "rent", label: "Închiriez" },
+  { value: "sell", label: "Vânzare" },
+  { value: "buy", label: "Cumpărare" },
+  { value: "rent", label: "Închiriere" },
   { value: "swap", label: "Schimb" },
 ] as const;
 

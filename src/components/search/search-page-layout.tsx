@@ -42,7 +42,7 @@ export function SearchPageLayout({
         lockedCitySlug={lockedCitySlug}
       />
       <section className="grid min-w-0 gap-5">
-        <div className="flex flex-col gap-4 rounded-[1.5rem] border border-[#E8E1D8]/90 bg-[#FFFDF8]/92 p-4 shadow-[0_18px_48px_rgba(15,70,61,0.08)] sm:flex-row sm:items-end sm:justify-between">
+        <div className="flex flex-col gap-4 rounded-[1.5rem] border border-border/90 bg-card/92 p-4 shadow-[0_18px_48px_rgba(15,70,61,0.08)] sm:flex-row sm:items-end sm:justify-between">
           <ResultsCount
             totalCount={result.totalCount}
             source={result.source}

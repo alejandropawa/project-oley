@@ -17,7 +17,7 @@ export function StaticMapCard({
 }) {
   return (
     <div
-      className={`${heightClass} relative overflow-hidden rounded-[1.75rem] border border-border bg-[#E8F1EE] p-5 shadow-soft-sm`}
+      className={`${heightClass} relative overflow-hidden rounded-[1.75rem] border border-border bg-brand-soft p-5 shadow-soft-sm`}
     >
       <div className="absolute inset-0 opacity-70">
         <div className="absolute left-[-10%] top-8 h-px w-[120%] rotate-[-8deg] bg-primary/15" />

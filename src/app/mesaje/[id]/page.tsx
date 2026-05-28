@@ -12,6 +12,7 @@ import { Footer } from "@/components/site/footer";
 import { Header } from "@/components/site/header";
 import { MobileBottomNav } from "@/components/site/mobile-bottom-nav";
 import { Breadcrumbs } from "@/components/ui/breadcrumbs";
+import { getAuthDrawerPath } from "@/lib/auth/redirect";
 import { getCurrentUser } from "@/lib/auth/user";
 import {
   getConversationById,
@@ -54,7 +55,7 @@ export default async function ConversationPage({
   const user = await getCurrentUser();
 
   if (!user) {
-    redirect(`/login?redirectTo=/mesaje/${id}`);
+    redirect(getAuthDrawerPath("login", `/mesaje/${id}`));
   }
 
   const supabase = await createClient();
@@ -109,7 +110,7 @@ export default async function ConversationPage({
         <div className="grid gap-5">
           <ConversationHeader conversation={detail.conversation} />
           {detail.conversation.listing.status !== "active" ? (
-            <div className="rounded-[1.25rem] border border-[#F3D88D] bg-[#FFF2CF] p-4 text-sm font-semibold leading-6 text-[#7A5718]">
+            <div className="rounded-[1.25rem] border border-warm/45 bg-secondary p-4 text-sm font-semibold leading-6 text-warm-foreground">
               Anunțul nu mai este activ. Poți continua o conversație existentă,
               dar nu porni tranzacții noi fără verificări suplimentare.
             </div>

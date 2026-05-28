@@ -46,7 +46,7 @@ export default async function CitiesPage() {
               <p className="text-sm font-bold uppercase text-primary">
                 Orașe TROKO
               </p>
-              <h1 className="mt-2 text-4xl font-black leading-tight text-foreground sm:text-5xl">
+              <h1 className="mt-2 text-3xl font-black leading-tight text-foreground sm:text-4xl min-[1800px]:text-5xl">
                 Anunțuri locale în orașele din România
               </h1>
               <p className="mt-4 text-base leading-7 text-muted-foreground">

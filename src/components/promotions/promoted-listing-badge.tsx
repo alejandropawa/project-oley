@@ -13,8 +13,8 @@ export function PromotedListingBadge({
   return (
     <Badge
       className={cn(
-        "rounded-full border border-[#F3D88D] bg-[#FFF2CF] px-3 py-1 text-xs font-black text-[#7A5718] shadow-soft-sm",
-        type === "featured" && "border-[#CFE3DD] bg-[#E8F1EE] text-[#2F6F65]",
+        "rounded-full border border-warm/45 bg-secondary px-3 py-1 text-xs font-black text-warm-foreground shadow-soft-sm",
+        type === "featured" && "border-brand-border bg-brand-soft text-brand",
         className,
       )}
     >

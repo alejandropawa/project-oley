@@ -185,22 +185,22 @@ function wrapEmailHtml({
 }) {
   return `<!doctype html>
 <html lang="ro">
-  <body style="margin:0;background:#F6F3EE;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;color:#171717;">
+  <body style="margin:0;background:#F7FBF8;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;color:#123F37;">
     <div style="max-width:620px;margin:0 auto;padding:32px 20px;">
-      <div style="font-weight:900;letter-spacing:0.12em;color:#2F6F65;margin-bottom:20px;">TROKO</div>
-      <div style="background:#FFFDF8;border:1px solid #E8E1D8;border-radius:24px;padding:28px;">
+      <div style="font-weight:900;letter-spacing:0.12em;color:#005F3F;margin-bottom:20px;">TROKO</div>
+      <div style="background:#FFFEFC;border:1px solid #D9DFDA;border-radius:24px;padding:28px;">
         <h1 style="font-size:24px;line-height:1.25;margin:0 0 12px;font-weight:900;">${escapeHtml(subject)}</h1>
-        <p style="font-size:16px;line-height:1.7;margin:0;color:#6B665F;">${escapeHtml(intro)}</p>
+        <p style="font-size:16px;line-height:1.7;margin:0;color:#52645F;">${escapeHtml(intro)}</p>
         ${
           detail
-            ? `<p style="font-size:14px;line-height:1.7;margin:16px 0 0;color:#6B665F;">${escapeHtml(detail)}</p>`
+            ? `<p style="font-size:14px;line-height:1.7;margin:16px 0 0;color:#52645F;">${escapeHtml(detail)}</p>`
             : ""
         }
-        <a href="${actionUrl}" style="display:inline-block;margin-top:24px;background:#2F6F65;color:#FFFDF8;text-decoration:none;font-weight:800;border-radius:999px;padding:12px 18px;">${escapeHtml(actionLabel)}</a>
+        <a href="${actionUrl}" style="display:inline-block;margin-top:24px;background:#005F3F;color:#FFFFFF;text-decoration:none;font-weight:800;border-radius:999px;padding:12px 18px;">${escapeHtml(actionLabel)}</a>
       </div>
-      <p style="font-size:12px;line-height:1.7;color:#6B665F;margin:20px 0 0;">
+      <p style="font-size:12px;line-height:1.7;color:#52645F;margin:20px 0 0;">
         Primești acest email deoarece ai un cont TROKO. Îți poți modifica preferințele din
-        <a href="${absoluteUrl("/cont/notificari")}" style="color:#2F6F65;">contul tău</a>.
+        <a href="${absoluteUrl("/cont/notificari")}" style="color:#005F3F;">contul tău</a>.
       </p>
     </div>
   </body>

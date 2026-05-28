@@ -19,7 +19,7 @@ export function TrustScoreCard({
             <span className="text-lg text-muted-foreground">/100</span>
           </p>
         </div>
-        <span className="grid size-12 place-items-center rounded-[1rem] bg-[#E8F1EE] text-primary">
+        <span className="grid size-12 place-items-center rounded-[1rem] bg-brand-soft text-primary">
           <ShieldCheck className="size-5" aria-hidden="true" />
         </span>
       </div>

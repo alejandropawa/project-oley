@@ -149,11 +149,11 @@ export function ReportDetail({
             </div>
           </section>
         ) : (
-          <section className="rounded-[1.5rem] border border-[#F3D88D] bg-[#FFF2CF] p-5 shadow-soft-sm">
+          <section className="rounded-[1.5rem] border border-warm/45 bg-secondary p-5 shadow-soft-sm">
             <h2 className="font-black text-foreground">
               Acțiuni avansate
             </h2>
-            <p className="mt-2 text-sm leading-6 text-[#7A5718]">
+            <p className="mt-2 text-sm leading-6 text-warm-foreground">
               {entityType === "user"
                 ? "Suspendarea conturilor va fi disponibilă într-o etapă viitoare."
                 : "Acțiunile avansate pentru conversații vor fi adăugate ulterior."}

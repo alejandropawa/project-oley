@@ -45,7 +45,7 @@ export default async function NotificationsPage({
   const user = await getCurrentUser();
 
   if (!user) {
-    redirect("/login?redirectTo=/notificari");
+    redirect("/?auth=login&redirectTo=/notificari");
   }
 
   const supabase = await createClient();
@@ -114,7 +114,7 @@ function NotificationsFrame({ children }: { children: React.ReactNode }) {
             <Breadcrumbs
               items={[{ label: "Acasă", href: "/" }, { label: "Notificări" }]}
             />
-            <h1 className="mt-8 text-4xl font-black text-foreground sm:text-5xl">
+            <h1 className="mt-8 text-3xl font-black text-foreground sm:text-4xl min-[1800px]:text-5xl">
               Notificări
             </h1>
             <p className="mt-4 max-w-2xl text-base leading-7 text-muted-foreground">
@@ -144,11 +144,11 @@ function NotificationsFrame({ children }: { children: React.ReactNode }) {
 
 function SetupState() {
   return (
-    <div className="rounded-[1.75rem] border border-[#F3D88D] bg-[#FFF2CF] p-6 shadow-soft-sm">
+    <div className="rounded-[1.75rem] border border-warm/45 bg-secondary p-6 shadow-soft-sm">
       <h2 className="text-2xl font-black text-foreground">
         Notificările vor fi disponibile după configurarea Supabase.
       </h2>
-      <p className="mt-2 text-sm leading-6 text-[#7A5718]">
+      <p className="mt-2 text-sm leading-6 text-warm-foreground">
         Aplică migrarea de notificări și autentifică-te pentru a vedea
         notificările reale ale contului.
       </p>

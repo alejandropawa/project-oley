@@ -180,7 +180,7 @@ export function ReportButton({
               ) : null}
 
               {success ? (
-                <p className="rounded-[1rem] border border-[#D5E4DF] bg-[#E8F1EE] p-3 text-sm font-semibold text-primary">
+                <p className="rounded-[1rem] border border-brand-border bg-brand-soft p-3 text-sm font-semibold text-primary">
                   {success}
                 </p>
               ) : null}

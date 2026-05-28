@@ -27,7 +27,7 @@ export default async function AdminSettingsPage() {
   const admin = await isCurrentUserAdmin(supabase);
 
   if (!admin.user) {
-    redirect("/login?redirectTo=/admin/setari");
+    redirect("/?auth=login&redirectTo=/admin/setari");
   }
 
   if (admin.source === "unavailable") {
@@ -64,11 +64,11 @@ export default async function AdminSettingsPage() {
           </div>
         </section>
 
-        <section className="rounded-[1.75rem] border border-[#F3D88D] bg-[#FFF2CF] p-6 shadow-soft-sm">
+        <section className="rounded-[1.75rem] border border-warm/45 bg-secondary p-6 shadow-soft-sm">
           <h2 className="text-2xl font-black text-foreground">
             Primul admin
           </h2>
-          <p className="mt-3 text-sm leading-6 text-[#7A5718]">
+          <p className="mt-3 text-sm leading-6 text-warm-foreground">
             Pentru primul admin, adaugă manual user_id-ul în tabela
             admin_users din Supabase. Nu există flux public de creare admin.
           </p>

@@ -57,7 +57,7 @@ export default async function AdminPromotionsPage({
   const admin = await isCurrentUserAdmin(supabase);
 
   if (!admin.user) {
-    redirect("/login?redirectTo=/admin/promovari");
+    redirect("/?auth=login&redirectTo=/admin/promovari");
   }
 
   if (admin.source === "unavailable") {
@@ -138,7 +138,7 @@ export default async function AdminPromotionsPage({
             </select>
           </label>
           <div className="self-end">
-            <button className="h-12 rounded-full bg-primary px-5 text-sm font-bold text-primary-foreground">
+            <button className="h-12 rounded-full bg-action px-5 text-sm font-bold text-action-foreground hover:bg-action-hover">
               Filtrează
             </button>
           </div>

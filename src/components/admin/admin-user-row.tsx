@@ -14,7 +14,7 @@ export function AdminUserRow({ user }: { user: AdminUserSummary }) {
               </Badge>
             ) : null}
             {user.reportCount > 0 ? (
-              <Badge className="rounded-full bg-[#FFF2CF] px-3 py-1 text-xs font-bold text-[#7A5718]">
+              <Badge className="rounded-full bg-secondary px-3 py-1 text-xs font-bold text-warm-foreground">
                 {user.reportCount} rapoarte
               </Badge>
             ) : null}

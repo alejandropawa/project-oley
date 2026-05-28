@@ -1,15 +1,33 @@
 export type CategoryIconName =
+  | "baby"
+  | "bike"
+  | "boxes"
+  | "briefcase"
+  | "building"
   | "laptop"
   | "car"
+  | "calendar"
   | "home"
+  | "palette"
+  | "paw"
   | "sofa"
   | "shirt"
-  | "bike"
-  | "baby"
-  | "wrench"
-  | "boxes"
+  | "tractor"
+  | "plane"
   | "sparkles"
-  | "handshake";
+  | "handshake"
+  | "thumbsUp"
+  | "wrench";
+
+export type CategorySubcategory = {
+  name: string;
+  children?: string[];
+};
+
+export type CategorySubcategoryGroup = {
+  label: string;
+  items: CategorySubcategory[];
+};
 
 export type Category = {
   id: string;
@@ -18,6 +36,8 @@ export type Category = {
   description: string;
   iconName: CategoryIconName;
   subcategories: string[];
+  subcategoryGroups: CategorySubcategoryGroup[];
+  allowedListingTypes: ListingType[];
 };
 
 export type ListingType = "sell" | "buy" | "rent" | "swap";
@@ -78,87 +98,381 @@ export type Listing = {
 };
 
 export const categories: Category[] = [
-  {
-    id: "cat-electronice",
-    slug: "electronice",
-    name: "Electronice",
-    description: "Telefoane, laptopuri, console și gadgeturi verificate local.",
-    iconName: "laptop",
-    subcategories: ["Telefoane", "Laptopuri", "Console", "Audio"],
-  },
-  {
-    id: "cat-auto",
-    slug: "auto",
-    name: "Auto",
-    description: "Mașini, piese, jante, accesorii și echipamente auto.",
-    iconName: "car",
-    subcategories: ["Autoturisme", "Piese auto", "Jante", "Accesorii"],
-  },
-  {
+  category({
     id: "cat-imobiliare",
     slug: "imobiliare",
     name: "Imobiliare",
-    description: "Apartamente, camere, garsoniere, case și terenuri.",
+    description: "Locuințe, terenuri, birouri și spații comerciale.",
     iconName: "home",
-    subcategories: ["Apartamente", "Garsoniere", "Camere", "Case"],
-  },
-  {
+    allowedListingTypes: ["sell", "buy", "rent", "swap"],
+    subcategoryGroups: [
+      group("Rezidențial", [
+        item("Garsonieră", ["Decomandată", "Semidecomandată", "Open-space"]),
+        item("Apartament 2 camere", ["Bloc nou", "Bloc vechi", "Central", "Periferie"]),
+        item("Apartament 3 camere", ["Bloc nou", "Bloc vechi", "Central", "Periferie"]),
+        item("Apartament 4+ camere", ["Duplex", "Etaj intermediar", "Ultimul etaj"]),
+        item("Penthouse", ["Terasă privată", "Vedere panoramică"]),
+        item("Casă", ["Individuală", "Înșiruită", "Duplex"]),
+        item("Vilă", ["Urban", "Suburban", "Resort"]),
+        item("Casă de vacanță", ["Munte", "Mare", "Rural"]),
+      ]),
+      group("Terenuri", [
+        item("Teren intravilan", ["Rezidențial", "Comercial", "Mixt"]),
+        item("Teren extravilan", ["Agricol", "Investiție", "Pădure"]),
+        item("Teren industrial", ["Hale", "Logistică", "Producție"]),
+      ]),
+      group("Comercial", [
+        item("Spațiu comercial", ["Stradal", "Mall", "Showroom"]),
+        item("Birouri", ["Clasa A", "Clasa B", "Coworking"]),
+        item("Depozit / Hală", ["Logistică", "Producție", "Frigorific"]),
+        item("Parcare / Garaj", ["Subteran", "Suprateran", "Boxă"]),
+        item("HORECA", ["Restaurant", "Cafenea", "Hotel / Pensiune"]),
+      ]),
+    ],
+  }),
+  category({
+    id: "cat-auto",
+    slug: "auto",
+    name: "Auto, Moto & Nautic",
+    description: "Vehicule, piese, accesorii, service și mobilitate.",
+    iconName: "car",
+    allowedListingTypes: ["sell", "buy", "rent", "swap"],
+    subcategoryGroups: [
+      group("Vehicule", [
+        item("Autoturisme", ["Hatchback", "Sedan", "Break", "SUV", "Coupe", "Cabrio", "Monovolum", "Pick-up"]),
+        item("Motociclete", ["Sport", "Naked", "Touring", "Cruiser", "Enduro"]),
+        item("Scutere", ["Electric", "Benzină", "Maxi-scuter"]),
+        item("ATV / UTV", ["Agrement", "Utilitar", "Sport"]),
+        item("Autoutilitare", ["Dubă", "Platformă", "Frigorifică"]),
+        item("Camioane", ["Cap tractor", "Basculantă", "Transport marfă"]),
+        item("Rulote / Autorulote", ["Rulotă", "Camper van", "Autorulotă"]),
+        item("Ambarcațiuni", ["Barcă", "Jet ski", "Yacht"]),
+      ]),
+      group("Piese și servicii", [
+        item("Piese auto", ["Motor", "Caroserie", "Suspensie", "Frâne", "Electric"]),
+        item("Anvelope și jante", ["Vară", "Iarnă", "All season", "Jante aliaj"]),
+        item("Accesorii auto", ["Interior", "Exterior", "Multimedia", "Portbagaje"]),
+        item("Service și întreținere", ["Mecanică", "Tinichigerie", "Detailing", "Diagnoză"]),
+      ]),
+    ],
+  }),
+  category({
+    id: "cat-electronice",
+    slug: "electronice",
+    name: "Electronice & Electrocasnice",
+    description: "Telefoane, calculatoare, gaming, audio-video și electrocasnice.",
+    iconName: "laptop",
+    allowedListingTypes: ["sell", "buy", "rent", "swap"],
+    subcategoryGroups: [
+      group("IT & mobile", [
+        item("Telefoane", ["iPhone", "Samsung", "Android", "Feature phone"]),
+        item("Tablete", ["iPad", "Android", "E-reader"]),
+        item("Laptopuri", ["Ultrabook", "Gaming", "Business", "MacBook"]),
+        item("Desktop PC", ["Gaming", "Workstation", "Office", "Mini PC"]),
+        item("Monitoare", ["Office", "Gaming", "Ultrawide", "Profesional"]),
+        item("Componente PC", ["Procesor", "Placă video", "Memorie", "Stocare"]),
+      ]),
+      group("Media & casă", [
+        item("TV & Home Cinema", ["LED", "OLED", "QLED", "Proiector"]),
+        item("Audio", ["Căști", "Boxe", "Soundbar", "Hi-Fi"]),
+        item("Foto-Video", ["Aparate foto", "Obiective", "Drone", "Accesorii"]),
+        item("Console & Gaming", ["PlayStation", "Xbox", "Nintendo", "Jocuri"]),
+        item("Smart Home", ["Securitate", "Iluminat", "Termostate", "Asistenți"]),
+      ]),
+      group("Electrocasnice", [
+        item("Electrocasnice mari", ["Frigider", "Mașină de spălat", "Cuptor", "Plită"]),
+        item("Electrocasnice mici", ["Aspirator", "Espressor", "Robot bucătărie", "Fier de călcat"]),
+        item("Climatizare", ["Aer condiționat", "Purificator", "Dezumidificator"]),
+      ]),
+    ],
+  }),
+  category({
     id: "cat-casa-gradina",
     slug: "casa-gradina",
-    name: "Casă & grădină",
-    description: "Mobilă, decor, electrocasnice, unelte și plante.",
+    name: "Casă, Grădină & Bricolaj",
+    description: "Mobilier, decorațiuni, unelte, grădină și renovări.",
     iconName: "sofa",
-    subcategories: ["Mobilă", "Decor", "Grădină", "Unelte"],
-  },
-  {
+    allowedListingTypes: ["sell", "buy", "rent", "swap"],
+    subcategoryGroups: [
+      group("Interior", [
+        item("Mobilier living", ["Canapele", "Biblioteci", "Mese", "Comode"]),
+        item("Dormitor", ["Pat", "Saltea", "Dulap", "Noptiere"]),
+        item("Bucătărie", ["Mobilier", "Mese", "Scaune", "Depozitare"]),
+        item("Decorațiuni", ["Tablouri", "Oglinzi", "Textile", "Corpuri iluminat"]),
+      ]),
+      group("Exterior & lucrări", [
+        item("Grădină", ["Plante", "Mobilier grădină", "Irigare", "Grătare"]),
+        item("Unelte", ["Electrice", "Manuale", "Profesionale", "Închiriere"]),
+        item("Materiale construcții", ["Finisaje", "Instalații", "Lemn", "Izolații"]),
+        item("Piscine & spa", ["Piscine", "Jacuzzi", "Accesorii"]),
+      ]),
+    ],
+  }),
+  category({
     id: "cat-fashion",
     slug: "fashion",
-    name: "Fashion",
-    description: "Haine, încălțăminte, accesorii și piese premium.",
+    name: "Modă & Frumusețe",
+    description: "Haine, încălțăminte, accesorii, beauty și premium.",
     iconName: "shirt",
-    subcategories: ["Haine", "Încălțăminte", "Genți", "Accesorii"],
-  },
-  {
+    allowedListingTypes: ["sell", "buy", "swap"],
+    subcategoryGroups: [
+      group("Fashion", [
+        item("Haine femei", ["Rochii", "Paltoane", "Costume", "Casual"]),
+        item("Haine bărbați", ["Sacouri", "Cămăși", "Paltoane", "Casual"]),
+        item("Încălțăminte", ["Sneakers", "Pantofi", "Ghete", "Sandale"]),
+        item("Genți", ["Poșete", "Rucsacuri", "Travel", "Designer"]),
+        item("Bijuterii & ceasuri", ["Aur", "Argint", "Ceasuri", "Designer"]),
+      ]),
+      group("Beauty", [
+        item("Cosmetice", ["Make-up", "Parfumuri", "Skincare", "Haircare"]),
+        item("Echipamente beauty", ["Salon", "Aparate", "Mobilier"]),
+      ]),
+    ],
+  }),
+  category({
     id: "cat-sport",
     slug: "sport",
-    name: "Sport",
-    description: "Biciclete, trotinete, fitness, outdoor și echipamente.",
+    name: "Sport & Timp Liber",
+    description: "Biciclete, fitness, outdoor, camping și hobby activ.",
     iconName: "bike",
-    subcategories: ["Biciclete", "Trotinete", "Fitness", "Outdoor"],
-  },
-  {
+    allowedListingTypes: ["sell", "buy", "rent", "swap"],
+    subcategoryGroups: [
+      group("Sport", [
+        item("Biciclete", ["MTB", "Cursieră", "Urbană", "Electrică"]),
+        item("Trotinete", ["Electrică", "Clasică", "Accesorii"]),
+        item("Fitness", ["Aparate", "Greutăți", "Cardio", "Yoga"]),
+        item("Sporturi de iarnă", ["Schi", "Snowboard", "Patine"]),
+        item("Sporturi acvatice", ["SUP", "Caiac", "Scufundări"]),
+      ]),
+      group("Outdoor", [
+        item("Camping", ["Corturi", "Rucsacuri", "Saci de dormit"]),
+        item("Pescuit", ["Lansete", "Mulinete", "Echipament"]),
+        item("Vânătoare", ["Echipament", "Îmbrăcăminte", "Accesorii"]),
+      ]),
+    ],
+  }),
+  category({
     id: "cat-copii-bebe",
     slug: "copii-bebe",
-    name: "Copii & bebe",
+    name: "Copii & Bebe",
     description: "Jucării, cărucioare, scaune auto, haine și mobilier.",
     iconName: "baby",
-    subcategories: ["Cărucioare", "Jucării", "Haine", "Scaune auto"],
-  },
-  {
+    allowedListingTypes: ["sell", "buy", "swap"],
+    subcategoryGroups: [
+      group("Bebe", [
+        item("Cărucioare", ["Sport", "3 în 1", "Gemeni", "Accesorii"]),
+        item("Scaune auto", ["0-13 kg", "9-18 kg", "15-36 kg", "Isofix"]),
+        item("Mobilier bebe", ["Pătuț", "Comodă", "Scaun masă"]),
+        item("Îngrijire bebe", ["Monitoare", "Sterilizatoare", "Pompe"]),
+      ]),
+      group("Copii", [
+        item("Jucării", ["Educaționale", "LEGO", "Exterior", "Colecții"]),
+        item("Haine copii", ["0-2 ani", "3-6 ani", "7-12 ani", "Teen"]),
+        item("Articole școală", ["Ghiozdane", "Birouri", "Manuale"]),
+      ]),
+    ],
+  }),
+  category({
     id: "cat-servicii",
     slug: "servicii",
-    name: "Servicii",
+    name: "Prestări Servicii",
     description: "Ajutor local, reparații, montaj, transport și profesioniști.",
-    iconName: "wrench",
-    subcategories: ["Montaj", "Reparații", "Transport", "Curățenie"],
-  },
-  {
+    iconName: "thumbsUp",
+    allowedListingTypes: ["sell", "buy"],
+    subcategoryGroups: [
+      group("Pentru casă", [
+        item("Reparații", ["Instalații", "Electric", "Zidărie", "Acoperiș"]),
+        item("Montaj", ["Mobilier", "Electrocasnice", "Uși / ferestre"]),
+        item("Curățenie", ["Locuințe", "Birouri", "Post-constructor"]),
+        item("Amenajări interioare", ["Design", "Renovări", "Finisaje"]),
+      ]),
+      group("Profesionale", [
+        item("Transport", ["Marfă", "Mutări", "Platformă auto"]),
+        item("IT & digital", ["Website", "Marketing", "Suport tehnic"]),
+        item("Educație", ["Meditații", "Cursuri", "Training corporate"]),
+        item("Consultanță", ["Legal", "Financiar", "Business"]),
+        item("Evenimente", ["Foto-video", "DJ", "Catering", "Decor"]),
+      ]),
+    ],
+  }),
+  category({
+    id: "cat-joburi",
+    slug: "joburi",
+    name: "Joburi & Carieră",
+    description: "Locuri de muncă, colaborări, internshipuri și freelancing.",
+    iconName: "briefcase",
+    allowedListingTypes: ["sell", "buy"],
+    subcategoryGroups: [
+      group("Contracte", [
+        item("Full-time", ["On-site", "Hibrid", "Remote"]),
+        item("Part-time", ["Program flexibil", "Weekend"]),
+        item("Freelance / Proiect", ["IT", "Design", "Consultanță", "Operațional"]),
+        item("Internship", ["Plătit", "Neplătit", "Program trainee"]),
+      ]),
+      group("Domenii", [
+        item("IT & software", ["Frontend", "Backend", "QA", "DevOps"]),
+        item("Vânzări", ["Retail", "B2B", "Account management"]),
+        item("Administrație", ["Office", "HR", "Financiar"]),
+        item("Producție & logistică", ["Operator", "Șofer", "Depozit"]),
+      ]),
+    ],
+  }),
+  category({
+    id: "cat-afaceri",
+    slug: "afaceri-echipamente",
+    name: "Afaceri & Echipamente",
+    description: "Echipamente profesionale, stocuri, francize și business assets.",
+    iconName: "building",
+    allowedListingTypes: ["sell", "buy", "rent", "swap"],
+    subcategoryGroups: [
+      group("Echipamente", [
+        item("HORECA", ["Cuptoare", "Vitrine", "Mobilier", "Bar"]),
+        item("Retail", ["Case marcat", "Rafturi", "POS", "Vitrine"]),
+        item("Medical", ["Aparatură", "Mobilier", "Consumabile"]),
+        item("Industrial", ["Utilaje", "Scule profesionale", "Linii producție"]),
+      ]),
+      group("Business", [
+        item("Stocuri", ["Fashion", "Electronice", "HORECA", "Diverse"]),
+        item("Francize", ["Retail", "Servicii", "HORECA"]),
+        item("Afaceri la cheie", ["Online", "Local", "Servicii"]),
+      ]),
+    ],
+  }),
+  category({
+    id: "cat-animale",
+    slug: "animale",
+    name: "Animale",
+    description: "Animale de companie, adopții, accesorii și servicii pet care.",
+    iconName: "paw",
+    allowedListingTypes: ["sell", "buy"],
+    subcategoryGroups: [
+      group("Animale", [
+        item("Câini", ["Adopție", "Rasă", "Pui", "Adult"]),
+        item("Pisici", ["Adopție", "Rasă", "Pui", "Adult"]),
+        item("Păsări", ["Papagali", "Canari", "Porumbei"]),
+        item("Pești & acvaristică", ["Pești", "Acvarii", "Accesorii"]),
+        item("Animale mici", ["Iepuri", "Hamsteri", "Reptile"]),
+      ]),
+      group("Pet care", [
+        item("Accesorii animale", ["Hrană", "Cuști", "Jucării", "Transport"]),
+        item("Servicii animale", ["Toaletaj", "Dresaj", "Pet sitting"]),
+      ]),
+    ],
+  }),
+  category({
+    id: "cat-agricultura",
+    slug: "agricultura",
+    name: "Agricultură",
+    description: "Utilaje agricole, animale, terenuri, semințe și producție.",
+    iconName: "tractor",
+    allowedListingTypes: ["sell", "buy", "rent", "swap"],
+    subcategoryGroups: [
+      group("Utilaje & inputuri", [
+        item("Tractoare", ["Compact", "Mediu", "Mare"]),
+        item("Utilaje agricole", ["Semănători", "Combine", "Pluguri", "Remorci"]),
+        item("Semințe & îngrășăminte", ["Cereale", "Legume", "Furaje"]),
+        item("Irigare", ["Pompe", "Sisteme picurare", "Aspersoare"]),
+      ]),
+      group("Producție", [
+        item("Animale fermă", ["Bovine", "Ovine", "Caprine", "Păsări"]),
+        item("Produse agricole", ["Cereale", "Legume", "Fructe", "Miere"]),
+        item("Teren agricol", ["Arabil", "Pășune", "Livada"]),
+      ]),
+    ],
+  }),
+  category({
+    id: "cat-hobby-arta",
+    slug: "hobby-arta",
+    name: "Hobby, Artă & Colecții",
+    description: "Instrumente, cărți, artă, colecții și creații handmade.",
+    iconName: "palette",
+    allowedListingTypes: ["sell", "buy", "swap"],
+    subcategoryGroups: [
+      group("Cultură & creație", [
+        item("Cărți", ["Ficțiune", "Business", "Manuale", "Colecții"]),
+        item("Muzică", ["Instrumente", "Viniluri", "Echipamente studio"]),
+        item("Artă", ["Pictură", "Sculptură", "Printuri", "Fotografie"]),
+        item("Handmade", ["Bijuterii", "Decor", "Cadouri"]),
+      ]),
+      group("Colecții", [
+        item("Antichități", ["Mobilier", "Decorațiuni", "Documente"]),
+        item("Numismatică", ["Monede", "Bancnote", "Medalii"]),
+        item("Filatelie", ["Timbre", "Plicuri", "Colecții"]),
+        item("Jocuri & board games", ["Board games", "TCG", "Puzzle"]),
+      ]),
+    ],
+  }),
+  category({
+    id: "cat-turism-evenimente",
+    slug: "turism-evenimente",
+    name: "Turism & Evenimente",
+    description: "Cazări, bilete, experiențe, organizare și echipamente evenimente.",
+    iconName: "calendar",
+    allowedListingTypes: ["sell", "buy", "rent"],
+    subcategoryGroups: [
+      group("Turism", [
+        item("Cazare", ["Hotel", "Pensiune", "Apartament", "Cabane"]),
+        item("Pachete turistice", ["City break", "Munte", "Mare", "Extern"]),
+        item("Experiențe", ["Tururi", "Degustări", "Aventură"]),
+      ]),
+      group("Evenimente", [
+        item("Bilete", ["Concert", "Sport", "Festival", "Teatru"]),
+        item("Organizare evenimente", ["Corporate", "Nuntă", "Aniversare"]),
+        item("Echipamente evenimente", ["Lumini", "Sunet", "Corturi", "Mobilier"]),
+      ]),
+    ],
+  }),
+  category({
     id: "cat-inchirieri",
     slug: "inchirieri",
-    name: "Închirieri",
-    description: "Scule, utilaje și echipamente de închiriat pentru proiecte rapide.",
+    name: "Închirieri & Leasing",
+    description: "Scule, utilaje, spații și echipamente disponibile temporar.",
     iconName: "boxes",
-    subcategories: ["Scule", "Utilaje", "Echipamente", "Diverse"],
-  },
-  {
+    allowedListingTypes: ["rent"],
+    subcategoryGroups: [
+      group("Închirieri populare", [
+        item("Scule", ["Electrice", "Manuale", "Profesionale"]),
+        item("Utilaje", ["Construcții", "Agricole", "Evenimente"]),
+        item("Vehicule", ["Auto", "Autoutilitare", "Rulote"]),
+        item("Spații", ["Birouri", "Depozite", "Evenimente"]),
+      ]),
+    ],
+  }),
+  category({
     id: "cat-schimburi",
     slug: "schimburi",
-    name: "Schimburi",
-    description: "Trocuri simple pentru obiecte, gadgeturi și servicii.",
+    name: "Troc & Schimburi",
+    description: "Schimburi pentru produse, servicii, vehicule și colecții.",
     iconName: "handshake",
-    subcategories: ["Electronice", "Auto", "Servicii", "Diverse"],
-  },
+    allowedListingTypes: ["swap"],
+    subcategoryGroups: [
+      group("Schimburi", [
+        item("Electronice", ["Telefon", "Laptop", "Gaming", "Audio"]),
+        item("Auto", ["Autoturisme", "Moto", "Piese"]),
+        item("Servicii", ["IT", "Reparații", "Consultanță"]),
+        item("Colecții", ["Artă", "Antichități", "Jocuri"]),
+        item("Diverse", ["Propuneri mixte", "Diferență bani"]),
+      ]),
+    ],
+  }),
 ];
+
+function category(input: Omit<Category, "subcategories">): Category {
+  return {
+    ...input,
+    subcategories: input.subcategoryGroups.flatMap((group) =>
+      group.items.map((item) => item.name),
+    ),
+  };
+}
+
+function group(label: string, items: CategorySubcategory[]) {
+  return { label, items };
+}
+
+function item(name: string, children?: string[]) {
+  return { name, children };
+}
 
 export const listings: Listing[] = [
   {
@@ -199,7 +513,7 @@ export const listings: Listing[] = [
       endsAt: "2026-05-28T20:00:00.000Z",
     },
     visualStyle:
-      "linear-gradient(135deg, #E8F1EE 0%, #BFDAD3 52%, #2F6F65 100%)",
+      "linear-gradient(135deg, #E8F1EE 0%, #BFDAD3 52%, #005F3F 100%)",
   },
   {
     id: "listing-bicicleta-pegas",
@@ -235,7 +549,7 @@ export const listings: Listing[] = [
       endsAt: "2026-05-26T12:00:00.000Z",
     },
     visualStyle:
-      "linear-gradient(135deg, #FFF2CF 0%, #E9B44C 55%, #B98226 100%)",
+      "linear-gradient(135deg, #F2F3DF 0%, #E9B44C 55%, #B98226 100%)",
   },
   {
     id: "listing-garsoniera-inchiriat",
@@ -268,7 +582,7 @@ export const listings: Listing[] = [
     },
     featured: true,
     visualStyle:
-      "linear-gradient(135deg, #FFFDF8 0%, #D8CBB8 46%, #8FA39D 100%)",
+      "linear-gradient(135deg, #FFFEFC 0%, #D9DFDA 46%, #89B29E 100%)",
   },
   {
     id: "listing-birou-lemn-masiv",
@@ -363,7 +677,7 @@ export const listings: Listing[] = [
     },
     featured: true,
     visualStyle:
-      "linear-gradient(135deg, #E8F1EE 0%, #FFF2CF 48%, #E9B44C 100%)",
+      "linear-gradient(135deg, #E8F1EE 0%, #F2F3DF 48%, #E9B44C 100%)",
   },
   {
     id: "listing-canapea-modulara",
@@ -388,7 +702,7 @@ export const listings: Listing[] = [
     },
     featured: false,
     visualStyle:
-      "linear-gradient(135deg, #FFFDF8 0%, #E8E1D8 54%, #A89680 100%)",
+      "linear-gradient(135deg, #FFFEFC 0%, #D9DFDA 54%, #A89680 100%)",
   },
   {
     id: "listing-volkswagen-golf-7",
@@ -486,7 +800,7 @@ export const listings: Listing[] = [
       endsAt: "2026-06-10T18:00:00.000Z",
     },
     visualStyle:
-      "linear-gradient(135deg, #F6F3EE 0%, #DCCFBF 46%, #9CA79F 100%)",
+      "linear-gradient(135deg, #F7FBF8 0%, #DCCFBF 46%, #9CA79F 100%)",
   },
   {
     id: "listing-rochie-minimalista",
@@ -518,7 +832,7 @@ export const listings: Listing[] = [
     },
     featured: false,
     visualStyle:
-      "linear-gradient(135deg, #FFFDF8 0%, #EAD7D1 55%, #9E6F66 100%)",
+      "linear-gradient(135deg, #FFFEFC 0%, #EAD7D1 55%, #9E6F66 100%)",
   },
   {
     id: "listing-carucior-bebe-3-in-1",
@@ -543,7 +857,7 @@ export const listings: Listing[] = [
     },
     featured: false,
     visualStyle:
-      "linear-gradient(135deg, #FFF2CF 0%, #F1D9A2 52%, #A7874B 100%)",
+      "linear-gradient(135deg, #F2F3DF 0%, #F1D9A2 52%, #A7874B 100%)",
   },
   {
     id: "listing-servicii-montaj-mobila",
@@ -595,7 +909,7 @@ export const listings: Listing[] = [
     },
     featured: false,
     visualStyle:
-      "linear-gradient(135deg, #FFFDF8 0%, #DEE9E6 50%, #7CA399 100%)",
+      "linear-gradient(135deg, #FFFEFC 0%, #DEE9E6 50%, #7CA399 100%)",
   },
   {
     id: "listing-macbook-air-m2",
@@ -680,7 +994,7 @@ export const listings: Listing[] = [
     },
     featured: false,
     visualStyle:
-      "linear-gradient(135deg, #F6F3EE 0%, #C5D6D1 50%, #2F6F65 100%)",
+      "linear-gradient(135deg, #F7FBF8 0%, #C5D6D1 50%, #005F3F 100%)",
   },
   {
     id: "listing-caut-apartament-cumparat",
@@ -706,7 +1020,7 @@ export const listings: Listing[] = [
     },
     featured: false,
     visualStyle:
-      "linear-gradient(135deg, #FFF2CF 0%, #D9E9E4 50%, #6A8D86 100%)",
+      "linear-gradient(135deg, #F2F3DF 0%, #D9E9E4 50%, #6A8D86 100%)",
   },
 ];
 

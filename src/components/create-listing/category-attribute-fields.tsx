@@ -22,9 +22,9 @@ export function CategoryAttributeFields({
   }
 
   return (
-    <section className="rounded-[1.5rem] border border-border bg-background p-4">
+    <section className="rounded-[1.15rem] border border-border bg-background/70 p-4 shadow-sm">
       <div>
-        <h3 className="text-lg font-black text-foreground">
+        <h3 className="text-base font-black text-foreground">
           Detalii specifice categoriei
         </h3>
         <p className="mt-1 text-sm leading-6 text-muted-foreground">
@@ -50,11 +50,14 @@ export function CategoryAttributeFields({
                   onChange={(event) =>
                     onChange(definition.key, event.target.checked)
                   }
-                  className="mt-1 size-4 accent-[#2F6F65]"
+                  className="mt-1 size-4 accent-brand"
                 />
                 <span>
                   <span className="block text-sm font-bold text-foreground">
                     {definition.label}
+                    {definition.isRequired ? (
+                      <span className="text-destructive"> *</span>
+                    ) : null}
                   </span>
                   <span className="mt-1 block text-xs text-muted-foreground">
                     Marchează dacă se aplică.
@@ -69,6 +72,7 @@ export function CategoryAttributeFields({
               <Field
                 key={definition.key}
                 label={formatLabel(definition.label, definition.unit)}
+                required={definition.isRequired}
               >
                 <select
                   id={fieldId}
@@ -76,7 +80,7 @@ export function CategoryAttributeFields({
                   onChange={(event) =>
                     onChange(definition.key, event.target.value)
                   }
-                  className="h-12 w-full rounded-[1rem] border border-input bg-card px-3 text-base outline-none focus-visible:border-ring focus-visible:ring-3 focus-visible:ring-ring/50"
+                  className={controlClassName}
                 >
                   <option value="">Alege</option>
                   {definition.options.map((option) => (
@@ -93,6 +97,7 @@ export function CategoryAttributeFields({
             <Field
               key={definition.key}
               label={formatLabel(definition.label, definition.unit)}
+              required={definition.isRequired}
             >
               <input
                 id={fieldId}
@@ -108,7 +113,7 @@ export function CategoryAttributeFields({
                   )
                 }
                 placeholder={definition.label}
-                className="h-12 w-full rounded-[1rem] border border-input bg-card px-3 text-base outline-none focus-visible:border-ring focus-visible:ring-3 focus-visible:ring-ring/50"
+                className={controlClassName}
               />
             </Field>
           );
@@ -118,15 +123,27 @@ export function CategoryAttributeFields({
   );
 }
 
+const controlClassName =
+  "h-11 w-full rounded-[0.7rem] border border-input bg-card px-3 text-sm outline-none focus-visible:border-ring focus-visible:ring-3 focus-visible:ring-ring/50";
+
 function formatLabel(label: string, unit?: string) {
   return unit ? `${label} (${unit})` : label;
 }
 
-function Field({ label, children }: { label: string; children: ReactNode }) {
+function Field({
+  label,
+  required = false,
+  children,
+}: {
+  label: string;
+  required?: boolean;
+  children: ReactNode;
+}) {
   return (
     <label className="block">
-      <span className="mb-1.5 block text-sm font-bold text-foreground">
+      <span className="mb-1.5 block text-xs font-black text-foreground">
         {label}
+        {required ? <span className="text-destructive"> *</span> : null}
       </span>
       {children}
     </label>

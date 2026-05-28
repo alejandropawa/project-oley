@@ -94,7 +94,7 @@ export default async function CategoryCityPage({
   return (
     <div className="min-h-screen overflow-x-hidden pb-20 md:pb-0">
       <Header />
-      <main className="bg-[#FFFDF8]">
+      <main className="bg-card">
         <JsonLd
           data={[
             categoryPageJsonLd(
@@ -116,7 +116,7 @@ export default async function CategoryCityPage({
             ]),
           ]}
         />
-        <section className="relative isolate overflow-hidden border-b border-[#E8E1D8]">
+        <section className="relative isolate overflow-hidden border-b border-border">
           <div className="mx-auto w-full max-w-7xl px-4 py-10 sm:px-6 sm:py-14 lg:px-8">
             <Breadcrumbs
               items={[
@@ -129,27 +129,27 @@ export default async function CategoryCityPage({
 
             <div className="mt-8 grid gap-6 lg:grid-cols-[0.9fr_1.1fr] lg:items-end">
               <div>
-                <span className="grid size-14 place-items-center rounded-[1.25rem] border border-[#E8E1D8] bg-[#FFFDF8]/88 text-[#0F4A43] shadow-[0_14px_34px_rgba(15,70,61,0.1)]">
+                <span className="grid size-14 place-items-center rounded-[1.25rem] border border-border bg-card/88 text-brand shadow-[0_14px_34px_rgba(15,70,61,0.1)]">
                   <Icon className="size-6" aria-hidden="true" />
                 </span>
-                <h1 className="mt-5 font-serif text-5xl font-semibold leading-none text-[#0F4A43] sm:text-6xl">
+                <h1 className="mt-5 font-serif text-4xl font-semibold leading-none text-brand sm:text-5xl min-[1800px]:text-6xl">
                   {category.name} în {city.name}
                 </h1>
-                <p className="mt-4 max-w-2xl text-base leading-7 text-[#2F3E3A]">
+                <p className="mt-4 max-w-2xl text-base leading-7 text-brand-ink">
                   Explorează anunțuri din categoria {category.name} în{" "}
                   {city.name}, {city.county}.
                 </p>
               </div>
 
-              <div className="rounded-[1.5rem] border border-[#E8E1D8]/90 bg-[#FFFDF8]/88 p-4 shadow-[0_18px_48px_rgba(15,70,61,0.1)] backdrop-blur">
-                <p className="text-sm font-black text-[#123F37]">
+              <div className="rounded-[1.5rem] border border-border/90 bg-card/88 p-4 shadow-[0_18px_48px_rgba(15,70,61,0.1)] backdrop-blur">
+                <p className="text-sm font-black text-brand-ink">
                   Subcategorii populare
                 </p>
                 <div className="mt-3 flex flex-wrap gap-2">
                   {category.subcategories.map((subcategory) => (
                     <span
                       key={subcategory}
-                      className="rounded-full border border-[#E8E1D8] bg-[#FFFDF8]/80 px-3 py-1.5 text-sm font-semibold text-[#52645F]"
+                      className="rounded-full border border-border bg-card/80 px-3 py-1.5 text-sm font-semibold text-brand-muted"
                     >
                       {subcategory}
                     </span>

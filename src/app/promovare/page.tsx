@@ -32,7 +32,7 @@ export default async function PromotionsPage() {
               <p className="text-sm font-black uppercase text-primary">
                 Monetizare TROKO
               </p>
-              <h1 className="mt-3 max-w-4xl text-4xl font-black leading-tight text-foreground sm:text-6xl">
+              <h1 className="mt-3 max-w-4xl text-3xl font-black leading-tight text-foreground sm:text-4xl min-[1800px]:text-5xl">
                 Promovează-ți anunțul pe TROKO
               </h1>
               <p className="mt-5 max-w-2xl text-base leading-7 text-muted-foreground sm:text-lg">
@@ -60,7 +60,7 @@ export default async function PromotionsPage() {
               </div>
             </div>
 
-            <aside className="rounded-[1.75rem] border border-[#D5E4DF] bg-[#E8F1EE] p-5 shadow-soft">
+            <aside className="rounded-[1.75rem] border border-brand-border bg-brand-soft p-5 shadow-soft">
               <div className="grid gap-4">
                 {[
                   {

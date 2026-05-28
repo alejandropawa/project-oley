@@ -56,7 +56,7 @@ export function PromoteListingForm({
 
   if (message) {
     return (
-      <div className="rounded-[1.75rem] border border-[#D5E4DF] bg-[#E8F1EE] p-6 shadow-soft-sm">
+      <div className="rounded-[1.75rem] border border-brand-border bg-brand-soft p-6 shadow-soft-sm">
         <h2 className="text-2xl font-black text-foreground">
           Solicitarea de promovare a fost trimisă.
         </h2>
@@ -111,7 +111,7 @@ export function PromoteListingForm({
         />
       </label>
 
-      <div className="rounded-[1.5rem] border border-[#F3D88D] bg-[#FFF2CF] p-4 text-sm font-semibold leading-6 text-[#7A5718]">
+      <div className="rounded-[1.5rem] border border-warm/45 bg-secondary p-4 text-sm font-semibold leading-6 text-warm-foreground">
         Plățile online vor fi disponibile în curând. Momentan, poți trimite o
         solicitare de promovare, iar echipa TROKO o poate activa manual.
       </div>

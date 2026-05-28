@@ -3,6 +3,7 @@
 import { ShieldAlert } from "lucide-react";
 
 import { ReportButton } from "@/components/reports/report-button";
+import { getAuthDrawerPath } from "@/lib/auth/redirect";
 
 const safetyBullets = [
   "Nu trimite avansuri fără să verifici produsul sau vânzătorul.",
@@ -17,7 +18,7 @@ export function SafetyChatCard({
   conversationId: string;
 }) {
   return (
-    <aside className="rounded-[1.5rem] border border-[#D5E4DF] bg-[#E8F1EE] p-5">
+    <aside className="rounded-[1.5rem] border border-brand-border bg-brand-soft p-5">
       <div className="flex gap-3">
         <span className="grid size-11 shrink-0 place-items-center rounded-[1rem] bg-card text-primary">
           <ShieldAlert className="size-5" aria-hidden="true" />
@@ -34,7 +35,7 @@ export function SafetyChatCard({
               entityType="conversation"
               entityId={conversationId}
               isAuthenticated
-              loginHref={`/login?redirectTo=/mesaje/${conversationId}`}
+              loginHref={getAuthDrawerPath("login", `/mesaje/${conversationId}`)}
               buttonLabel="Raportează conversația"
               successMessage="Conversația a fost raportată."
             />

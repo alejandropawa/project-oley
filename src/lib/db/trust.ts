@@ -3,9 +3,18 @@ import type { SupabaseClient } from "@supabase/supabase-js";
 
 import { createProfileSlug } from "@/lib/profiles/slug";
 import { trustBadgeLabels } from "@/lib/trust/labels";
-import { calculateTrustScore, formatResponseHint } from "@/lib/trust/score";
+import { formatResponseHint } from "@/lib/trust/score";
 import { isProfileComplete } from "@/lib/trust/profile-completion";
 import type { Database, Enums, Tables, TablesInsert } from "@/types/database";
+
+const DISPLAY_NAME_LIMITS = {
+  min: 2,
+  max: 80,
+} as const;
+
+const CONTROL_CHARACTERS_PATTERN = /[\u0000-\u001F\u007F]/g;
+const WHITESPACE_PATTERN = /\s+/g;
+const FALLBACK_DISPLAY_NAME = "Utilizator TROKO";
 
 export type SellerTrustSummary = {
   userId: string;
@@ -120,54 +129,55 @@ export async function syncCurrentUserTrustProfile(
       .eq("id", user.id)
       .maybeSingle();
 
-    const displayName =
+    const displayName = normalizeProfileDisplayName(
       existing?.display_name ??
-      (typeof user.user_metadata?.full_name === "string"
-        ? user.user_metadata.full_name
-        : user.email?.split("@")[0]) ??
-      "Utilizator TROKO";
-    const emailVerifiedAt =
-      user.email_confirmed_at ?? user.confirmed_at ?? existing?.email_verified_at ?? null;
+        (typeof user.user_metadata?.full_name === "string"
+          ? user.user_metadata.full_name
+          : user.email?.split("@")[0]) ??
+        FALLBACK_DISPLAY_NAME,
+    );
     const profileCompletedAt =
       existing?.profile_completed_at ??
       (isProfileComplete(existing ?? null) ? new Date().toISOString() : null);
     const slug = existing?.slug ?? createProfileSlug(displayName, user.id);
-    const activeListingsCount = await getActiveListingCount(user.id, supabase);
-    const trustScore = calculateTrustScore({
-      profile: existing
-        ? {
-            ...existing,
-            email_verified_at: emailVerifiedAt,
-            profile_completed_at: profileCompletedAt,
-          }
-        : null,
-      activeListingsCount,
-    });
 
-    const { data, error } = await supabase
+    const { error } = await supabase
       .from("profiles")
       .upsert(
         {
           id: user.id,
           display_name: displayName,
           slug,
-          email_verified_at: emailVerifiedAt,
           profile_completed_at: profileCompletedAt,
-          trust_score: trustScore,
         },
         { onConflict: "id" },
       )
-      .select("*")
+      .select("id")
       .single();
 
-    if (error || !data) {
+    if (error) {
       console.error("Supabase trust profile sync failed", error);
+      return { profile: existing ?? null, source: "unavailable" as const };
+    }
+
+    await supabase.rpc("update_profile_trust_score", {
+      target_user_id: user.id,
+    });
+
+    const { data, error: profileError } = await supabase
+      .from("profiles")
+      .select("*")
+      .eq("id", user.id)
+      .maybeSingle();
+
+    if (profileError || !data) {
+      console.error("Supabase trust profile sync failed", profileError);
       return { profile: existing ?? null, source: "unavailable" as const };
     }
 
     await awardTrustBadge(user.id, "new_member", supabase);
 
-    if (emailVerifiedAt) {
+    if (data.email_verified_at) {
       await awardTrustBadge(user.id, "email_verified", supabase);
     }
 
@@ -235,6 +245,18 @@ export async function getSellerTrustSummary(
   }
 }
 
+function normalizeProfileDisplayName(value: string) {
+  const normalized = value
+    .replace(CONTROL_CHARACTERS_PATTERN, "")
+    .replace(WHITESPACE_PATTERN, " ")
+    .trim()
+    .slice(0, DISPLAY_NAME_LIMITS.max);
+
+  return normalized.length >= DISPLAY_NAME_LIMITS.min
+    ? normalized
+    : FALLBACK_DISPLAY_NAME;
+}
+
 export async function getActiveListingCount(
   userId: string,
   supabase: SupabaseClient<Database> | null,
@@ -251,4 +273,3 @@ export async function getActiveListingCount(
 
   return count ?? 0;
 }
-

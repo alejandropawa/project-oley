@@ -4,6 +4,7 @@ import { notFound, redirect } from "next/navigation";
 import { AdminLayout } from "@/components/admin/admin-layout";
 import { AdminSetupState } from "@/components/admin/admin-setup-state";
 import { ReportDetail } from "@/components/admin/report-detail";
+import { getAuthDrawerPath } from "@/lib/auth/redirect";
 import { isCurrentUserAdmin } from "@/lib/db/admin";
 import { isSupabaseConfigured } from "@/lib/db/env";
 import { getModerationEventsForReport } from "@/lib/db/moderation";
@@ -38,7 +39,7 @@ export default async function AdminReportDetailPage({
   const admin = await isCurrentUserAdmin(supabase);
 
   if (!admin.user) {
-    redirect(`/login?redirectTo=/admin/rapoarte/${id}`);
+    redirect(getAuthDrawerPath("login", `/admin/rapoarte/${id}`));
   }
 
   if (admin.source === "unavailable") {

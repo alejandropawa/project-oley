@@ -43,7 +43,7 @@ export default async function AdminListingsPage({
   const admin = await isCurrentUserAdmin(supabase);
 
   if (!admin.user) {
-    redirect("/login?redirectTo=/admin/anunturi");
+    redirect("/?auth=login&redirectTo=/admin/anunturi");
   }
 
   if (admin.source === "unavailable") {
@@ -117,13 +117,13 @@ export default async function AdminListingsPage({
               name="reportedOnly"
               value="true"
               defaultChecked={filters.reportedOnly}
-              className="size-4 accent-[#2F6F65]"
+              className="size-4 accent-brand"
             />
             <span className="text-sm font-bold text-foreground">
               Doar raportate
             </span>
           </label>
-          <button className="h-12 rounded-full bg-primary px-5 text-sm font-bold text-primary-foreground sm:col-span-4 sm:w-fit">
+          <button className="h-12 rounded-full bg-action px-5 text-sm font-bold text-action-foreground hover:bg-action-hover sm:col-span-4 sm:w-fit">
             Filtrează
           </button>
         </form>

@@ -15,6 +15,7 @@ import { ReportButton } from "@/components/reports/report-button";
 import { SellerTrustSummary } from "@/components/trust/seller-trust-summary";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
+import { getAuthDrawerPath } from "@/lib/auth/redirect";
 import {
   formatListingPrice,
   getListingCategory,
@@ -115,7 +116,7 @@ export function ListingDetail({
           </p>
         </article>
 
-        <aside className="rounded-[1.5rem] border border-[#D5E4DF] bg-[#E8F1EE] p-5">
+        <aside className="rounded-[1.5rem] border border-brand-border bg-brand-soft p-5">
           <div className="flex gap-3">
             <span className="grid size-11 shrink-0 place-items-center rounded-[1rem] bg-card text-primary">
               <ShieldCheck className="size-5" aria-hidden="true" />
@@ -140,7 +141,7 @@ export function ListingDetail({
               entityType="listing"
               entityId={listing.id}
               isAuthenticated={contact?.isAuthenticated ?? false}
-              loginHref={`/login?redirectTo=/anunturi/${listing.slug}`}
+              loginHref={getAuthDrawerPath("login", `/anunturi/${listing.slug}`)}
               buttonLabel="Raportează anunțul"
               disabledReason={
                 contact?.isOwner
@@ -169,7 +170,7 @@ export function ListingDetail({
               {listing.condition}
             </Badge>
             {listing.isNegotiable ? (
-              <Badge className="rounded-full bg-[#FFF2CF] px-3 py-1 text-sm font-bold text-[#7A5718]">
+              <Badge className="rounded-full bg-secondary px-3 py-1 text-sm font-bold text-warm-foreground">
                 Negociabil
               </Badge>
             ) : null}
@@ -190,7 +191,7 @@ export function ListingDetail({
             {formatListingPrice(listing)}
           </p>
           {listing.promotion ? (
-            <p className="mt-3 rounded-[1rem] border border-[#D5E4DF] bg-[#E8F1EE] p-3 text-sm font-semibold leading-6 text-muted-foreground">
+            <p className="mt-3 rounded-[1rem] border border-brand-border bg-brand-soft p-3 text-sm font-semibold leading-6 text-muted-foreground">
               Anunț promovat. Acest anunț are vizibilitate crescută pe TROKO.
             </p>
           ) : null}
@@ -268,7 +269,7 @@ export function ListingDetail({
                     entityType="user"
                     entityId={listing.userId}
                     isAuthenticated={contact?.isAuthenticated ?? false}
-                    loginHref={`/login?redirectTo=/anunturi/${listing.slug}`}
+                    loginHref={getAuthDrawerPath("login", `/anunturi/${listing.slug}`)}
                     buttonLabel="Raportează utilizatorul"
                     disabledReason={
                       contact?.isOwner

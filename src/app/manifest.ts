@@ -8,8 +8,8 @@ export default function manifest(): MetadataRoute.Manifest {
       "Marketplace românesc pentru vânzare, cumpărare, închiriere și schimb.",
     start_url: "/",
     display: "standalone",
-    background_color: "#F6F3EE",
-    theme_color: "#2F6F65",
+    background_color: "#FFFEFC",
+    theme_color: "#005F3F",
     icons: [
       {
         src: "/icon",
