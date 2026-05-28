@@ -9,6 +9,8 @@ import {
   Loader2,
   LogIn,
   Send,
+  ShieldCheck,
+  X,
 } from "lucide-react";
 
 import { CreateListingProgress } from "@/components/create-listing/create-listing-progress";
@@ -16,7 +18,12 @@ import { ListingDetailsStep } from "@/components/create-listing/listing-details-
 import { ListingMediaLocationStep } from "@/components/create-listing/listing-media-location-step";
 import { ListingPreviewStep } from "@/components/create-listing/listing-preview-step";
 import { ListingTypeStep } from "@/components/create-listing/listing-type-step";
+import { PublishGuideScreen } from "@/components/create-listing/publish-guide-screen";
 import { SuccessState } from "@/components/create-listing/success-state";
+import {
+  primaryActionButtonClassName,
+  primaryActionIconClassName,
+} from "@/components/ui/action-styles";
 import { Button } from "@/components/ui/button";
 import {
   hasValidationErrors,
@@ -29,7 +36,6 @@ import { MAX_LISTING_IMAGE_SIZE } from "@/lib/db/storage";
 import { categories } from "@/lib/mock-data";
 import { romanianLocations } from "@/lib/romanian-locations";
 import { createClient } from "@/lib/supabase/browser";
-import { cn } from "@/lib/utils";
 import type {
   CreateListingErrors,
   CreateListingStep,
@@ -39,13 +45,13 @@ import type {
 import type { ListingType } from "@/lib/mock-data";
 
 export function CreateListingFlow({
+  initialShowGuide = true,
   isAuthenticated = false,
   isSupabaseReady = false,
-  surface = "page",
 }: {
+  initialShowGuide?: boolean;
   isAuthenticated?: boolean;
   isSupabaseReady?: boolean;
-  surface?: "page" | "dialog";
 }) {
   const [step, setStep] = useState<CreateListingStep>(0);
   const [values, setValues] = useState<CreateListingValues>(
@@ -54,13 +60,13 @@ export function CreateListingFlow({
   const [errors, setErrors] = useState<CreateListingErrors>({});
   const [successSlug, setSuccessSlug] = useState<string | null>(null);
   const [localSuccess, setLocalSuccess] = useState(false);
+  const [showGuide, setShowGuide] = useState(initialShowGuide);
   const [showAuthPrompt, setShowAuthPrompt] = useState(false);
   const [publishError, setPublishError] = useState("");
   const [mediaError, setMediaError] = useState("");
   const [isPublishing, setIsPublishing] = useState(false);
   const contentRef = useRef<HTMLDivElement>(null);
   const objectUrlsRef = useRef<Set<string>>(new Set());
-  const isDialogSurface = surface === "dialog";
 
   useEffect(() => {
     const objectUrls = objectUrlsRef.current;
@@ -345,96 +351,81 @@ export function CreateListingFlow({
     );
   }
 
+  if (showGuide) {
+    return <PublishGuideScreen onContinue={() => setShowGuide(false)} />;
+  }
+
   return (
-    <div
-      className={cn(
-        "w-full overflow-hidden bg-card",
-        isDialogSurface
-          ? "flex h-full flex-col rounded-[0.95rem] border border-brand-border/80 shadow-[0_12px_38px_rgba(2,24,20,0.08)]"
-          : "rounded-[1.15rem] border border-white/80 shadow-[0_28px_90px_rgba(2,24,20,0.12)]",
-      )}
-    >
-      {!isDialogSurface ? (
-        <header className="border-b border-border bg-card/96 px-5 py-4 backdrop-blur sm:px-7">
-          <h1 className="text-base font-black text-foreground">
-            Creează un anunț nou
-          </h1>
-        </header>
-      ) : null}
-
-      {!isAuthenticated ? (
-        <div className="border-b border-brand-border bg-brand-soft/70 px-5 py-4 sm:px-7">
-          <div className="flex gap-3">
-            <span className="grid size-10 shrink-0 place-items-center rounded-full bg-card text-primary shadow-sm">
-              <LogIn className="size-4" aria-hidden="true" />
-            </span>
-            <p className="text-sm font-semibold leading-6 text-muted-foreground">
-              <span className="font-black text-foreground">
-                Poți pregăti anunțul acum.
-              </span>{" "}
-              Pentru publicare finală, va trebui să intri în cont.
-            </p>
-          </div>
+    <div className="flex min-h-[calc(100svh-8.5rem)] w-full flex-col overflow-hidden rounded-[1.25rem] border border-border/90 bg-card/96 shadow-[0_24px_80px_rgba(15,70,61,0.08)] backdrop-blur-sm animate-in fade-in-0 zoom-in-95 duration-300">
+      <header className="flex min-h-16 items-center justify-between gap-3 border-b border-border bg-card/96 px-4 py-3 sm:px-6 animate-in fade-in-0 slide-in-from-top-2 duration-300">
+        <h1 className="text-base font-black text-foreground sm:text-lg">
+          Creează un anunț nou
+        </h1>
+        <div className="flex shrink-0 items-center gap-2">
+          <Button
+            asChild
+            variant="ghost"
+            className="grid size-10 place-items-center rounded-full p-0 text-muted-foreground hover:bg-brand-soft hover:text-primary"
+          >
+            <Link href="/" aria-label="Inchide flow-ul de publicare">
+              <X className="size-5" aria-hidden="true" />
+            </Link>
+          </Button>
         </div>
-      ) : null}
+      </header>
 
-      <div
-        className={cn(
-          "grid",
-          isDialogSurface
-            ? "min-h-0 flex-1 lg:grid-cols-[16rem_1fr]"
-            : "lg:h-[calc(100dvh-15rem)] lg:min-h-[34rem] lg:max-h-[42rem] lg:grid-cols-[17rem_1fr]",
-        )}
-      >
-        <div className="border-b border-border bg-background/55 lg:min-h-0 lg:border-b-0 lg:border-r">
+      <div className="grid flex-1 lg:min-h-0 lg:grid-cols-[17rem_1fr]">
+        <div className="border-b border-border bg-[#FFFDF8]/72 animate-in fade-in-0 slide-in-from-left-3 duration-300 lg:min-h-0 lg:border-b-0 lg:border-r">
           <CreateListingProgress step={step} />
         </div>
 
         <section className="flex min-h-0 flex-col bg-card">
           <div
             ref={contentRef}
-            className={cn(
-              "flex-1 overflow-y-auto p-5 sm:p-7",
-              isDialogSurface ? "lg:p-7" : "lg:p-8",
-            )}
+            className="flex-1 overflow-y-auto px-5 py-6 sm:px-8 sm:py-8 lg:px-10"
           >
-            {step === 0 ? (
-              <ListingTypeStep
-                values={values}
-                errors={errors}
-                onCategoryChange={updateCategory}
-              />
-            ) : null}
-            {step === 1 ? (
-              <ListingDetailsStep
-                values={values}
-                errors={errors}
-                onFieldChange={updateField}
-                onTypeChange={updateType}
-                onCategoryChange={updateCategory}
-                onSubcategoryChange={updateSubcategory}
-                onAttributeChange={updateAttribute}
-                onLocationChange={updateLocation}
-              />
-            ) : null}
-            {step === 2 ? (
-              <>
-                <ListingMediaLocationStep
+            <div
+              key={step}
+              className="animate-in fade-in-0 slide-in-from-bottom-2 duration-300"
+            >
+              {step === 0 ? (
+                <ListingTypeStep
                   values={values}
-                  onFilesSelected={handleFilesSelected}
-                  onRemovePhoto={removePhoto}
+                  errors={errors}
+                  onCategoryChange={updateCategory}
                 />
-                {mediaError ? (
-                  <p className="mt-4 rounded-lg border border-destructive/20 bg-destructive/10 p-3 text-sm font-semibold text-destructive">
-                    {mediaError}
-                  </p>
-                ) : null}
-              </>
-            ) : null}
-            {step === 3 ? <ListingPreviewStep values={values} /> : null}
+              ) : null}
+              {step === 1 ? (
+                <ListingDetailsStep
+                  values={values}
+                  errors={errors}
+                  onFieldChange={updateField}
+                  onTypeChange={updateType}
+                  onCategoryChange={updateCategory}
+                  onSubcategoryChange={updateSubcategory}
+                  onAttributeChange={updateAttribute}
+                  onLocationChange={updateLocation}
+                />
+              ) : null}
+              {step === 2 ? (
+                <>
+                  <ListingMediaLocationStep
+                    values={values}
+                    onFilesSelected={handleFilesSelected}
+                    onRemovePhoto={removePhoto}
+                  />
+                  {mediaError ? (
+                    <p className="mt-4 rounded-lg border border-destructive/20 bg-destructive/10 p-3 text-sm font-semibold text-destructive animate-in fade-in-0 slide-in-from-top-1 duration-200">
+                      {mediaError}
+                    </p>
+                  ) : null}
+                </>
+              ) : null}
+              {step === 3 ? <ListingPreviewStep values={values} /> : null}
+            </div>
 
             {showAuthPrompt ? (
-              <div className="mt-6 rounded-[0.9rem] border border-brand-border bg-brand-soft p-5 shadow-soft-sm">
+              <div className="mt-6 rounded-[0.9rem] border border-brand-border bg-brand-soft p-5 shadow-soft-sm animate-in fade-in-0 slide-in-from-bottom-2 duration-300">
                 <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
                   <div>
                     <h2 className="text-lg font-black text-foreground">
@@ -486,15 +477,32 @@ export function CreateListingFlow({
             ) : null}
           </div>
 
-          <footer className="border-t border-border bg-card px-5 py-4 sm:px-7">
-            <div className="flex flex-col-reverse gap-3 sm:flex-row sm:items-center sm:justify-between">
+          <footer className="border-t border-border bg-card/96 px-5 py-4 sm:px-7">
+            <div className="grid gap-4 lg:grid-cols-[1fr_auto] lg:items-center">
+              <div className="hidden items-center justify-center gap-3 text-center lg:flex">
+                <span className="grid size-10 shrink-0 place-items-center rounded-full bg-brand-soft text-primary">
+                  <ShieldCheck className="size-5" aria-hidden="true" />
+                </span>
+                <div className="text-left">
+                  <p className="text-sm font-black text-foreground">
+                    Anuntul va fi verificat dupa publicare
+                  </p>
+                  <p className="mt-0.5 text-xs font-semibold text-muted-foreground">
+                    Ne asiguram ca anunturile respecta regulile platformei.
+                  </p>
+                </div>
+              </div>
+              <div className="flex flex-wrap items-center justify-end gap-3 lg:min-w-[30rem]">
               {step === 0 ? (
                 <Button
                   asChild
                   variant="outline"
-                  className="h-11 rounded-full border-border bg-card px-6 font-bold"
+                  className="h-11 rounded-[0.7rem] border-border bg-card px-6 font-bold shadow-sm transition hover:border-primary/35 hover:bg-brand-soft hover:text-primary"
                 >
-                  <Link href="/">Anulează</Link>
+                  <Link href="/">
+                    <X className="size-4" aria-hidden="true" />
+                    Anuleaza
+                  </Link>
                 </Button>
               ) : (
                 <Button
@@ -502,7 +510,7 @@ export function CreateListingFlow({
                   variant="outline"
                   onClick={goBack}
                   disabled={isPublishing}
-                  className="h-11 rounded-full border-border bg-card px-6 font-bold text-foreground"
+                  className="h-11 rounded-[0.7rem] border-border bg-card px-6 font-bold text-foreground shadow-sm transition hover:border-primary/35 hover:bg-brand-soft hover:text-primary"
                 >
                   <ArrowLeft className="size-4" aria-hidden="true" />
                   Înapoi
@@ -515,7 +523,7 @@ export function CreateListingFlow({
                     type="button"
                     onClick={publishListing}
                     disabled={isPublishing}
-                    className="h-11 rounded-full bg-primary px-8 font-bold text-primary-foreground"
+                    className={`${primaryActionButtonClassName} h-11 px-8 font-bold`}
                   >
                     {isPublishing ? (
                       <Loader2
@@ -523,7 +531,10 @@ export function CreateListingFlow({
                         aria-hidden="true"
                       />
                     ) : (
-                      <Send className="size-4" aria-hidden="true" />
+                      <Send
+                        className={`size-4 ${primaryActionIconClassName}`}
+                        aria-hidden="true"
+                      />
                     )}
                     {isPublishing ? "Se publică anunțul..." : "Publică anunțul"}
                   </Button>
@@ -537,12 +548,16 @@ export function CreateListingFlow({
                   type="button"
                   onClick={goNext}
                   disabled={isPublishing}
-                  className="h-11 rounded-full bg-primary px-8 font-bold text-primary-foreground"
+                  className={`${primaryActionButtonClassName} h-11 px-8 font-bold`}
                 >
                   Continuă
-                  <ArrowRight className="size-4" aria-hidden="true" />
+                  <ArrowRight
+                    className={`size-4 ${primaryActionIconClassName}`}
+                    aria-hidden="true"
+                  />
                 </Button>
               )}
+              </div>
             </div>
           </footer>
         </section>

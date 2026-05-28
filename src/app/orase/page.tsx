@@ -1,8 +1,6 @@
 import { CityGrid } from "@/components/cities/city-grid";
 import { JsonLd } from "@/components/seo/json-ld";
-import { Footer } from "@/components/site/footer";
-import { Header } from "@/components/site/header";
-import { MobileBottomNav } from "@/components/site/mobile-bottom-nav";
+import { SitePageShell } from "@/components/site/page-shell";
 import { Breadcrumbs } from "@/components/ui/breadcrumbs";
 import { getCityListingCounts } from "@/lib/db/listings";
 import { listings } from "@/lib/mock-data";
@@ -28,9 +26,8 @@ export default async function CitiesPage() {
     dbCounts.source === "supabase" ? dbCounts.counts : getMockCityCounts();
 
   return (
-    <div className="min-h-screen overflow-x-hidden pb-20 md:pb-0">
-      <Header />
-      <main className="bg-background">
+    <SitePageShell>
+      <main className="relative isolate overflow-hidden">
         <JsonLd
           data={breadcrumbJsonLd([
             { name: "Acasă", url: absoluteUrl("/") },
@@ -38,7 +35,7 @@ export default async function CitiesPage() {
           ])}
         />
         <section className="border-b border-border bg-background">
-          <div className="mx-auto w-full max-w-7xl px-4 py-10 sm:px-6 sm:py-14 lg:px-8">
+          <div className="mx-auto w-full max-w-[1440px] px-5 py-10 sm:px-8 sm:py-14 lg:px-10">
             <Breadcrumbs
               items={[{ label: "Acasă", href: "/" }, { label: "Orașe" }]}
             />
@@ -58,14 +55,12 @@ export default async function CitiesPage() {
         </section>
 
         <section className="py-10 sm:py-14">
-          <div className="mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="mx-auto w-full max-w-[1440px] px-5 sm:px-8 lg:px-10">
             <CityGrid cities={romanianCities} counts={counts} />
           </div>
         </section>
       </main>
-      <Footer />
-      <MobileBottomNav />
-    </div>
+    </SitePageShell>
   );
 }
 

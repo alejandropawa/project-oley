@@ -6,9 +6,7 @@ import { PublicProfileListings } from "@/components/profiles/public-profile-list
 import { PublicProfileReviews } from "@/components/profiles/public-profile-reviews";
 import { ReportButton } from "@/components/reports/report-button";
 import { JsonLd } from "@/components/seo/json-ld";
-import { Footer } from "@/components/site/footer";
-import { Header } from "@/components/site/header";
-import { MobileBottomNav } from "@/components/site/mobile-bottom-nav";
+import { SitePageShell } from "@/components/site/page-shell";
 import { Breadcrumbs } from "@/components/ui/breadcrumbs";
 import { getAuthDrawerPath } from "@/lib/auth/redirect";
 import { getCurrentUser } from "@/lib/auth/user";
@@ -72,9 +70,8 @@ export default async function PublicProfilePage({
   const isOwnProfile = user?.id === publicProfile.profile.id;
 
   return (
-    <div className="min-h-screen overflow-x-hidden pb-20 md:pb-0">
-      <Header />
-      <main className="bg-background">
+    <SitePageShell>
+      <main className="relative isolate overflow-hidden">
         <JsonLd
           data={breadcrumbJsonLd([
             { name: "Acasa", url: absoluteUrl("/") },
@@ -82,7 +79,7 @@ export default async function PublicProfilePage({
           ])}
         />
         <section className="border-b border-border bg-background">
-          <div className="mx-auto w-full max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
+          <div className="mx-auto w-full max-w-[1440px] px-5 py-8 sm:px-8 lg:px-10">
             <Breadcrumbs
               items={[{ label: "Acasa", href: "/" }, { label: displayName }]}
             />
@@ -90,7 +87,7 @@ export default async function PublicProfilePage({
         </section>
 
         <section className="py-8 sm:py-12">
-          <div className="mx-auto grid w-full max-w-7xl gap-5 px-4 sm:px-6 lg:px-8">
+          <div className="mx-auto grid w-full max-w-[1440px] gap-5 px-5 sm:px-8 lg:px-10">
             <PublicProfileHeader publicProfile={publicProfile} />
             <div className="grid gap-5 lg:grid-cols-[1fr_340px] lg:items-start">
               <div className="grid gap-5">
@@ -136,8 +133,6 @@ export default async function PublicProfilePage({
           </div>
         </section>
       </main>
-      <Footer />
-      <MobileBottomNav />
-    </div>
+    </SitePageShell>
   );
 }

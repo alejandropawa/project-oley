@@ -5,9 +5,7 @@ import { CityHero } from "@/components/cities/city-hero";
 import { ListingGrid } from "@/components/listings/listing-grid";
 import { StaticMapCard } from "@/components/maps/static-map-card";
 import { JsonLd } from "@/components/seo/json-ld";
-import { Footer } from "@/components/site/footer";
-import { Header } from "@/components/site/header";
-import { MobileBottomNav } from "@/components/site/mobile-bottom-nav";
+import { SitePageShell } from "@/components/site/page-shell";
 import { Badge } from "@/components/ui/badge";
 import { Breadcrumbs } from "@/components/ui/breadcrumbs";
 import { Button } from "@/components/ui/button";
@@ -72,9 +70,8 @@ export default async function CityDetailPage({ params }: CityPageProps) {
     .filter((item) => item.count > 0);
 
   return (
-    <div className="min-h-screen overflow-x-hidden pb-20 md:pb-0">
-      <Header />
-      <main className="bg-card">
+    <SitePageShell>
+      <main className="relative isolate overflow-hidden">
         <JsonLd
           data={[
             cityPageJsonLd(city, absoluteUrl(`/orase/${city.slug}`)),
@@ -86,7 +83,7 @@ export default async function CityDetailPage({ params }: CityPageProps) {
           ]}
         />
         <section className="relative isolate overflow-hidden border-b border-border">
-          <div className="mx-auto w-full max-w-7xl px-4 py-10 sm:px-6 sm:py-14 lg:px-8">
+          <div className="mx-auto w-full max-w-[1440px] px-5 py-10 sm:px-8 sm:py-14 lg:px-10">
             <Breadcrumbs
               items={[
                 { label: "Acasă", href: "/" },
@@ -99,7 +96,7 @@ export default async function CityDetailPage({ params }: CityPageProps) {
         </section>
 
         <section className="py-8 sm:py-12">
-          <div className="mx-auto grid w-full max-w-7xl gap-8 px-4 sm:px-6 lg:px-8">
+          <div className="mx-auto grid w-full max-w-[1440px] gap-8 px-5 sm:px-8 lg:px-10">
             <div className="rounded-[1.5rem] border border-border bg-card p-4 shadow-soft-sm">
               <h2 className="text-lg font-black text-foreground">
                 Categorii active în {city.name}
@@ -189,8 +186,6 @@ export default async function CityDetailPage({ params }: CityPageProps) {
           </div>
         </section>
       </main>
-      <Footer />
-      <MobileBottomNav />
-    </div>
+    </SitePageShell>
   );
 }

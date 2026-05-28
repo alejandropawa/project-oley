@@ -32,18 +32,6 @@ export function LegalLink({
   );
 }
 
-export function AuthLogo() {
-  return (
-    <Link
-      href="/"
-      aria-label="TROKO.ro acasă"
-      className="shrink-0 text-[1.55rem] font-black leading-none text-brand"
-    >
-      TROKO<span className="text-warm">.ro</span>
-    </Link>
-  );
-}
-
 export function AuthIllustration() {
   return (
     <div className="mx-auto mt-3 h-20 w-full max-w-[22rem] shrink-0 overflow-hidden">

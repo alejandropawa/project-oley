@@ -6,7 +6,6 @@ import { X } from "lucide-react";
 import {
   AuthFooterQuote,
   AuthIllustration,
-  AuthLogo,
 } from "@/components/auth/auth-legal";
 import { LoginForm } from "@/components/auth/login-form";
 import { RegisterForm } from "@/components/auth/register-form";
@@ -37,9 +36,7 @@ export function AuthDrawerContent({
       <Dialog.Overlay className="fixed inset-0 z-[90] bg-[#061915]/68 backdrop-blur-[1px] data-[state=closed]:animate-out data-[state=open]:animate-in data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0" />
       <Dialog.Content className="fixed left-1/2 top-1/2 z-[100] flex max-h-[calc(100dvh-0.5rem)] w-[calc(100%-1.5rem)] max-w-[35rem] -translate-x-1/2 -translate-y-1/2 flex-col overflow-y-auto rounded-[1.15rem] border border-white/80 bg-[#FFFEFC] px-5 py-4 shadow-[0_28px_90px_rgba(2,24,20,0.34)] outline-none data-[state=closed]:animate-out data-[state=open]:animate-in data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 sm:px-7 lg:max-w-[36rem] min-[1800px]:max-w-[38rem]">
         <div className="sticky top-0 z-10 -mx-5 -mt-4 shrink-0 bg-[#FFFEFC]/96 px-5 pb-4 pt-4 backdrop-blur sm:-mx-7 sm:px-7">
-          <div className="flex items-center justify-between gap-5">
-            <AuthLogo />
-
+          <div className="flex items-center justify-end">
             <Dialog.Close asChild>
               <Button
                 type="button"

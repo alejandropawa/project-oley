@@ -4,9 +4,7 @@ import { notFound } from "next/navigation";
 import { categoryIcons } from "@/components/categories/category-icons";
 import { SearchPageLayout } from "@/components/search/search-page-layout";
 import { JsonLd } from "@/components/seo/json-ld";
-import { Footer } from "@/components/site/footer";
-import { Header } from "@/components/site/header";
-import { MobileBottomNav } from "@/components/site/mobile-bottom-nav";
+import { SitePageShell } from "@/components/site/page-shell";
 import { Badge } from "@/components/ui/badge";
 import { Breadcrumbs } from "@/components/ui/breadcrumbs";
 import { Button } from "@/components/ui/button";
@@ -92,9 +90,8 @@ export default async function CategoryCityPage({
     .slice(0, 6);
 
   return (
-    <div className="min-h-screen overflow-x-hidden pb-20 md:pb-0">
-      <Header />
-      <main className="bg-card">
+    <SitePageShell>
+      <main className="relative isolate overflow-hidden">
         <JsonLd
           data={[
             categoryPageJsonLd(
@@ -117,7 +114,7 @@ export default async function CategoryCityPage({
           ]}
         />
         <section className="relative isolate overflow-hidden border-b border-border">
-          <div className="mx-auto w-full max-w-7xl px-4 py-10 sm:px-6 sm:py-14 lg:px-8">
+          <div className="mx-auto w-full max-w-[1440px] px-5 py-10 sm:px-8 sm:py-14 lg:px-10">
             <Breadcrumbs
               items={[
                 { label: "Acasă", href: "/" },
@@ -161,7 +158,7 @@ export default async function CategoryCityPage({
         </section>
 
         <section className="py-8 sm:py-12">
-          <div className="mx-auto grid w-full max-w-7xl gap-8 px-4 sm:px-6 lg:px-8">
+          <div className="mx-auto grid w-full max-w-[1440px] gap-8 px-5 sm:px-8 lg:px-10">
             <div className="flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
               <div>
                 <p className="text-sm font-bold uppercase text-primary">
@@ -228,8 +225,6 @@ export default async function CategoryCityPage({
           </div>
         </section>
       </main>
-      <Footer />
-      <MobileBottomNav />
-    </div>
+    </SitePageShell>
   );
 }

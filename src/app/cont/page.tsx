@@ -2,9 +2,7 @@ import type { Metadata } from "next";
 import { redirect } from "next/navigation";
 
 import { AccountDashboard } from "@/components/account/account-dashboard";
-import { Footer } from "@/components/site/footer";
-import { Header } from "@/components/site/header";
-import { MobileBottomNav } from "@/components/site/mobile-bottom-nav";
+import { SitePageShell } from "@/components/site/page-shell";
 import { Breadcrumbs } from "@/components/ui/breadcrumbs";
 import { getCurrentUser } from "@/lib/auth/user";
 import { getUserListings } from "@/lib/db/listings";
@@ -35,11 +33,10 @@ export default async function AccountPage() {
   ]);
 
   return (
-    <div className="min-h-screen overflow-x-hidden pb-20 md:pb-0">
-      <Header />
-      <main className="bg-background">
+    <SitePageShell>
+      <main className="relative isolate overflow-hidden">
         <section className="border-b border-border bg-background">
-          <div className="mx-auto w-full max-w-7xl px-4 py-10 sm:px-6 sm:py-14 lg:px-8">
+          <div className="mx-auto w-full max-w-[1440px] px-5 py-10 sm:px-8 sm:py-14 lg:px-10">
             <Breadcrumbs
               items={[{ label: "Acasă", href: "/" }, { label: "Contul meu" }]}
             />
@@ -59,7 +56,7 @@ export default async function AccountPage() {
         </section>
 
         <section className="py-8 sm:py-12">
-          <div className="mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="mx-auto w-full max-w-[1440px] px-5 sm:px-8 lg:px-10">
             <AccountDashboard
               user={user}
               profile={profileResult.profile}
@@ -71,8 +68,6 @@ export default async function AccountPage() {
           </div>
         </section>
       </main>
-      <Footer />
-      <MobileBottomNav />
-    </div>
+    </SitePageShell>
   );
 }

@@ -2,9 +2,7 @@ import type { Metadata } from "next";
 import { redirect } from "next/navigation";
 
 import { ReviewList } from "@/components/reviews/review-list";
-import { Footer } from "@/components/site/footer";
-import { Header } from "@/components/site/header";
-import { MobileBottomNav } from "@/components/site/mobile-bottom-nav";
+import { SitePageShell } from "@/components/site/page-shell";
 import { Breadcrumbs } from "@/components/ui/breadcrumbs";
 import { getCurrentUser } from "@/lib/auth/user";
 import { getCurrentUserReviewOverview } from "@/lib/db/reviews";
@@ -30,11 +28,10 @@ export default async function AccountReviewsPage() {
   const overview = await getCurrentUserReviewOverview(supabase);
 
   return (
-    <div className="min-h-screen overflow-x-hidden pb-20 md:pb-0">
-      <Header />
-      <main className="bg-background">
+    <SitePageShell>
+      <main className="relative isolate overflow-hidden">
         <section className="border-b border-border bg-background">
-          <div className="mx-auto w-full max-w-7xl px-4 py-10 sm:px-6 sm:py-14 lg:px-8">
+          <div className="mx-auto w-full max-w-[1440px] px-5 py-10 sm:px-8 sm:py-14 lg:px-10">
             <Breadcrumbs
               items={[
                 { label: "Acasa", href: "/" },
@@ -58,7 +55,7 @@ export default async function AccountReviewsPage() {
         </section>
 
         <section className="py-8 sm:py-12">
-          <div className="mx-auto grid w-full max-w-7xl gap-5 px-4 sm:px-6 lg:grid-cols-2 lg:px-8">
+          <div className="mx-auto grid w-full max-w-[1440px] gap-5 px-5 sm:px-8 lg:grid-cols-2 lg:px-10">
             <article className="rounded-[1.5rem] border border-border bg-card p-5 shadow-soft-sm">
               <h2 className="text-xl font-black text-foreground">
                 Primite
@@ -84,8 +81,6 @@ export default async function AccountReviewsPage() {
           </div>
         </section>
       </main>
-      <Footer />
-      <MobileBottomNav />
-    </div>
+    </SitePageShell>
   );
 }

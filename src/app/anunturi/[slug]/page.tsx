@@ -3,9 +3,7 @@ import { notFound } from "next/navigation";
 
 import { ListingDetail } from "@/components/listings/listing-detail";
 import { JsonLd } from "@/components/seo/json-ld";
-import { Footer } from "@/components/site/footer";
-import { Header } from "@/components/site/header";
-import { MobileBottomNav } from "@/components/site/mobile-bottom-nav";
+import { SitePageShell } from "@/components/site/page-shell";
 import { Breadcrumbs } from "@/components/ui/breadcrumbs";
 import { getCurrentUser } from "@/lib/auth/user";
 import { getListingBySlug as getDbListingBySlug } from "@/lib/db/listings";
@@ -104,9 +102,8 @@ export default async function ListingDetailPage({ params }: ListingPageProps) {
   const isOwner = Boolean(user && decoratedListing.userId === user.id);
 
   return (
-    <div className="min-h-screen overflow-x-hidden pb-20 md:pb-0">
-      <Header />
-      <main className="bg-card">
+    <SitePageShell>
+      <main className="relative isolate overflow-hidden">
         <JsonLd
           data={[
             listingJsonLd(decoratedListing),
@@ -125,7 +122,7 @@ export default async function ListingDetailPage({ params }: ListingPageProps) {
           ]}
         />
         <section className="relative isolate overflow-hidden border-b border-border">
-          <div className="mx-auto w-full max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
+          <div className="mx-auto w-full max-w-[1440px] px-5 py-8 sm:px-8 lg:px-10">
             <Breadcrumbs
               items={[
                 { label: "Acasă", href: "/" },
@@ -138,7 +135,7 @@ export default async function ListingDetailPage({ params }: ListingPageProps) {
         </section>
 
         <section className="py-8 sm:py-12">
-          <div className="mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="mx-auto w-full max-w-[1440px] px-5 sm:px-8 lg:px-10">
             <ListingDetail
               listing={decoratedListing}
               sellerTrust={sellerTrust.summary}
@@ -154,8 +151,6 @@ export default async function ListingDetailPage({ params }: ListingPageProps) {
           </div>
         </section>
       </main>
-      <Footer />
-      <MobileBottomNav />
-    </div>
+    </SitePageShell>
   );
 }

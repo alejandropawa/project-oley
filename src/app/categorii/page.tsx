@@ -1,8 +1,6 @@
 import { CategoryGrid } from "@/components/categories/category-grid";
 import { JsonLd } from "@/components/seo/json-ld";
-import { Footer } from "@/components/site/footer";
-import { Header } from "@/components/site/header";
-import { MobileBottomNav } from "@/components/site/mobile-bottom-nav";
+import { SitePageShell } from "@/components/site/page-shell";
 import { Breadcrumbs } from "@/components/ui/breadcrumbs";
 import { categories } from "@/lib/mock-data";
 import { breadcrumbJsonLd } from "@/lib/seo/json-ld";
@@ -18,9 +16,8 @@ export const metadata = createPublicMetadata({
 
 export default function CategoriesPage() {
   return (
-    <div className="min-h-screen overflow-x-hidden pb-20 md:pb-0">
-      <Header />
-      <main className="bg-background">
+    <SitePageShell>
+      <main className="relative isolate overflow-hidden">
         <JsonLd
           data={breadcrumbJsonLd([
             { name: "Acasă", url: absoluteUrl("/") },
@@ -28,7 +25,7 @@ export default function CategoriesPage() {
           ])}
         />
         <section className="border-b border-border bg-background">
-          <div className="mx-auto w-full max-w-7xl px-4 py-10 sm:px-6 sm:py-14 lg:px-8">
+          <div className="mx-auto w-full max-w-[1440px] px-5 py-10 sm:px-8 sm:py-14 lg:px-10">
             <Breadcrumbs
               items={[{ label: "Acasă", href: "/" }, { label: "Categorii" }]}
             />
@@ -52,13 +49,11 @@ export default function CategoriesPage() {
         </section>
 
         <section className="py-10 sm:py-14">
-          <div className="mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="mx-auto w-full max-w-[1440px] px-5 sm:px-8 lg:px-10">
             <CategoryGrid />
           </div>
         </section>
       </main>
-      <Footer />
-      <MobileBottomNav />
-    </div>
+    </SitePageShell>
   );
 }

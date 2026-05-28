@@ -17,8 +17,8 @@ export function ListingTypeStep({
 }) {
   return (
     <div>
-      <div className="mb-5">
-        <h2 className="text-xl font-black text-foreground">
+      <div className="mb-6 max-w-2xl">
+        <h2 className="text-2xl font-black tracking-[-0.01em] text-foreground">
           1. Alege tipul anunțului
         </h2>
         <p className="mt-2 text-sm leading-6 text-muted-foreground">
@@ -26,7 +26,7 @@ export function ListingTypeStep({
         </p>
       </div>
 
-      <div className="grid gap-3 sm:grid-cols-2 xl:grid-cols-3">
+      <div className="grid gap-3.5 sm:grid-cols-2 xl:grid-cols-3">
         {categories.map((category) => {
           const Icon = categoryIcons[category.iconName];
           const selected = values.categorySlug === category.slug;
@@ -38,15 +38,15 @@ export function ListingTypeStep({
               aria-pressed={selected}
               onClick={() => onCategoryChange(category.slug)}
               className={cn(
-                "flex min-h-32 flex-col items-center justify-center rounded-[0.9rem] border bg-background p-4 text-center transition hover:-translate-y-0.5 hover:border-primary/50 focus-visible:outline-none focus-visible:ring-3 focus-visible:ring-ring/40",
+                "flex min-h-36 flex-col items-center justify-center rounded-[0.95rem] border bg-card p-5 text-center shadow-sm transition hover:-translate-y-0.5 hover:border-primary/45 hover:shadow-[0_18px_44px_rgba(15,70,61,0.1)] focus-visible:outline-none focus-visible:ring-3 focus-visible:ring-ring/40",
                 selected
-                  ? "border-primary bg-brand-soft shadow-soft-sm"
-                  : "border-border shadow-soft-sm",
+                  ? "border-primary bg-brand-soft shadow-[0_18px_44px_rgba(15,70,61,0.1)]"
+                  : "border-border",
               )}
             >
               <span
                 className={cn(
-                  "grid size-14 shrink-0 place-items-center rounded-full",
+                  "grid size-14 shrink-0 place-items-center rounded-[1rem] transition",
                   selected
                     ? "bg-primary text-primary-foreground"
                     : "bg-brand-soft text-primary",

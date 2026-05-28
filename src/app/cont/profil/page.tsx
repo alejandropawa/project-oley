@@ -3,9 +3,7 @@ import type { Metadata } from "next";
 import { redirect } from "next/navigation";
 
 import { ProfileForm } from "@/components/account/profile-form";
-import { Footer } from "@/components/site/footer";
-import { Header } from "@/components/site/header";
-import { MobileBottomNav } from "@/components/site/mobile-bottom-nav";
+import { SitePageShell } from "@/components/site/page-shell";
 import { Button } from "@/components/ui/button";
 import { Breadcrumbs } from "@/components/ui/breadcrumbs";
 import { getCurrentUser, getDisplayName } from "@/lib/auth/user";
@@ -34,11 +32,10 @@ export default async function AccountProfilePage() {
   const profileResult = await getCurrentProfile(supabase);
 
   return (
-    <div className="min-h-screen overflow-x-hidden pb-20 md:pb-0">
-      <Header />
-      <main className="bg-background">
+    <SitePageShell>
+      <main className="relative isolate overflow-hidden">
         <section className="border-b border-border bg-background">
-          <div className="mx-auto w-full max-w-7xl px-4 py-10 sm:px-6 sm:py-14 lg:px-8">
+          <div className="mx-auto w-full max-w-[1440px] px-5 py-10 sm:px-8 sm:py-14 lg:px-10">
             <Breadcrumbs
               items={[
                 { label: "Acasa", href: "/" },
@@ -69,7 +66,7 @@ export default async function AccountProfilePage() {
         </section>
 
         <section className="py-8 sm:py-12">
-          <div className="mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="mx-auto w-full max-w-[1440px] px-5 sm:px-8 lg:px-10">
             <ProfileForm
               initialProfile={profileResult.profile}
               initialPrivateSettings={profileResult.privateSettings}
@@ -79,8 +76,6 @@ export default async function AccountProfilePage() {
           </div>
         </section>
       </main>
-      <Footer />
-      <MobileBottomNav />
-    </div>
+    </SitePageShell>
   );
 }

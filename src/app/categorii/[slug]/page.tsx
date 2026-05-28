@@ -4,9 +4,7 @@ import { notFound } from "next/navigation";
 import { categoryIcons } from "@/components/categories/category-icons";
 import { SearchPageLayout } from "@/components/search/search-page-layout";
 import { JsonLd } from "@/components/seo/json-ld";
-import { Footer } from "@/components/site/footer";
-import { Header } from "@/components/site/header";
-import { MobileBottomNav } from "@/components/site/mobile-bottom-nav";
+import { SitePageShell } from "@/components/site/page-shell";
 import { Breadcrumbs } from "@/components/ui/breadcrumbs";
 import { getCategoryBySlug } from "@/lib/listing-utils";
 import { categories } from "@/lib/mock-data";
@@ -65,9 +63,8 @@ export default async function CategoryDetailPage({
   const result = await searchListings(filters, supabase);
 
   return (
-    <div className="min-h-screen overflow-x-hidden pb-20 md:pb-0">
-      <Header />
-      <main className="bg-card">
+    <SitePageShell>
+      <main className="relative isolate overflow-hidden">
         <JsonLd
           data={[
             categoryPageJsonLd(category, absoluteUrl(`/categorii/${category.slug}`)),
@@ -82,7 +79,7 @@ export default async function CategoryDetailPage({
           ]}
         />
         <section className="relative isolate overflow-hidden border-b border-border">
-          <div className="mx-auto w-full max-w-7xl px-4 py-10 sm:px-6 sm:py-14 lg:px-8">
+          <div className="mx-auto w-full max-w-[1440px] px-5 py-10 sm:px-8 sm:py-14 lg:px-10">
             <Breadcrumbs
               items={[
                 { label: "Acasă", href: "/" },
@@ -124,7 +121,7 @@ export default async function CategoryDetailPage({
         </section>
 
         <section className="py-8 sm:py-12">
-          <div className="mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="mx-auto w-full max-w-[1440px] px-5 sm:px-8 lg:px-10">
             <SearchPageLayout
               params={filters}
               result={result}
@@ -135,8 +132,6 @@ export default async function CategoryDetailPage({
           </div>
         </section>
       </main>
-      <Footer />
-      <MobileBottomNav />
-    </div>
+    </SitePageShell>
   );
 }

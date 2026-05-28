@@ -2,9 +2,7 @@ import type { Metadata } from "next";
 
 import { ListingsBrowseExperience } from "@/components/listings/listings-browse-experience";
 import { JsonLd } from "@/components/seo/json-ld";
-import { Footer } from "@/components/site/footer";
-import { Header } from "@/components/site/header";
-import { MobileBottomNav } from "@/components/site/mobile-bottom-nav";
+import { SitePageShell } from "@/components/site/page-shell";
 import { categories } from "@/lib/mock-data";
 import { getCityBySlug } from "@/lib/romanian-cities";
 import { searchListings } from "@/lib/search/provider";
@@ -60,8 +58,7 @@ export default async function ListingsPage({
   const result = await searchListings(params, supabase);
 
   return (
-    <div className="min-h-screen overflow-x-hidden pb-20 md:pb-0">
-      <Header />
+    <SitePageShell>
       <JsonLd
         data={breadcrumbJsonLd([
           { name: "Acasă", url: absoluteUrl("/") },
@@ -69,8 +66,6 @@ export default async function ListingsPage({
         ])}
       />
       <ListingsBrowseExperience params={params} result={result} />
-      <Footer />
-      <MobileBottomNav />
-    </div>
+    </SitePageShell>
   );
 }

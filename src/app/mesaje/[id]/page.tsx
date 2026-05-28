@@ -8,9 +8,7 @@ import { MessageComposer } from "@/components/inbox/message-composer";
 import { MessageThread } from "@/components/inbox/message-thread";
 import { SafetyChatCard } from "@/components/inbox/safety-chat-card";
 import { ReviewDialog } from "@/components/reviews/review-dialog";
-import { Footer } from "@/components/site/footer";
-import { Header } from "@/components/site/header";
-import { MobileBottomNav } from "@/components/site/mobile-bottom-nav";
+import { SitePageShell } from "@/components/site/page-shell";
 import { Breadcrumbs } from "@/components/ui/breadcrumbs";
 import { getAuthDrawerPath } from "@/lib/auth/redirect";
 import { getCurrentUser } from "@/lib/auth/user";
@@ -136,11 +134,10 @@ export default async function ConversationPage({
 
 function ConversationFrame({ children }: { children: React.ReactNode }) {
   return (
-    <div className="min-h-screen overflow-x-hidden pb-20 md:pb-0">
-      <Header />
-      <main className="bg-background">
+    <SitePageShell>
+      <main className="relative isolate overflow-hidden">
         <section className="border-b border-border bg-background">
-          <div className="mx-auto w-full max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
+          <div className="mx-auto w-full max-w-[1440px] px-5 py-8 sm:px-8 lg:px-10">
             <Breadcrumbs
               items={[
                 { label: "Acasă", href: "/" },
@@ -152,13 +149,11 @@ function ConversationFrame({ children }: { children: React.ReactNode }) {
         </section>
 
         <section className="py-6 sm:py-8">
-          <div className="mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="mx-auto w-full max-w-[1440px] px-5 sm:px-8 lg:px-10">
             {children}
           </div>
         </section>
       </main>
-      <Footer />
-      <MobileBottomNav />
-    </div>
+    </SitePageShell>
   );
 }
