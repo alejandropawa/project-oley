@@ -26,11 +26,11 @@ export function NotificationItem({
       <div className="min-w-0 flex-1">
         <div className="flex flex-wrap items-center gap-2">
           {!isRead ? (
-            <Badge className="rounded-full bg-secondary px-2 py-0.5 text-[0.7rem] font-black text-warm-foreground">
+            <Badge className="rounded-full bg-secondary px-2 py-0.5 text-[0.7rem] font-semibold text-warm-foreground">
               Necitită
             </Badge>
           ) : null}
-          <span className="text-xs font-black uppercase text-primary">
+          <span className="text-xs font-semibold uppercase text-primary">
             {notificationTypeLabels[notification.type]}
           </span>
           <span className="text-xs font-semibold text-muted-foreground">
@@ -39,7 +39,7 @@ export function NotificationItem({
         </div>
         <h3
           className={cn(
-            "mt-1 font-black text-foreground",
+            "mt-1 font-semibold text-foreground",
             compact ? "line-clamp-1 text-sm" : "text-base",
           )}
         >

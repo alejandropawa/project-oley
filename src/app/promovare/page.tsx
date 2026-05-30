@@ -26,10 +26,10 @@ export default async function PromotionsPage() {
         <section className="border-b border-border bg-background">
           <div className="mx-auto grid w-full max-w-[1440px] gap-8 px-5 py-10 sm:px-8 sm:py-14 lg:grid-cols-[1.05fr_0.95fr] lg:items-center lg:px-10">
             <div>
-              <p className="text-sm font-black uppercase text-primary">
+              <p className="text-sm font-semibold uppercase text-primary">
                 Monetizare TROKO
               </p>
-              <h1 className="mt-3 max-w-4xl text-3xl font-black leading-tight text-foreground sm:text-4xl min-[1800px]:text-5xl">
+              <h1 className="mt-3 max-w-4xl text-3xl font-semibold leading-tight text-foreground sm:text-4xl min-[1800px]:text-5xl">
                 Promovează-ți anunțul pe TROKO
               </h1>
               <p className="mt-5 max-w-2xl text-base leading-7 text-muted-foreground sm:text-lg">
@@ -40,7 +40,7 @@ export default async function PromotionsPage() {
               <div className="mt-7 flex flex-col gap-3 sm:flex-row">
                 <Button
                   asChild
-                  className="h-12 rounded-full bg-primary px-6 font-bold text-primary-foreground"
+                  className="h-12 rounded-full bg-primary px-6 font-semibold text-primary-foreground"
                 >
                   <Link href="/cont/anunturi">
                     Vezi anunțurile mele
@@ -50,7 +50,7 @@ export default async function PromotionsPage() {
                 <Button
                   asChild
                   variant="outline"
-                  className="h-12 rounded-full border-border bg-card px-6 font-bold"
+                  className="h-12 rounded-full border-border bg-card px-6 font-semibold"
                 >
                   <Link href="/publica">Publică anunț</Link>
                 </Button>
@@ -84,7 +84,7 @@ export default async function PromotionsPage() {
                         <Icon className="size-5" aria-hidden="true" />
                       </span>
                       <div>
-                        <h2 className="font-black text-foreground">
+                        <h2 className="font-semibold text-foreground">
                           {item.title}
                         </h2>
                         <p className="mt-1 text-sm leading-6 text-muted-foreground">
@@ -102,10 +102,10 @@ export default async function PromotionsPage() {
         <section className="py-8 sm:py-12">
           <div className="mx-auto grid w-full max-w-[1440px] gap-6 px-5 sm:px-8 lg:px-10">
             <div className="max-w-2xl">
-              <p className="text-sm font-black uppercase text-primary">
+              <p className="text-sm font-semibold uppercase text-primary">
                 Pachete disponibile
               </p>
-              <h2 className="mt-2 text-3xl font-black text-foreground">
+              <h2 className="mt-2 text-3xl font-semibold text-foreground">
                 Alege vizibilitatea potrivită
               </h2>
               <p className="mt-3 text-sm leading-6 text-muted-foreground">

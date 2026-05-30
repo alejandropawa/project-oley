@@ -33,7 +33,7 @@ export function ConversationListItem({
       )}
     >
       <div
-        className="grid size-16 place-items-center overflow-hidden rounded-[1rem] bg-muted text-lg font-black text-primary"
+        className="grid size-16 place-items-center overflow-hidden rounded-[1rem] bg-muted text-lg font-semibold text-primary"
         style={
           conversation.listing.imageUrl
             ? {
@@ -52,7 +52,7 @@ export function ConversationListItem({
       <div className="min-w-0">
         <div className="flex items-start justify-between gap-2">
           <div className="min-w-0">
-            <p className="truncate text-sm font-black text-foreground">
+            <p className="truncate text-sm font-semibold text-foreground">
               {conversation.listing.title}
             </p>
             <p className="mt-0.5 truncate text-xs font-semibold text-muted-foreground">
@@ -60,7 +60,7 @@ export function ConversationListItem({
             </p>
           </div>
           {conversation.isUnread ? (
-            <span className="inline-flex min-w-6 shrink-0 items-center justify-center rounded-full bg-primary px-2 py-0.5 text-xs font-black text-primary-foreground">
+            <span className="inline-flex min-w-6 shrink-0 items-center justify-center rounded-full bg-primary px-2 py-0.5 text-xs font-semibold text-primary-foreground">
               {conversation.unreadCount}
             </span>
           ) : (
@@ -76,11 +76,11 @@ export function ConversationListItem({
         </p>
 
         <div className="mt-3 flex flex-wrap items-center gap-2">
-          <Badge className="rounded-full bg-muted px-2 py-0.5 text-[0.68rem] font-bold text-primary">
+          <Badge className="rounded-full bg-muted px-2 py-0.5 text-[0.68rem] font-semibold text-primary">
             {listingStatus}
           </Badge>
           {conversation.status !== "active" ? (
-            <Badge className="rounded-full bg-background px-2 py-0.5 text-[0.68rem] font-bold text-muted-foreground">
+            <Badge className="rounded-full bg-background px-2 py-0.5 text-[0.68rem] font-semibold text-muted-foreground">
               {conversationStatusLabels[conversation.status]}
             </Badge>
           ) : null}

@@ -96,7 +96,7 @@ export default async function PublicProfilePage({
               </div>
               <aside className="grid gap-5 lg:sticky lg:top-24">
                 <div className="rounded-[1.5rem] border border-brand-border bg-brand-soft p-5">
-                  <h2 className="font-black text-foreground">
+                  <h2 className="font-semibold text-foreground">
                     Discutati in siguranta
                   </h2>
                   <p className="mt-2 text-sm leading-6 text-muted-foreground">
@@ -105,7 +105,7 @@ export default async function PublicProfilePage({
                   </p>
                 </div>
                 <div className="rounded-[1.5rem] border border-border bg-card p-5 shadow-soft-sm">
-                  <h2 className="font-black text-foreground">
+                  <h2 className="font-semibold text-foreground">
                     Raportare profil
                   </h2>
                   <p className="mt-2 text-sm leading-6 text-muted-foreground">

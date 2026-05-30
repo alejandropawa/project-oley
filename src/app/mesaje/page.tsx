@@ -65,7 +65,7 @@ export default async function InboxPage() {
     <InboxPageFrame>
       <InboxLayout conversations={inbox.conversations}>
         <div className="hidden rounded-[1.75rem] border border-border bg-card p-8 text-center shadow-soft-sm lg:block">
-          <h2 className="text-2xl font-black text-foreground">
+          <h2 className="text-2xl font-semibold text-foreground">
             Alege o conversație
           </h2>
           <p className="mx-auto mt-2 max-w-md text-sm leading-6 text-muted-foreground">
@@ -87,10 +87,10 @@ function InboxPageFrame({ children }: { children: React.ReactNode }) {
               items={[{ label: "Acasă", href: "/" }, { label: "Mesaje" }]}
             />
             <div className="mt-8 max-w-3xl">
-              <p className="text-sm font-bold uppercase text-primary">
+              <p className="text-sm font-semibold uppercase text-primary">
                 Inbox TROKO
               </p>
-              <h1 className="mt-2 text-3xl font-black leading-tight text-foreground sm:text-4xl min-[1800px]:text-5xl">
+              <h1 className="mt-2 text-3xl font-semibold leading-tight text-foreground sm:text-4xl min-[1800px]:text-5xl">
                 Mesaje
               </h1>
               <p className="mt-4 text-base leading-7 text-muted-foreground">

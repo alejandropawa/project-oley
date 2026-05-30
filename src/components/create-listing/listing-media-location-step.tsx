@@ -17,7 +17,7 @@ export function ListingMediaLocationStep({
   return (
     <div>
       <div className="mb-5">
-        <h2 className="text-xl font-black text-foreground">
+        <h2 className="text-2xl font-semibold text-foreground">
           3. Adaugă fotografii
         </h2>
         <p className="mt-2 text-sm leading-6 text-muted-foreground">
@@ -28,7 +28,7 @@ export function ListingMediaLocationStep({
       <div className="grid gap-5">
         <section
           className={cn(
-            "flex min-h-64 flex-col items-center justify-center rounded-lg border border-dashed border-border bg-background p-6 text-center transition",
+            "flex min-h-64 flex-col items-center justify-center rounded-lg border border-dashed border-border bg-brand-surface p-6 text-center transition",
             remainingPhotos > 0 && "hover:border-primary/50",
             remainingPhotos === 0 && "opacity-70",
           )}
@@ -55,13 +55,13 @@ export function ListingMediaLocationStep({
             <span className="grid size-16 place-items-center rounded-full bg-brand-soft text-primary">
               <ImagePlus className="size-8" aria-hidden="true" />
             </span>
-            <span className="mt-4 text-base font-black text-foreground">
+            <span className="mt-4 text-base font-semibold text-foreground">
               Trage și plasează imaginile aici
             </span>
             <span className="mt-2 text-sm font-semibold text-muted-foreground">
               sau
             </span>
-            <span className="mt-4 inline-flex h-11 min-w-40 items-center justify-center rounded-lg border border-input bg-card px-5 text-sm font-black text-foreground shadow-soft-sm transition hover:bg-muted">
+            <span className="mt-4 inline-flex h-12 min-w-40 items-center justify-center rounded-sm border border-input bg-card px-5 text-sm font-semibold text-foreground shadow-soft-sm transition hover:bg-muted">
               Alege fișiere
             </span>
             <span className="mt-3 text-xs leading-5 text-muted-foreground">
@@ -77,14 +77,14 @@ export function ListingMediaLocationStep({
             {values.photos.map((photo, index) => (
               <div
                 key={photo.id}
-                className="group relative aspect-square overflow-hidden rounded-lg border border-border bg-muted"
+                className="group relative aspect-square overflow-hidden rounded-md border border-border bg-muted"
                 style={{
                   backgroundImage: `url(${photo.url})`,
                   backgroundPosition: "center",
                   backgroundSize: "cover",
                 }}
               >
-                <span className="absolute left-2 top-2 rounded-full bg-card/90 px-2 py-0.5 text-xs font-bold text-foreground backdrop-blur">
+                <span className="absolute left-2 top-2 rounded-full bg-card/90 px-2 py-0.5 text-xs font-semibold text-foreground backdrop-blur">
                   {index === 0 ? "Copertă" : index + 1}
                 </span>
                 <button
@@ -101,7 +101,7 @@ export function ListingMediaLocationStep({
         ) : null}
 
         <section className="text-sm leading-7 text-muted-foreground">
-          <h3 className="font-black text-foreground">Recomandări:</h3>
+          <h3 className="font-semibold text-foreground">Recomandări:</h3>
           <ul className="mt-2 list-disc pl-5">
             <li>Folosește imagini clare și luminoase</li>
             <li>Include mai multe unghiuri</li>

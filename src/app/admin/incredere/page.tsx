@@ -66,7 +66,7 @@ export default async function AdminTrustPage() {
     >
       <div className="grid gap-5">
         <section className="rounded-[1.5rem] border border-border bg-card p-5 shadow-soft-sm">
-          <h2 className="text-xl font-black text-foreground">
+          <h2 className="text-xl font-semibold text-foreground">
             Cereri de verificare
           </h2>
           <div className="mt-5 grid gap-3">
@@ -77,7 +77,7 @@ export default async function AdminTrustPage() {
                   className="grid gap-3 rounded-[1rem] border border-border bg-background p-4 lg:grid-cols-[1fr_auto]"
                 >
                   <div>
-                    <p className="font-black text-foreground">
+                    <p className="font-semibold text-foreground">
                       {request.type === "phone"
                         ? "Verificare telefon"
                         : "Verificare vanzator"}
@@ -87,10 +87,10 @@ export default async function AdminTrustPage() {
                       {request.user_id.slice(0, 8)}
                     </p>
                     <div className="mt-2 flex flex-wrap gap-2">
-                      <Badge className="rounded-full bg-muted px-3 py-1 text-xs font-bold text-primary">
+                      <Badge className="rounded-full bg-muted px-3 py-1 text-xs font-semibold text-primary">
                         {verificationStatusLabels[request.status]}
                       </Badge>
-                      <Badge className="rounded-full bg-card px-3 py-1 text-xs font-bold text-muted-foreground">
+                      <Badge className="rounded-full bg-card px-3 py-1 text-xs font-semibold text-muted-foreground">
                         {new Intl.DateTimeFormat("ro-RO").format(
                           new Date(request.created_at),
                         )}
@@ -116,7 +116,7 @@ export default async function AdminTrustPage() {
         </section>
 
         <section className="rounded-[1.5rem] border border-border bg-card p-5 shadow-soft-sm">
-          <h2 className="text-xl font-black text-foreground">
+          <h2 className="text-xl font-semibold text-foreground">
             Review-uri recente
           </h2>
           <div className="mt-5 grid gap-3">
@@ -127,7 +127,7 @@ export default async function AdminTrustPage() {
                   className="grid gap-3 rounded-[1rem] border border-border bg-background p-4 lg:grid-cols-[1fr_auto]"
                 >
                   <div>
-                    <p className="font-black text-foreground">
+                    <p className="font-semibold text-foreground">
                       Rating {review.rating}/5 · {review.id.slice(0, 8)}
                     </p>
                     <p className="mt-1 text-xs font-semibold text-muted-foreground">
@@ -139,7 +139,7 @@ export default async function AdminTrustPage() {
                         {review.comment}
                       </p>
                     ) : null}
-                    <Badge className="mt-3 rounded-full bg-muted px-3 py-1 text-xs font-bold text-primary">
+                    <Badge className="mt-3 rounded-full bg-muted px-3 py-1 text-xs font-semibold text-primary">
                       {reviewStatusLabels[review.status]}
                     </Badge>
                   </div>
@@ -155,7 +155,7 @@ export default async function AdminTrustPage() {
         </section>
 
         <section className="rounded-[1.5rem] border border-border bg-card p-5 shadow-soft-sm">
-          <h2 className="text-xl font-black text-foreground">
+          <h2 className="text-xl font-semibold text-foreground">
             Badge vanzator de incredere
           </h2>
           <div className="mt-5 grid gap-3">
@@ -165,7 +165,7 @@ export default async function AdminTrustPage() {
                 className="grid gap-3 rounded-[1rem] border border-border bg-background p-4 lg:grid-cols-[1fr_auto]"
               >
                 <div>
-                  <p className="font-black text-foreground">
+                  <p className="font-semibold text-foreground">
                     {row.profile.display_name ?? "Utilizator TROKO"}
                   </p>
                   <p className="mt-1 text-sm text-muted-foreground">

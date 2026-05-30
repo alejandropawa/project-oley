@@ -63,10 +63,10 @@ export default async function AccountPromotionsPage() {
         <>
           <section className="grid gap-4">
             <div>
-              <p className="text-sm font-black uppercase text-primary">
+              <p className="text-sm font-semibold uppercase text-primary">
                 Vizibilitate curentă
               </p>
-              <h2 className="mt-1 text-2xl font-black text-foreground">
+              <h2 className="mt-1 text-2xl font-semibold text-foreground">
                 Promovări active
               </h2>
             </div>
@@ -85,10 +85,10 @@ export default async function AccountPromotionsPage() {
 
           <section className="grid gap-4">
             <div>
-              <p className="text-sm font-black uppercase text-primary">
+              <p className="text-sm font-semibold uppercase text-primary">
                 Solicitări
               </p>
-              <h2 className="mt-1 text-2xl font-black text-foreground">
+              <h2 className="mt-1 text-2xl font-semibold text-foreground">
                 Solicitări de promovare
               </h2>
             </div>
@@ -123,7 +123,7 @@ function AccountPromotionsFrame({ children }: { children: React.ReactNode }) {
                 { label: "Promovări" },
               ]}
             />
-            <h1 className="mt-8 text-3xl font-black text-foreground sm:text-4xl min-[1800px]:text-5xl">
+            <h1 className="mt-8 text-3xl font-semibold text-foreground sm:text-4xl min-[1800px]:text-5xl">
               Promovările mele
             </h1>
             <p className="mt-4 max-w-2xl text-base leading-7 text-muted-foreground">
@@ -149,7 +149,7 @@ function EmptyState() {
       <div className="mx-auto grid size-14 place-items-center rounded-full bg-muted text-primary">
         <Megaphone className="size-6" aria-hidden="true" />
       </div>
-      <h2 className="mt-4 text-2xl font-black text-foreground">
+      <h2 className="mt-4 text-2xl font-semibold text-foreground">
         Nu ai promovări încă
       </h2>
       <p className="mx-auto mt-2 max-w-md text-sm leading-6 text-muted-foreground">
@@ -158,7 +158,7 @@ function EmptyState() {
       </p>
       <Button
         asChild
-        className="mt-6 h-11 rounded-full bg-primary px-5 font-bold text-primary-foreground"
+        className="mt-6 h-11 rounded-full bg-primary px-5 font-semibold text-primary-foreground"
       >
         <Link href="/cont/anunturi">Vezi anunțurile mele</Link>
       </Button>
@@ -169,7 +169,7 @@ function EmptyState() {
 function SetupState() {
   return (
     <div className="rounded-[1.75rem] border border-warm/45 bg-secondary p-6 shadow-soft-sm">
-      <h2 className="text-2xl font-black text-foreground">
+      <h2 className="text-2xl font-semibold text-foreground">
         Promovările vor fi disponibile după configurarea Supabase.
       </h2>
       <p className="mt-2 text-sm leading-6 text-warm-foreground">

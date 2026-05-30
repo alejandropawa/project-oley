@@ -9,17 +9,17 @@ export function AdminUserRow({ user }: { user: AdminUserSummary }) {
         <div>
           <div className="flex flex-wrap gap-2">
             {user.profile.is_business ? (
-              <Badge className="rounded-full bg-muted px-3 py-1 text-xs font-bold text-primary">
+              <Badge className="rounded-full bg-muted px-3 py-1 text-xs font-semibold text-primary">
                 Business
               </Badge>
             ) : null}
             {user.reportCount > 0 ? (
-              <Badge className="rounded-full bg-secondary px-3 py-1 text-xs font-bold text-warm-foreground">
+              <Badge className="rounded-full bg-secondary px-3 py-1 text-xs font-semibold text-warm-foreground">
                 {user.reportCount} rapoarte
               </Badge>
             ) : null}
           </div>
-          <h2 className="mt-3 text-xl font-black text-foreground">
+          <h2 className="mt-3 text-xl font-semibold text-foreground">
             {user.profile.display_name ?? "Utilizator TROKO"}
           </h2>
           <p className="mt-2 text-sm leading-6 text-muted-foreground">
@@ -28,7 +28,7 @@ export function AdminUserRow({ user }: { user: AdminUserSummary }) {
             {formatAdminDate(user.profile.created_at)}
           </p>
         </div>
-        <div className="rounded-[1rem] border border-border bg-background px-4 py-3 text-sm font-bold text-muted-foreground">
+        <div className="rounded-[1rem] border border-border bg-background px-4 py-3 text-sm font-semibold text-muted-foreground">
           {user.listingCount} anunțuri
         </div>
       </div>

@@ -24,7 +24,7 @@ export function ConversationHeader({
       <Button
         asChild
         variant="ghost"
-        className="mb-3 h-10 rounded-full px-3 font-bold text-muted-foreground lg:hidden"
+        className="mb-3 h-10 rounded-full px-3 font-semibold text-muted-foreground lg:hidden"
       >
         <Link href="/mesaje">
           <ArrowLeft className="size-4" aria-hidden="true" />
@@ -34,7 +34,7 @@ export function ConversationHeader({
 
       <div className="flex gap-4">
         <div
-          className="grid size-20 shrink-0 place-items-center overflow-hidden rounded-[1.25rem] bg-muted text-2xl font-black text-primary"
+          className="grid size-20 shrink-0 place-items-center overflow-hidden rounded-[1.25rem] bg-muted text-2xl font-semibold text-primary"
           style={
             listing.imageUrl
               ? {
@@ -50,11 +50,11 @@ export function ConversationHeader({
 
         <div className="min-w-0 flex-1">
           <div className="flex flex-wrap gap-2">
-            <Badge className="rounded-full bg-muted px-3 py-1 text-xs font-bold text-primary">
+            <Badge className="rounded-full bg-muted px-3 py-1 text-xs font-semibold text-primary">
               {listingStatus}
             </Badge>
             {conversation.status !== "active" ? (
-              <Badge className="rounded-full bg-background px-3 py-1 text-xs font-bold text-muted-foreground">
+              <Badge className="rounded-full bg-background px-3 py-1 text-xs font-semibold text-muted-foreground">
                 {conversationStatusLabels[conversation.status]}
               </Badge>
             ) : null}
@@ -62,11 +62,11 @@ export function ConversationHeader({
 
           <Link
             href={`/anunturi/${listing.slug}`}
-            className="mt-3 block text-xl font-black leading-tight text-foreground transition hover:text-primary"
+            className="mt-3 block text-xl font-semibold leading-tight text-foreground transition hover:text-primary"
           >
             {listing.title}
           </Link>
-          <p className="mt-1 text-lg font-black text-primary">
+          <p className="mt-1 text-lg font-semibold text-primary">
             {formatConversationPrice(listing)}
           </p>
           <div className="mt-2 flex flex-wrap items-center gap-x-4 gap-y-1 text-sm font-semibold text-muted-foreground">

@@ -44,10 +44,10 @@ export default async function AccountProfilePage() {
               ]}
             />
             <div className="mt-8 max-w-3xl">
-              <p className="text-sm font-bold uppercase text-primary">
+              <p className="text-sm font-semibold uppercase text-primary">
                 Profil public
               </p>
-              <h1 className="mt-2 text-3xl font-black leading-tight text-foreground sm:text-4xl min-[1800px]:text-5xl">
+              <h1 className="mt-2 text-3xl font-semibold leading-tight text-foreground sm:text-4xl min-[1800px]:text-5xl">
                 Profilul meu
               </h1>
               <p className="mt-4 text-base leading-7 text-muted-foreground">
@@ -55,7 +55,7 @@ export default async function AccountProfilePage() {
                 Emailul si telefonul nu sunt afisate public.
               </p>
               {profileResult.profile?.slug ? (
-                <Button asChild variant="outline" className="mt-5 h-11 rounded-full font-bold">
+                <Button asChild variant="outline" className="mt-5 h-11 rounded-full font-semibold">
                   <Link href={`/profil/${profileResult.profile.slug}`}>
                     Vezi profilul public
                   </Link>

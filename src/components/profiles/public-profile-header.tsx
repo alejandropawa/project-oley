@@ -18,16 +18,16 @@ export function PublicProfileHeader({
   return (
     <section className="rounded-[1.75rem] border border-border bg-card p-5 shadow-soft-sm sm:p-6">
       <div className="flex flex-col gap-5 sm:flex-row sm:items-start">
-        <div className="grid size-20 shrink-0 place-items-center rounded-full bg-primary text-2xl font-black text-primary-foreground">
+        <div className="grid size-20 shrink-0 place-items-center rounded-full bg-primary text-2xl font-semibold text-primary-foreground">
           {getInitials(displayName)}
         </div>
         <div className="min-w-0 flex-1">
           <div className="flex flex-wrap items-center gap-2">
-            <h1 className="text-3xl font-black leading-tight text-foreground">
+            <h1 className="text-3xl font-semibold leading-tight text-foreground">
               {displayName}
             </h1>
             {profile.is_verified_seller ? (
-              <Badge className="rounded-full bg-brand-soft px-3 py-1 text-xs font-black text-primary">
+              <Badge className="rounded-full bg-brand-soft px-3 py-1 text-xs font-semibold text-primary">
                 Profil verificat partial
               </Badge>
             ) : null}
@@ -41,16 +41,16 @@ export function PublicProfileHeader({
             <span>{publicProfile.activeListingsCount} anunturi active</span>
           </div>
           <div className="mt-4 flex flex-wrap gap-3">
-            <span className="inline-flex items-center gap-1.5 rounded-full bg-background px-3 py-1 text-sm font-black text-primary">
+            <span className="inline-flex items-center gap-1.5 rounded-full bg-background px-3 py-1 text-sm font-semibold text-primary">
               <Star className="size-4 fill-current" aria-hidden="true" />
               {profile.average_rating
                 ? `${profile.average_rating.toFixed(1)}/5`
                 : "Fara rating"}
             </span>
-            <span className="rounded-full bg-background px-3 py-1 text-sm font-black text-muted-foreground">
+            <span className="rounded-full bg-background px-3 py-1 text-sm font-semibold text-muted-foreground">
               {profile.reviews_count} review-uri
             </span>
-            <span className="rounded-full bg-background px-3 py-1 text-sm font-black text-muted-foreground">
+            <span className="rounded-full bg-background px-3 py-1 text-sm font-semibold text-muted-foreground">
               Scor {profile.trust_score}/100
             </span>
           </div>

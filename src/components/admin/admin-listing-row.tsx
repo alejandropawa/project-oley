@@ -13,16 +13,16 @@ export function AdminListingRow({ row }: { row: AdminListingSummary }) {
       <div className="grid gap-4 lg:grid-cols-[1fr_auto] lg:items-start">
         <div>
           <div className="flex flex-wrap gap-2">
-            <Badge className="rounded-full bg-muted px-3 py-1 text-xs font-bold text-primary">
+            <Badge className="rounded-full bg-muted px-3 py-1 text-xs font-semibold text-primary">
               {listing.status}
             </Badge>
             {row.reportCount > 0 ? (
-              <Badge className="rounded-full bg-secondary px-3 py-1 text-xs font-bold text-warm-foreground">
+              <Badge className="rounded-full bg-secondary px-3 py-1 text-xs font-semibold text-warm-foreground">
                 {row.reportCount} rapoarte
               </Badge>
             ) : null}
           </div>
-          <h2 className="mt-3 text-xl font-black text-foreground">
+          <h2 className="mt-3 text-xl font-semibold text-foreground">
             {listing.title}
           </h2>
           <p className="mt-2 text-sm leading-6 text-muted-foreground">
@@ -33,7 +33,7 @@ export function AdminListingRow({ row }: { row: AdminListingSummary }) {
         <div className="grid gap-2 sm:grid-cols-4 lg:grid-cols-1">
           <Link
             href={`/anunturi/${listing.slug}`}
-            className="inline-flex h-10 items-center justify-center rounded-full border border-border bg-background px-4 text-sm font-bold text-foreground"
+            className="inline-flex h-10 items-center justify-center rounded-full border border-border bg-background px-4 text-sm font-semibold text-foreground"
           >
             Vezi
           </Link>

@@ -13,8 +13,8 @@ export function TrustScoreCard({
     <article className="rounded-[1.5rem] border border-border bg-card p-5 shadow-soft-sm">
       <div className="flex items-start justify-between gap-4">
         <div>
-          <p className="text-sm font-black uppercase text-primary">{title}</p>
-          <p className="mt-2 text-4xl font-black text-foreground">
+          <p className="text-sm font-semibold uppercase text-primary">{title}</p>
+          <p className="mt-2 text-4xl font-semibold text-foreground">
             {safeScore}
             <span className="text-lg text-muted-foreground">/100</span>
           </p>

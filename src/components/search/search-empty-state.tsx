@@ -20,7 +20,7 @@ export function SearchEmptyState({
 
   return (
     <div className="rounded-[1.75rem] border border-dashed border-border bg-card p-8 text-center shadow-soft-sm">
-      <h2 className="text-2xl font-black text-foreground">
+      <h2 className="text-2xl font-semibold text-foreground">
         Nu am găsit anunțuri pentru filtrele selectate
       </h2>
       <p className="mx-auto mt-3 max-w-xl text-sm leading-6 text-muted-foreground">
@@ -31,7 +31,7 @@ export function SearchEmptyState({
       <div className="mt-6 flex flex-col justify-center gap-2 sm:flex-row">
         <Button
           asChild
-          className="h-11 rounded-full bg-primary px-5 font-bold text-primary-foreground"
+          className="h-11 rounded-full bg-primary px-5 font-semibold text-primary-foreground"
         >
           <Link href={resetHref}>Resetează filtrele</Link>
         </Button>
@@ -39,7 +39,7 @@ export function SearchEmptyState({
           <Button
             asChild
             variant="outline"
-            className="h-11 rounded-full border-border bg-background px-5 font-bold"
+            className="h-11 rounded-full border-border bg-background px-5 font-semibold"
           >
             <Link href="/cont/cautari-salvate">Salvează căutarea</Link>
           </Button>
@@ -47,7 +47,7 @@ export function SearchEmptyState({
         <Button
           asChild
           variant="ghost"
-          className="h-11 rounded-full px-5 font-bold text-muted-foreground"
+          className="h-11 rounded-full px-5 font-semibold text-muted-foreground"
         >
           <Link href="/publica">Publică anunț</Link>
         </Button>

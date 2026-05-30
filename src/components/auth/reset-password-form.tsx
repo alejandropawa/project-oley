@@ -52,7 +52,7 @@ export function ResetPasswordForm() {
   return (
     <form onSubmit={onSubmit} className="grid gap-4">
       <label className="block">
-        <span className="mb-1.5 block text-sm font-bold text-foreground">
+        <span className="mb-1.5 block text-sm font-semibold text-foreground">
           Email
         </span>
         <input
@@ -79,7 +79,7 @@ export function ResetPasswordForm() {
 
       <Button
         disabled={pending}
-        className="h-12 rounded-full bg-action font-bold text-action-foreground hover:bg-action-hover"
+        className="h-12 rounded-full bg-action font-semibold text-action-foreground hover:bg-action-hover"
       >
         <MailCheck className="size-4" aria-hidden="true" />
         {pending ? "Se trimite..." : "Trimite email de resetare"}

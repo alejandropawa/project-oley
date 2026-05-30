@@ -7,7 +7,7 @@ export function AdminSetupState({
 }) {
   return (
     <div className="rounded-[1.75rem] border border-warm/45 bg-secondary p-6 shadow-soft-sm">
-      <h2 className="text-2xl font-black text-foreground">{title}</h2>
+      <h2 className="text-2xl font-semibold text-foreground">{title}</h2>
       <p className="mt-2 text-sm leading-6 text-warm-foreground">{description}</p>
     </div>
   );

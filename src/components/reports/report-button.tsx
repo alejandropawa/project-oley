@@ -42,8 +42,8 @@ export function ReportButton({
         variant={compact ? "ghost" : "outline"}
         className={
           compact
-            ? "h-8 rounded-full px-3 text-xs font-bold text-muted-foreground"
-            : "h-11 rounded-full border-border bg-background px-5 font-bold"
+            ? "h-8 rounded-full px-3 text-xs font-semibold text-muted-foreground"
+            : "h-11 rounded-full border-border bg-background px-5 font-semibold"
         }
       >
         <Link href={loginHref}>
@@ -97,8 +97,8 @@ export function ReportButton({
         }}
         className={
           compact
-            ? "h-8 rounded-full px-3 text-xs font-bold text-muted-foreground"
-            : "h-11 rounded-full border-border bg-background px-5 font-bold"
+            ? "h-8 rounded-full px-3 text-xs font-semibold text-muted-foreground"
+            : "h-11 rounded-full border-border bg-background px-5 font-semibold"
         }
       >
         <Flag className="size-4" aria-hidden="true" />
@@ -117,7 +117,7 @@ export function ReportButton({
               <div>
                 <h2
                   id={`report-title-${entityId}`}
-                  className="text-2xl font-black text-foreground"
+                  className="text-2xl font-semibold text-foreground"
                 >
                   Trimite raportarea
                 </h2>
@@ -138,7 +138,7 @@ export function ReportButton({
 
             <form onSubmit={submitReport} className="mt-5 grid gap-4">
               <label className="block">
-                <span className="mb-1.5 block text-sm font-bold text-foreground">
+                <span className="mb-1.5 block text-sm font-semibold text-foreground">
                   Motiv
                 </span>
                 <select
@@ -157,7 +157,7 @@ export function ReportButton({
               </label>
 
               <label className="block">
-                <span className="mb-1.5 block text-sm font-bold text-foreground">
+                <span className="mb-1.5 block text-sm font-semibold text-foreground">
                   Descriere opțională
                 </span>
                 <textarea
@@ -190,13 +190,13 @@ export function ReportButton({
                   type="button"
                   variant="ghost"
                   onClick={() => setOpen(false)}
-                  className="h-11 rounded-full px-5 font-bold text-muted-foreground"
+                  className="h-11 rounded-full px-5 font-semibold text-muted-foreground"
                 >
                   Închide
                 </Button>
                 <Button
                   disabled={isPending}
-                  className="h-11 rounded-full bg-primary px-5 font-bold text-primary-foreground"
+                  className="h-11 rounded-full bg-primary px-5 font-semibold text-primary-foreground"
                 >
                   {isPending ? "Se trimite..." : "Trimite raportarea"}
                 </Button>

@@ -26,10 +26,10 @@ export function HowItWorks() {
     <section id="cum-functioneaza" className="bg-background py-12 sm:py-16">
       <div className="mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="max-w-2xl">
-          <p className="text-sm font-bold uppercase text-primary">
+          <p className="text-sm font-semibold uppercase text-primary">
             Cum funcționează
           </p>
-          <h2 className="mt-2 text-3xl font-black text-foreground sm:text-4xl">
+          <h2 className="mt-2 text-3xl font-semibold text-foreground sm:text-4xl">
             Trei pași, fără aglomerație
           </h2>
         </div>
@@ -47,11 +47,11 @@ export function HowItWorks() {
                   <span className="grid size-12 place-items-center rounded-[1rem] bg-muted text-primary">
                     <Icon className="size-5" aria-hidden="true" />
                   </span>
-                  <span className="text-sm font-black text-accent">
+                  <span className="text-sm font-semibold text-accent">
                     0{index + 1}
                   </span>
                 </div>
-                <h3 className="mt-5 text-xl font-black text-foreground">
+                <h3 className="mt-5 text-xl font-semibold text-foreground">
                   {step.title}
                 </h3>
                 <p className="mt-3 text-sm leading-6 text-muted-foreground">

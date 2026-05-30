@@ -11,10 +11,10 @@ export function HeroSection() {
     <section className="bg-background">
       <div className="mx-auto flex min-h-[calc(100svh-4rem)] w-full max-w-7xl flex-col justify-center px-4 py-10 sm:px-6 lg:px-8">
         <div className="mx-auto w-full max-w-5xl text-center">
-          <p className="text-sm font-black uppercase text-primary">
+          <p className="text-sm font-semibold uppercase text-primary">
             troko.ro
           </p>
-          <h1 className="mx-auto mt-4 max-w-4xl text-balance text-3xl font-black leading-[1.04] text-foreground sm:text-5xl lg:text-6xl min-[1800px]:text-7xl">
+          <h1 className="mx-auto mt-4 max-w-4xl text-balance text-3xl font-semibold leading-[1.04] text-foreground sm:text-5xl lg:text-6xl min-[1800px]:text-7xl">
             Găsește ce ai nevoie, aproape de tine.
           </h1>
           <p className="mx-auto mt-5 max-w-2xl text-pretty text-base leading-7 text-muted-foreground sm:text-lg">
@@ -43,7 +43,7 @@ export function HeroSection() {
                 className="h-12 border-0 bg-transparent p-0 text-base shadow-none placeholder:text-muted-foreground focus-visible:ring-0 sm:text-lg"
               />
             </div>
-            <Button className="h-14 rounded-[1.35rem] bg-action px-7 text-base font-black text-action-foreground shadow-soft-sm hover:bg-action-hover">
+            <Button className="h-14 rounded-[1.35rem] bg-action px-7 text-base font-semibold text-action-foreground shadow-soft-sm hover:bg-action-hover">
               Caută
               <ArrowRight className="size-5" aria-hidden="true" />
             </Button>
@@ -52,7 +52,7 @@ export function HeroSection() {
           <div className="mt-4 flex justify-center">
             <Link
               href="/anunturi"
-              className="inline-flex h-10 items-center gap-2 rounded-full border border-border bg-card px-4 text-sm font-bold text-muted-foreground transition hover:border-primary/40 hover:text-primary"
+              className="inline-flex h-10 items-center gap-2 rounded-full border border-border bg-card px-4 text-sm font-semibold text-muted-foreground transition hover:border-primary/40 hover:text-primary"
             >
               <MapPin className="size-4 text-primary" aria-hidden="true" />
               Toată România
@@ -75,7 +75,7 @@ export function HeroSection() {
                   <span className="grid size-10 shrink-0 place-items-center rounded-[0.9rem] bg-muted text-primary transition group-hover:bg-primary group-hover:text-primary-foreground">
                     <Icon className="size-4" aria-hidden="true" />
                   </span>
-                  <span className="min-w-0 text-sm font-black leading-5 text-foreground">
+                  <span className="min-w-0 text-sm font-semibold leading-5 text-foreground">
                     {category.name}
                   </span>
                 </Link>

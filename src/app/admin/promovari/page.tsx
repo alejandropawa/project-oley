@@ -89,7 +89,7 @@ export default async function AdminPromotionsPage({
       <div className="grid gap-8">
         <form className="grid gap-3 rounded-[1.5rem] border border-border bg-card p-4 shadow-soft-sm sm:grid-cols-4">
           <label className="block">
-            <span className="mb-1.5 block text-sm font-bold text-foreground">
+            <span className="mb-1.5 block text-sm font-semibold text-foreground">
               Status
             </span>
             <select
@@ -106,7 +106,7 @@ export default async function AdminPromotionsPage({
             </select>
           </label>
           <label className="block">
-            <span className="mb-1.5 block text-sm font-bold text-foreground">
+            <span className="mb-1.5 block text-sm font-semibold text-foreground">
               Pachet
             </span>
             <select
@@ -123,7 +123,7 @@ export default async function AdminPromotionsPage({
             </select>
           </label>
           <label className="block">
-            <span className="mb-1.5 block text-sm font-bold text-foreground">
+            <span className="mb-1.5 block text-sm font-semibold text-foreground">
               Dată
             </span>
             <select
@@ -138,7 +138,7 @@ export default async function AdminPromotionsPage({
             </select>
           </label>
           <div className="self-end">
-            <button className="h-12 rounded-full bg-action px-5 text-sm font-bold text-action-foreground hover:bg-action-hover">
+            <button className="h-12 rounded-full bg-action px-5 text-sm font-semibold text-action-foreground hover:bg-action-hover">
               Filtrează
             </button>
           </div>
@@ -146,10 +146,10 @@ export default async function AdminPromotionsPage({
 
         <section className="grid gap-4">
           <div>
-            <p className="text-sm font-black uppercase text-primary">
+            <p className="text-sm font-semibold uppercase text-primary">
               Solicitări
             </p>
-            <h2 className="mt-1 text-2xl font-black text-foreground">
+            <h2 className="mt-1 text-2xl font-semibold text-foreground">
               Solicitări de promovare
             </h2>
           </div>
@@ -157,7 +157,7 @@ export default async function AdminPromotionsPage({
             <AdminSetupState title="Solicitările nu sunt disponibile încă." />
           ) : ordersResult.orders.length === 0 ? (
             <div className="rounded-[1.75rem] border border-dashed border-border bg-card p-8 text-center shadow-soft-sm">
-              <h2 className="text-2xl font-black text-foreground">
+              <h2 className="text-2xl font-semibold text-foreground">
                 Nu există solicitări pentru filtrele selectate.
               </h2>
             </div>
@@ -172,10 +172,10 @@ export default async function AdminPromotionsPage({
 
         <section className="grid gap-4">
           <div>
-            <p className="text-sm font-black uppercase text-primary">
+            <p className="text-sm font-semibold uppercase text-primary">
               Campanii
             </p>
-            <h2 className="mt-1 text-2xl font-black text-foreground">
+            <h2 className="mt-1 text-2xl font-semibold text-foreground">
               Promovări active sau programate
             </h2>
           </div>
@@ -193,11 +193,11 @@ export default async function AdminPromotionsPage({
                   <div>
                     <div className="flex flex-wrap items-center gap-2">
                       <ListingPromotionStatusBadge status={promotion.status} />
-                      <span className="rounded-full bg-background px-3 py-1 text-xs font-black text-muted-foreground">
+                      <span className="rounded-full bg-background px-3 py-1 text-xs font-semibold text-muted-foreground">
                         {promotion.package?.name ?? "Pachet promovare"}
                       </span>
                     </div>
-                    <h3 className="mt-3 text-lg font-black text-foreground">
+                    <h3 className="mt-3 text-lg font-semibold text-foreground">
                       {promotion.listing?.title ?? "Anunț indisponibil"}
                     </h3>
                     <p className="mt-1 text-sm font-semibold text-muted-foreground">
@@ -209,7 +209,7 @@ export default async function AdminPromotionsPage({
                       <Button
                         asChild
                         variant="outline"
-                        className="h-10 rounded-full border-border bg-background px-4 text-sm font-bold"
+                        className="h-10 rounded-full border-border bg-background px-4 text-sm font-semibold"
                       >
                         <Link href={`/anunturi/${promotion.listing.slug}`}>
                           Vezi anunț

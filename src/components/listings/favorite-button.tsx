@@ -23,7 +23,7 @@ export function FavoriteButton({
       <Button
         asChild
         variant="outline"
-        className="h-12 rounded-full border-border bg-background px-5 font-bold"
+        className="h-12 rounded-full border-border bg-background px-5 font-semibold"
       >
         <Link href="/?auth=login&redirectTo=/cont/favorite">
           <Heart className="size-4" aria-hidden="true" />
@@ -54,7 +54,7 @@ export function FavoriteButton({
         onClick={toggle}
         disabled={isPending}
         variant="outline"
-        className="h-12 rounded-full border-border bg-background px-5 font-bold"
+        className="h-12 rounded-full border-border bg-background px-5 font-semibold"
       >
         <Heart
           className={favorited ? "size-4 fill-current" : "size-4"}

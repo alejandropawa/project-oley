@@ -93,7 +93,7 @@ export default async function CategoryDetailPage({
                 <span className="grid size-14 place-items-center rounded-[1.25rem] border border-border bg-card/88 text-brand shadow-[0_14px_34px_rgba(15,70,61,0.1)]">
                   <Icon className="size-6" aria-hidden="true" />
                 </span>
-                <h1 className="mt-5 font-serif text-4xl font-semibold leading-none text-brand sm:text-5xl min-[1800px]:text-6xl">
+                <h1 className="mt-5 font-heading text-4xl font-semibold leading-none text-brand sm:text-5xl min-[1800px]:text-6xl">
                   {category.name}
                 </h1>
                 <p className="mt-4 max-w-2xl text-base leading-7 text-brand-ink">
@@ -102,7 +102,7 @@ export default async function CategoryDetailPage({
               </div>
 
               <div className="rounded-[1.5rem] border border-border/90 bg-card/88 p-4 shadow-[0_18px_48px_rgba(15,70,61,0.1)] backdrop-blur">
-                <p className="text-sm font-black text-brand-ink">
+                <p className="text-sm font-semibold text-brand-ink">
                   Subcategorii populare
                 </p>
                 <div className="mt-3 flex flex-wrap gap-2">

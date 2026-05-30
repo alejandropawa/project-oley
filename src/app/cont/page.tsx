@@ -5,6 +5,8 @@ import { AccountDashboard } from "@/components/account/account-dashboard";
 import { SitePageShell } from "@/components/site/page-shell";
 import { Breadcrumbs } from "@/components/ui/breadcrumbs";
 import { getCurrentUser } from "@/lib/auth/user";
+import { getFavoriteListingIds } from "@/lib/db/favorites";
+import { getUnreadConversationCount } from "@/lib/db/inbox";
 import { getUserListings } from "@/lib/db/listings";
 import { getUnreadNotificationCount } from "@/lib/db/notifications";
 import { getCurrentProfile } from "@/lib/db/profiles";
@@ -26,47 +28,37 @@ export default async function AccountPage() {
   }
 
   const supabase = await createClient();
-  const [profileResult, userListings, unreadNotifications] = await Promise.all([
+  const [
+    profileResult,
+    userListings,
+    unreadNotifications,
+    favoriteIds,
+    unreadConversations,
+  ] = await Promise.all([
     getCurrentProfile(supabase),
     getUserListings(user.id, supabase),
     getUnreadNotificationCount(supabase),
+    getFavoriteListingIds(supabase),
+    getUnreadConversationCount(user.id, supabase),
   ]);
 
   return (
     <SitePageShell>
-      <main className="relative isolate overflow-hidden">
-        <section className="border-b border-border bg-background">
-          <div className="mx-auto w-full max-w-[1440px] px-5 py-10 sm:px-8 sm:py-14 lg:px-10">
-            <Breadcrumbs
-              items={[{ label: "Acasă", href: "/" }, { label: "Contul meu" }]}
-            />
-            <div className="mt-8 max-w-3xl">
-              <p className="text-sm font-bold uppercase text-primary">
-                Dashboard
-              </p>
-              <h1 className="mt-2 text-3xl font-black leading-tight text-foreground sm:text-4xl min-[1800px]:text-5xl">
-                Contul meu
-              </h1>
-              <p className="mt-4 text-base leading-7 text-muted-foreground">
-                Gestionează profilul, preferințele și anunțurile publicate pe
-                TROKO.
-              </p>
-            </div>
-          </div>
-        </section>
-
-        <section className="py-8 sm:py-12">
-          <div className="mx-auto w-full max-w-[1440px] px-5 sm:px-8 lg:px-10">
-            <AccountDashboard
-              user={user}
-              profile={profileResult.profile}
-              privateSettings={profileResult.privateSettings}
-              profileSource={profileResult.source}
-              userListings={userListings}
-              unreadNotificationCount={unreadNotifications.count}
-            />
-          </div>
-        </section>
+      <main className="relative isolate min-h-[calc(100svh-8rem)] overflow-hidden bg-[#FAF8F3]">
+        <div className="mx-auto w-full max-w-[1480px] px-4 py-6 sm:px-6 sm:py-8 lg:px-8 xl:px-10">
+          <Breadcrumbs
+            items={[{ label: "Acasă", href: "/" }, { label: "Contul meu" }]}
+          />
+          <AccountDashboard
+            user={user}
+            profile={profileResult.profile}
+            profileSource={profileResult.source}
+            userListings={userListings}
+            unreadNotificationCount={unreadNotifications.count}
+            unreadConversationCount={unreadConversations.count}
+            favoriteCount={favoriteIds.length}
+          />
+        </div>
       </main>
     </SitePageShell>
   );

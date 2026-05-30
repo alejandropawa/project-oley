@@ -57,7 +57,7 @@ export function PromoteListingForm({
   if (message) {
     return (
       <div className="rounded-[1.75rem] border border-brand-border bg-brand-soft p-6 shadow-soft-sm">
-        <h2 className="text-2xl font-black text-foreground">
+        <h2 className="text-2xl font-semibold text-foreground">
           Solicitarea de promovare a fost trimisă.
         </h2>
         <p className="mt-2 text-sm leading-6 text-muted-foreground">
@@ -67,14 +67,14 @@ export function PromoteListingForm({
         <div className="mt-5 flex flex-col gap-2 sm:flex-row">
           <Button
             asChild
-            className="h-11 rounded-full bg-primary px-5 font-bold text-primary-foreground"
+            className="h-11 rounded-full bg-primary px-5 font-semibold text-primary-foreground"
           >
             <Link href="/cont/promovari">Vezi solicitările mele</Link>
           </Button>
           <Button
             asChild
             variant="outline"
-            className="h-11 rounded-full border-border bg-background px-5 font-bold"
+            className="h-11 rounded-full border-border bg-background px-5 font-semibold"
           >
             <Link href="/cont/anunturi">Înapoi la anunțuri</Link>
           </Button>
@@ -98,7 +98,7 @@ export function PromoteListingForm({
       </div>
 
       <label className="block rounded-[1.5rem] border border-border bg-card p-5 shadow-soft-sm">
-        <span className="text-sm font-black text-foreground">
+        <span className="text-sm font-semibold text-foreground">
           Notă pentru echipa TROKO
         </span>
         <textarea
@@ -122,7 +122,7 @@ export function PromoteListingForm({
         <Button
           asChild
           variant="outline"
-          className="h-11 rounded-full border-border bg-card px-5 font-bold"
+          className="h-11 rounded-full border-border bg-card px-5 font-semibold"
         >
           <Link href="/cont/anunturi">Înapoi</Link>
         </Button>
@@ -130,7 +130,7 @@ export function PromoteListingForm({
           type="button"
           onClick={submit}
           disabled={isPending || Boolean(disabledReason)}
-          className="h-11 rounded-full bg-primary px-5 font-bold text-primary-foreground"
+          className="h-11 rounded-full bg-primary px-5 font-semibold text-primary-foreground"
         >
           {isPending ? "Se trimite..." : "Trimite solicitarea de promovare"}
         </Button>

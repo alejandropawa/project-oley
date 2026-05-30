@@ -89,7 +89,7 @@ export async function Header() {
             className={cn(
               primaryActionButtonClassName,
               headerPrimaryControlClassName,
-              "font-bold",
+              "font-semibold",
             )}
           >
             <Link href="/publica" aria-label="Adaugă anunț">

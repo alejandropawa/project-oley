@@ -20,7 +20,7 @@ export function ListingGrid({
         <div className="mx-auto grid size-14 place-items-center rounded-full bg-muted text-primary">
           <SearchX className="size-6" aria-hidden="true" />
         </div>
-        <h2 className="mt-4 text-xl font-black text-foreground">
+        <h2 className="mt-4 text-xl font-semibold text-foreground">
           {emptyTitle}
         </h2>
         <p className="mx-auto mt-2 max-w-md text-sm leading-6 text-muted-foreground">
@@ -29,7 +29,7 @@ export function ListingGrid({
         </p>
         <Button
           asChild
-          className="mt-5 h-11 rounded-full bg-primary px-5 font-bold text-primary-foreground"
+          className="mt-5 h-11 rounded-full bg-primary px-5 font-semibold text-primary-foreground"
         >
           <Link href={resetHref}>Resetează filtrele</Link>
         </Button>

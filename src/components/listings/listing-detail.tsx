@@ -58,7 +58,7 @@ export function ListingDetail({
               loading="eager"
             />
           ) : null}
-          <Badge className="absolute left-4 top-4 rounded-full bg-card px-3 py-1 text-sm font-black text-primary shadow-soft-sm">
+          <Badge className="absolute left-4 top-4 rounded-full bg-card px-3 py-1 text-sm font-semibold text-primary shadow-soft-sm">
             {listingTypeLabels[listing.type]}
           </Badge>
           {listing.promotion ? (
@@ -95,14 +95,14 @@ export function ListingDetail({
         ) : null}
 
         <article className="rounded-[1.5rem] border border-border bg-card p-5 shadow-soft-sm">
-          <h2 className="text-xl font-black text-foreground">Descriere</h2>
+          <h2 className="text-xl font-semibold text-foreground">Descriere</h2>
           <p className="mt-3 text-base leading-8 text-muted-foreground">
             {listing.description}
           </p>
         </article>
 
         <article className="rounded-[1.5rem] border border-border bg-card p-5 shadow-soft-sm">
-          <h2 className="text-xl font-black text-foreground">Locație</h2>
+          <h2 className="text-xl font-semibold text-foreground">Locație</h2>
           <p className="mt-2 text-sm leading-6 text-muted-foreground">
             {listing.locationLabel
               ? `${listing.locationLabel} · ${listing.city}, ${listing.county}`
@@ -122,7 +122,7 @@ export function ListingDetail({
               <ShieldCheck className="size-5" aria-hidden="true" />
             </span>
             <div>
-              <h2 className="font-black text-foreground">Sfat de siguranță</h2>
+              <h2 className="font-semibold text-foreground">Sfat de siguranță</h2>
               <p className="mt-1 text-sm leading-6 text-muted-foreground">
                 Verifică produsul înainte de plată, păstrează discuția în TROKO
                 și evită transferurile urgente către persoane necunoscute.
@@ -131,7 +131,7 @@ export function ListingDetail({
           </div>
         </aside>
         <aside className="rounded-[1.5rem] border border-border bg-card p-5 shadow-soft-sm">
-          <h2 className="font-black text-foreground">Ajută-ne să păstrăm TROKO curat</h2>
+          <h2 className="font-semibold text-foreground">Ajută-ne să păstrăm TROKO curat</h2>
           <p className="mt-2 text-sm leading-6 text-muted-foreground">
             Dacă observi o problemă, trimite o raportare calmă și clară către
             echipa noastră.
@@ -158,24 +158,24 @@ export function ListingDetail({
       <aside className="space-y-4 lg:sticky lg:top-24 lg:self-start">
         <div className="rounded-[1.75rem] border border-border bg-card p-5 shadow-soft-sm">
           <div className="flex flex-wrap gap-2">
-            <Badge className="rounded-full bg-muted px-3 py-1 text-sm font-bold text-primary">
+            <Badge className="rounded-full bg-muted px-3 py-1 text-sm font-semibold text-primary">
               {category.name}
             </Badge>
             {listing.subcategory ? (
-              <Badge className="rounded-full bg-background px-3 py-1 text-sm font-bold text-muted-foreground">
+              <Badge className="rounded-full bg-background px-3 py-1 text-sm font-semibold text-muted-foreground">
                 {listing.subcategory}
               </Badge>
             ) : null}
-            <Badge className="rounded-full bg-secondary px-3 py-1 text-sm font-bold text-secondary-foreground">
+            <Badge className="rounded-full bg-secondary px-3 py-1 text-sm font-semibold text-secondary-foreground">
               {listing.condition}
             </Badge>
             {listing.isNegotiable ? (
-              <Badge className="rounded-full bg-secondary px-3 py-1 text-sm font-bold text-warm-foreground">
+              <Badge className="rounded-full bg-secondary px-3 py-1 text-sm font-semibold text-warm-foreground">
                 Negociabil
               </Badge>
             ) : null}
             {listing.status ? (
-              <Badge className="rounded-full bg-background px-3 py-1 text-sm font-bold text-muted-foreground">
+              <Badge className="rounded-full bg-background px-3 py-1 text-sm font-semibold text-muted-foreground">
                 Status: {listing.status}
               </Badge>
             ) : null}
@@ -184,10 +184,10 @@ export function ListingDetail({
             ) : null}
           </div>
 
-          <h1 className="mt-5 text-3xl font-black leading-tight text-foreground sm:text-4xl">
+          <h1 className="mt-5 text-3xl font-semibold leading-tight text-foreground sm:text-4xl">
             {listing.title}
           </h1>
-          <p className="mt-4 text-3xl font-black text-primary">
+          <p className="mt-4 text-3xl font-semibold text-primary">
             {formatListingPrice(listing)}
           </p>
           {listing.promotion ? (
@@ -230,7 +230,7 @@ export function ListingDetail({
 
         <div className="rounded-[1.5rem] border border-border bg-card p-5 shadow-soft-sm">
           <div className="flex items-start gap-3">
-            <span className="grid size-12 shrink-0 place-items-center rounded-full bg-primary text-lg font-black text-primary-foreground">
+            <span className="grid size-12 shrink-0 place-items-center rounded-full bg-primary text-lg font-semibold text-primary-foreground">
               {listing.seller.name.charAt(0)}
             </span>
             <div className="min-w-0 flex-1">
@@ -245,11 +245,11 @@ export function ListingDetail({
               {!sellerTrust ? (
                 <>
               <div className="flex flex-wrap items-center gap-2">
-                <h2 className="font-black text-foreground">
+                <h2 className="font-semibold text-foreground">
                   {listing.seller.name}
                 </h2>
                 {listing.seller.verified ? (
-                  <Badge className="rounded-full bg-muted px-2 py-0.5 text-xs font-bold text-primary">
+                  <Badge className="rounded-full bg-muted px-2 py-0.5 text-xs font-semibold text-primary">
                     <UserRoundCheck className="size-3" aria-hidden="true" />
                     verificat
                   </Badge>
@@ -258,7 +258,7 @@ export function ListingDetail({
               <p className="mt-1 text-sm text-muted-foreground">
                 Din {listing.seller.city} · pe TROKO din {listing.seller.joinedAt}
               </p>
-              <p className="mt-2 text-sm font-bold text-primary">
+              <p className="mt-2 text-sm font-semibold text-primary">
                 Rating {listing.seller.rating}/5
               </p>
                 </>
@@ -289,7 +289,7 @@ export function ListingDetail({
         <Button
           asChild
           variant="ghost"
-          className="h-11 rounded-full px-5 font-bold text-muted-foreground"
+          className="h-11 rounded-full px-5 font-semibold text-muted-foreground"
         >
           <Link href={`/categorii/${category.slug}`}>
             Vezi mai multe în {category.name}

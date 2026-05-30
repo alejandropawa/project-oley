@@ -14,10 +14,10 @@ export function ReportCard({ report }: { report: ReportSummary }) {
     <article className="rounded-[1.5rem] border border-border bg-card p-5 shadow-soft-sm">
       <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
         <div>
-          <p className="text-xs font-bold uppercase text-primary">
+          <p className="text-xs font-semibold uppercase text-primary">
             #{shortId(report.report.id)} · {reportEntityLabels[report.report.entity_type]}
           </p>
-          <h2 className="mt-2 text-xl font-black text-foreground">
+          <h2 className="mt-2 text-xl font-semibold text-foreground">
             {reportReasonLabels[report.report.reason]}
           </h2>
           <p className="mt-2 text-sm leading-6 text-muted-foreground">
@@ -32,7 +32,7 @@ export function ReportCard({ report }: { report: ReportSummary }) {
       </div>
       <Link
         href={`/admin/rapoarte/${report.report.id}`}
-        className="mt-5 inline-flex h-10 items-center rounded-full bg-primary px-4 text-sm font-bold text-primary-foreground"
+        className="mt-5 inline-flex h-10 items-center rounded-full bg-primary px-4 text-sm font-semibold text-primary-foreground"
       >
         Analizează
       </Link>

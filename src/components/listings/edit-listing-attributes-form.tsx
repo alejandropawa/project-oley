@@ -63,14 +63,14 @@ export function EditListingAttributesForm({ listing }: { listing: Listing }) {
       />
 
       <section className="mt-5 rounded-[1.5rem] border border-border bg-background p-4">
-        <h3 className="text-lg font-black text-foreground">Locație</h3>
+        <h3 className="text-lg font-semibold text-foreground">Locație</h3>
         <p className="mt-1 text-sm leading-6 text-muted-foreground">
           TROKO afișează public doar o locație aproximativă.
         </p>
 
         <div className="mt-4 grid gap-4 sm:grid-cols-2">
           <label>
-            <span className="mb-1.5 block text-sm font-bold text-foreground">
+            <span className="mb-1.5 block text-sm font-semibold text-foreground">
               Oraș
             </span>
             <select
@@ -94,7 +94,7 @@ export function EditListingAttributesForm({ listing }: { listing: Listing }) {
             </select>
           </label>
           <label>
-            <span className="mb-1.5 block text-sm font-bold text-foreground">
+            <span className="mb-1.5 block text-sm font-semibold text-foreground">
               Județ
             </span>
             <input
@@ -114,7 +114,7 @@ export function EditListingAttributesForm({ listing }: { listing: Listing }) {
 
         <div className="mt-4 grid gap-4 sm:grid-cols-[1fr_auto] sm:items-end">
           <label>
-            <span className="mb-1.5 block text-sm font-bold text-foreground">
+            <span className="mb-1.5 block text-sm font-semibold text-foreground">
               Zonă sau reper public
             </span>
             <input
@@ -146,7 +146,7 @@ export function EditListingAttributesForm({ listing }: { listing: Listing }) {
         type="button"
         onClick={save}
         disabled={isPending}
-        className="mt-5 h-11 rounded-full bg-primary px-5 font-bold text-primary-foreground"
+        className="mt-5 h-11 rounded-full bg-primary px-5 font-semibold text-primary-foreground"
       >
         {isPending ? "Se salvează..." : "Salvează detaliile"}
       </Button>

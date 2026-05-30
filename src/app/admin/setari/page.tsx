@@ -46,7 +46,7 @@ export default async function AdminSettingsPage() {
     <AdminLayout title="Setări admin" description="Configurare acces admin.">
       <div className="grid gap-5 lg:grid-cols-[1fr_0.8fr]">
         <section className="rounded-[1.75rem] border border-border bg-card p-6 shadow-soft-sm">
-          <h2 className="text-2xl font-black text-foreground">
+          <h2 className="text-2xl font-semibold text-foreground">
             Admin curent
           </h2>
           <p className="mt-3 text-sm leading-6 text-muted-foreground">
@@ -55,24 +55,24 @@ export default async function AdminSettingsPage() {
             versiune.
           </p>
           <div className="mt-5 rounded-[1rem] border border-border bg-background p-4">
-            <p className="text-xs font-bold uppercase text-muted-foreground">
+            <p className="text-xs font-semibold uppercase text-muted-foreground">
               User ID
             </p>
-            <p className="mt-1 break-all text-sm font-black text-foreground">
+            <p className="mt-1 break-all text-sm font-semibold text-foreground">
               {admin.user.id}
             </p>
           </div>
         </section>
 
         <section className="rounded-[1.75rem] border border-warm/45 bg-secondary p-6 shadow-soft-sm">
-          <h2 className="text-2xl font-black text-foreground">
+          <h2 className="text-2xl font-semibold text-foreground">
             Primul admin
           </h2>
           <p className="mt-3 text-sm leading-6 text-warm-foreground">
             Pentru primul admin, adaugă manual user_id-ul în tabela
             admin_users din Supabase. Nu există flux public de creare admin.
           </p>
-          <pre className="mt-4 overflow-x-auto rounded-[1rem] bg-card p-4 text-xs font-bold text-foreground">
+          <pre className="mt-4 overflow-x-auto rounded-[1rem] bg-card p-4 text-xs font-semibold text-foreground">
             {`insert into public.admin_users (user_id)
 values ('YOUR_AUTH_USER_ID');`}
           </pre>

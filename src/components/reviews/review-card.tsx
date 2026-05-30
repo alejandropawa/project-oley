@@ -17,7 +17,7 @@ export function ReviewCard({
     <article className="rounded-[1.25rem] border border-border bg-card p-4 shadow-soft-sm">
       <div className="flex flex-wrap items-center justify-between gap-3">
         <div>
-          <p className="font-black text-foreground">{reviewerName}</p>
+          <p className="font-semibold text-foreground">{reviewerName}</p>
           <p className="mt-1 text-xs font-semibold text-muted-foreground">
             {new Intl.DateTimeFormat("ro-RO", {
               day: "numeric",
@@ -38,7 +38,7 @@ export function ReviewCard({
         </p>
       )}
       {showStatus ? (
-        <p className="mt-3 text-xs font-bold uppercase text-primary">
+        <p className="mt-3 text-xs font-semibold uppercase text-primary">
           {reviewStatusLabels[review.status]}
         </p>
       ) : null}

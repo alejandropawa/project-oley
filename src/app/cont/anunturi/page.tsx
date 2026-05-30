@@ -51,7 +51,7 @@ export default async function AccountListingsPage() {
               >
                 <div className="min-w-0">
                   <div className="flex flex-wrap items-center gap-2">
-                    <h2 className="truncate font-black text-foreground">
+                    <h2 className="truncate font-semibold text-foreground">
                       {listing.title}
                     </h2>
                     {promotion ? (
@@ -67,14 +67,14 @@ export default async function AccountListingsPage() {
                   <Button
                     asChild
                     variant="outline"
-                    className="h-10 rounded-full border-border bg-background px-4 text-sm font-bold"
+                    className="h-10 rounded-full border-border bg-background px-4 text-sm font-semibold"
                   >
                     <Link href={`/anunturi/${listing.slug}`}>Vezi</Link>
                   </Button>
                   <Button
                     asChild
                     variant="outline"
-                    className="h-10 rounded-full border-border bg-background px-4 text-sm font-bold"
+                    className="h-10 rounded-full border-border bg-background px-4 text-sm font-semibold"
                   >
                     <Link href={`/cont/anunturi/${listing.id}/editeaza`}>
                       Editează
@@ -84,14 +84,14 @@ export default async function AccountListingsPage() {
                     <Button
                       asChild
                       variant="outline"
-                      className="h-10 rounded-full border-border bg-background px-4 text-sm font-bold"
+                      className="h-10 rounded-full border-border bg-background px-4 text-sm font-semibold"
                     >
                       <Link href="/cont/promovari">Vezi promovări</Link>
                     </Button>
                   ) : isActive ? (
                     <Button
                       asChild
-                      className="h-10 rounded-full bg-primary px-4 text-sm font-bold text-primary-foreground"
+                      className="h-10 rounded-full bg-primary px-4 text-sm font-semibold text-primary-foreground"
                     >
                       <Link href={`/cont/anunturi/${listing.id}/promoveaza`}>
                         Promovează
@@ -105,7 +105,7 @@ export default async function AccountListingsPage() {
         </div>
       ) : (
         <div className="rounded-[1.75rem] border border-dashed border-border bg-card p-8 text-center shadow-soft-sm">
-          <h2 className="text-2xl font-black text-foreground">
+          <h2 className="text-2xl font-semibold text-foreground">
             Nu ai anunțuri publicate încă
           </h2>
           <p className="mx-auto mt-2 max-w-md text-sm leading-6 text-muted-foreground">
@@ -113,7 +113,7 @@ export default async function AccountListingsPage() {
           </p>
           <Button
             asChild
-            className="mt-6 h-11 rounded-full bg-primary px-5 font-bold text-primary-foreground"
+            className="mt-6 h-11 rounded-full bg-primary px-5 font-semibold text-primary-foreground"
           >
             <Link href="/publica">Publică anunț</Link>
           </Button>
@@ -144,7 +144,7 @@ function AccountSubpageFrame({
                 { label: title },
               ]}
             />
-            <h1 className="mt-8 text-3xl font-black text-foreground sm:text-4xl min-[1800px]:text-5xl">
+            <h1 className="mt-8 text-3xl font-semibold text-foreground sm:text-4xl min-[1800px]:text-5xl">
               {title}
             </h1>
             <p className="mt-4 max-w-2xl text-base leading-7 text-muted-foreground">

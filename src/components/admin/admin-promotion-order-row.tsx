@@ -19,12 +19,12 @@ export function AdminPromotionOrderRow({
       <div className="min-w-0">
         <div className="flex flex-wrap items-center gap-2">
           <PromotionOrderStatusBadge status={order.status} />
-          <span className="rounded-full bg-background px-3 py-1 text-xs font-black text-muted-foreground">
+          <span className="rounded-full bg-background px-3 py-1 text-xs font-semibold text-muted-foreground">
             #{order.id.slice(0, 8)}
           </span>
         </div>
 
-        <h2 className="mt-3 text-lg font-black text-foreground">
+        <h2 className="mt-3 text-lg font-semibold text-foreground">
           {order.listing?.title ?? "Anunț indisponibil"}
         </h2>
         <p className="mt-1 text-sm font-semibold text-muted-foreground">
@@ -53,7 +53,7 @@ export function AdminPromotionOrderRow({
             <Button
               asChild
               variant="outline"
-              className="h-10 rounded-full border-border bg-background px-4 text-sm font-bold"
+              className="h-10 rounded-full border-border bg-background px-4 text-sm font-semibold"
             >
               <Link href={`/anunturi/${order.listing.slug}`}>Vezi anunț</Link>
             </Button>

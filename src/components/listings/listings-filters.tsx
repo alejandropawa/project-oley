@@ -31,7 +31,7 @@ export function ListingsFilters({
       action={action}
       className="rounded-[1.5rem] border border-border bg-card p-3 shadow-soft-sm sm:p-4"
     >
-      <div className="mb-3 flex items-center gap-2 text-sm font-black text-foreground">
+      <div className="mb-3 flex items-center gap-2 text-sm font-semibold text-foreground">
         <SlidersHorizontal className="size-4 text-primary" aria-hidden="true" />
         Filtre
       </div>
@@ -44,7 +44,7 @@ export function ListingsFilters({
         }
       >
         <label className={compact ? "sm:col-span-2" : "lg:col-span-2"}>
-          <span className="mb-1.5 block text-xs font-bold text-muted-foreground">
+          <span className="mb-1.5 block text-xs font-semibold text-muted-foreground">
             Caută
           </span>
           <Input
@@ -57,7 +57,7 @@ export function ListingsFilters({
 
         {!hideCategory ? (
           <label>
-            <span className="mb-1.5 block text-xs font-bold text-muted-foreground">
+            <span className="mb-1.5 block text-xs font-semibold text-muted-foreground">
               Categorie
             </span>
             <select
@@ -76,7 +76,7 @@ export function ListingsFilters({
         ) : null}
 
         <label>
-          <span className="mb-1.5 block text-xs font-bold text-muted-foreground">
+          <span className="mb-1.5 block text-xs font-semibold text-muted-foreground">
             Tip
           </span>
           <select
@@ -93,7 +93,7 @@ export function ListingsFilters({
         </label>
 
         <label>
-          <span className="mb-1.5 block text-xs font-bold text-muted-foreground">
+          <span className="mb-1.5 block text-xs font-semibold text-muted-foreground">
             Oraș
           </span>
           <select
@@ -111,7 +111,7 @@ export function ListingsFilters({
         </label>
 
         <label>
-          <span className="mb-1.5 block text-xs font-bold text-muted-foreground">
+          <span className="mb-1.5 block text-xs font-semibold text-muted-foreground">
             Preț minim
           </span>
           <Input
@@ -124,7 +124,7 @@ export function ListingsFilters({
         </label>
 
         <label>
-          <span className="mb-1.5 block text-xs font-bold text-muted-foreground">
+          <span className="mb-1.5 block text-xs font-semibold text-muted-foreground">
             Preț maxim
           </span>
           <Input
@@ -137,7 +137,7 @@ export function ListingsFilters({
         </label>
 
         <label>
-          <span className="mb-1.5 block text-xs font-bold text-muted-foreground">
+          <span className="mb-1.5 block text-xs font-semibold text-muted-foreground">
             Sortează
           </span>
           <select
@@ -158,11 +158,11 @@ export function ListingsFilters({
         <Button
           asChild
           variant="ghost"
-          className="h-11 rounded-full px-5 font-bold text-muted-foreground"
+          className="h-11 rounded-full px-5 font-semibold text-muted-foreground"
         >
           <Link href={resetHref}>Resetează</Link>
         </Button>
-        <Button className="h-11 rounded-full bg-action px-5 font-bold text-action-foreground hover:bg-action-hover">
+        <Button className="h-11 rounded-full bg-action px-5 font-semibold text-action-foreground hover:bg-action-hover">
           Aplică filtrele
         </Button>
       </div>

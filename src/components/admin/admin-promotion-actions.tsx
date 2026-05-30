@@ -79,7 +79,7 @@ export function AdminPromotionOrderActions({
           type="button"
           onClick={approve}
           disabled={disabled || isPending}
-          className="h-10 rounded-full bg-primary px-4 text-sm font-bold text-primary-foreground"
+          className="h-10 rounded-full bg-primary px-4 text-sm font-semibold text-primary-foreground"
         >
           {isPending ? "Se procesează..." : "Aprobă"}
         </Button>
@@ -88,7 +88,7 @@ export function AdminPromotionOrderActions({
           variant="outline"
           onClick={() => setIsRejecting((value) => !value)}
           disabled={disabled || isPending}
-          className="h-10 rounded-full border-border bg-background px-4 text-sm font-bold"
+          className="h-10 rounded-full border-border bg-background px-4 text-sm font-semibold"
         >
           Respinge
         </Button>
@@ -96,7 +96,7 @@ export function AdminPromotionOrderActions({
 
       {isRejecting ? (
         <div className="grid gap-2 rounded-[1rem] border border-border bg-background p-3">
-          <label className="text-sm font-bold text-foreground" htmlFor={`reject-${orderId}`}>
+          <label className="text-sm font-semibold text-foreground" htmlFor={`reject-${orderId}`}>
             Notă internă
           </label>
           <textarea
@@ -112,15 +112,15 @@ export function AdminPromotionOrderActions({
             type="button"
             onClick={reject}
             disabled={isPending}
-            className="h-10 w-fit rounded-full bg-primary px-4 text-sm font-bold text-primary-foreground"
+            className="h-10 w-fit rounded-full bg-primary px-4 text-sm font-semibold text-primary-foreground"
           >
             Confirmă respingerea
           </Button>
         </div>
       ) : null}
 
-      {message ? <p className="text-sm font-bold text-primary">{message}</p> : null}
-      {error ? <p className="text-sm font-bold text-destructive">{error}</p> : null}
+      {message ? <p className="text-sm font-semibold text-primary">{message}</p> : null}
+      {error ? <p className="text-sm font-semibold text-destructive">{error}</p> : null}
     </div>
   );
 }
@@ -161,12 +161,12 @@ export function AdminExpirePromotionButton({
         variant="outline"
         onClick={expire}
         disabled={isPending}
-        className="h-10 rounded-full border-border bg-background px-4 text-sm font-bold"
+        className="h-10 rounded-full border-border bg-background px-4 text-sm font-semibold"
       >
         {isPending ? "Se actualizează..." : "Expiră"}
       </Button>
-      {message ? <p className="text-xs font-bold text-primary">{message}</p> : null}
-      {error ? <p className="text-xs font-bold text-destructive">{error}</p> : null}
+      {message ? <p className="text-xs font-semibold text-primary">{message}</p> : null}
+      {error ? <p className="text-xs font-semibold text-destructive">{error}</p> : null}
     </div>
   );
 }

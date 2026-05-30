@@ -68,7 +68,7 @@ export default async function AdminReportsPage({
           <AdminSetupState title="Rapoartele nu sunt disponibile încă." />
         ) : reports.reports.length === 0 ? (
           <div className="rounded-[1.75rem] border border-dashed border-border bg-card p-8 text-center shadow-soft-sm">
-            <h2 className="text-2xl font-black text-foreground">
+            <h2 className="text-2xl font-semibold text-foreground">
               Nu există rapoarte pentru filtrele selectate.
             </h2>
           </div>

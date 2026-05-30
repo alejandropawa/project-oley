@@ -21,7 +21,7 @@ export function SuccessState({
       <div className="mx-auto grid size-16 place-items-center rounded-full bg-brand-soft text-primary">
         <CheckCircle2 className="size-8" aria-hidden="true" />
       </div>
-      <h2 className="mt-5 text-3xl font-black text-foreground">{title}</h2>
+      <h2 className="mt-5 text-3xl font-semibold text-foreground">{title}</h2>
       <p className="mx-auto mt-3 max-w-md text-sm leading-6 text-muted-foreground">
         {description}
       </p>
@@ -29,7 +29,7 @@ export function SuccessState({
         {listingHref ? (
           <Button
             asChild
-            className="h-12 rounded-full bg-primary font-bold text-primary-foreground"
+            className="h-12 rounded-full bg-primary font-semibold text-primary-foreground"
           >
             <Link href={listingHref}>
               <Eye className="size-4" aria-hidden="true" />
@@ -41,7 +41,7 @@ export function SuccessState({
             type="button"
             onClick={onPreview}
             variant="outline"
-            className="h-12 rounded-full border-border bg-background font-bold"
+            className="h-12 rounded-full border-border bg-background font-semibold"
           >
             <Eye className="size-4" aria-hidden="true" />
             Vezi preview
@@ -52,7 +52,7 @@ export function SuccessState({
           <Button
             asChild
             variant="outline"
-            className="h-12 rounded-full border-border bg-background font-bold"
+            className="h-12 rounded-full border-border bg-background font-semibold"
           >
             <Link href="/cont">
               <UserRound className="size-4" aria-hidden="true" />
@@ -64,7 +64,7 @@ export function SuccessState({
         <Button
           type="button"
           onClick={onReset}
-          className="h-12 rounded-full bg-primary font-bold text-primary-foreground"
+          className="h-12 rounded-full bg-primary font-semibold text-primary-foreground"
         >
           <RotateCcw className="size-4" aria-hidden="true" />
           Publică alt anunț

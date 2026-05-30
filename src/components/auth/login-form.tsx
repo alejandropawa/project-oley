@@ -16,6 +16,8 @@ import {
 } from "@/components/auth/auth-form-utils";
 import {
   AuthDivider,
+  AUTH_LEGAL_LINKS,
+  LegalLink,
   SocialAuthButtons,
 } from "@/components/auth/auth-legal";
 import { createClient } from "@/lib/supabase/browser";
@@ -129,7 +131,7 @@ export function LoginForm({
   }
 
   return (
-    <form onSubmit={onSubmit} className="authForm grid gap-2.5 min-[1800px]:gap-3">
+    <form onSubmit={onSubmit} className="authForm grid gap-3">
       <Field
         id={emailId}
         label="Email"
@@ -213,7 +215,7 @@ export function LoginForm({
 
       <Button
         disabled={pending}
-        className="h-10 rounded-[0.65rem] bg-[#005F3F] text-[0.9rem] font-bold text-white shadow-[0_12px_28px_rgba(0,95,63,0.18)] hover:bg-[#0F4A43] disabled:bg-[#89B29E] disabled:text-white disabled:opacity-100 min-[1800px]:h-11 min-[1800px]:text-[0.95rem]"
+        className="h-12 rounded-sm bg-primary text-sm font-semibold text-white hover:bg-brand-hover disabled:bg-brand-disabled disabled:text-white disabled:opacity-100"
       >
         {pending ? "Se conectează..." : "Conectează-te"}
       </Button>
@@ -221,6 +223,18 @@ export function LoginForm({
       <AuthDivider />
 
       <SocialAuthButtons />
+
+      <p className="text-xs leading-5 text-muted-foreground">
+        Prin continuare, folosești Troko conform{" "}
+        <LegalLink href={AUTH_LEGAL_LINKS.terms.href}>
+          Termenilor și Condițiilor
+        </LegalLink>{" "}
+        și{" "}
+        <LegalLink href={AUTH_LEGAL_LINKS.privacy.href}>
+          Politicii de confidențialitate
+        </LegalLink>
+        .
+      </p>
 
       {onCreateAccount ? null : (
         <p className="text-sm font-semibold text-muted-foreground">
@@ -274,13 +288,13 @@ function Field({
     <div className="authField grid gap-1.5">
       <label
         htmlFor={id}
-        className="flex min-w-0 items-center justify-between gap-3 text-xs font-black text-[#052F28]"
+        className="flex min-w-0 items-center justify-between gap-3 text-xs font-semibold text-[#052F28]"
       >
         <span className="shrink-0">{label}</span>
         {error ? (
           <span
             id={errorId}
-            className="min-w-0 truncate text-right font-bold text-destructive"
+            className="min-w-0 truncate text-right font-semibold text-destructive"
           >
             {error}
           </span>
@@ -288,7 +302,7 @@ function Field({
       </label>
       <div
         className={cn(
-          "authFieldControl flex h-10 items-center gap-2.5 rounded-[0.65rem] border border-[#D9DFDA] bg-white px-3 shadow-[inset_0_1px_2px_rgba(15,74,67,0.04)] transition focus-within:border-[#2F6F65] focus-within:ring-3 focus-within:ring-[#2F6F65]/15 min-[1800px]:h-11 min-[1800px]:gap-3",
+          "authFieldControl flex h-12 items-center gap-3 rounded-sm border border-input bg-white px-3.5 shadow-[inset_0_1px_2px_rgba(7,22,19,0.03)] transition focus-within:border-primary focus-within:ring-3 focus-within:ring-primary/15",
           error && "border-destructive/40 focus-within:border-destructive/60",
         )}
       >

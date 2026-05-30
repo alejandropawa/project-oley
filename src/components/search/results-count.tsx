@@ -9,7 +9,7 @@ export function ResultsCount({
 }) {
   return (
     <div>
-      <p className="text-sm font-bold uppercase text-primary">
+      <p className="text-sm font-semibold uppercase text-primary">
         Am găsit {totalCount} {totalCount === 1 ? "anunț" : "anunțuri"}
       </p>
       <p className="mt-1 text-sm text-muted-foreground">
@@ -18,7 +18,7 @@ export function ResultsCount({
           : "Rezultate demonstrative până când Supabase este disponibil."}
       </p>
       {locationLabel ? (
-        <p className="mt-2 inline-flex rounded-full bg-muted px-3 py-1 text-xs font-bold text-primary">
+        <p className="mt-2 inline-flex rounded-full bg-muted px-3 py-1 text-xs font-semibold text-primary">
           {locationLabel}
         </p>
       ) : null}

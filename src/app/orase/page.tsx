@@ -40,10 +40,10 @@ export default async function CitiesPage() {
               items={[{ label: "Acasă", href: "/" }, { label: "Orașe" }]}
             />
             <div className="mt-8 max-w-3xl">
-              <p className="text-sm font-bold uppercase text-primary">
+              <p className="text-sm font-semibold uppercase text-primary">
                 Orașe TROKO
               </p>
-              <h1 className="mt-2 text-3xl font-black leading-tight text-foreground sm:text-4xl min-[1800px]:text-5xl">
+              <h1 className="mt-2 text-3xl font-semibold leading-tight text-foreground sm:text-4xl min-[1800px]:text-5xl">
                 Anunțuri locale în orașele din România
               </h1>
               <p className="mt-4 text-base leading-7 text-muted-foreground">

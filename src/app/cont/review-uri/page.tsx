@@ -40,10 +40,10 @@ export default async function AccountReviewsPage() {
               ]}
             />
             <div className="mt-8 max-w-3xl">
-              <p className="text-sm font-bold uppercase text-primary">
+              <p className="text-sm font-semibold uppercase text-primary">
                 Reputatie
               </p>
-              <h1 className="mt-2 text-3xl font-black leading-tight text-foreground sm:text-4xl min-[1800px]:text-5xl">
+              <h1 className="mt-2 text-3xl font-semibold leading-tight text-foreground sm:text-4xl min-[1800px]:text-5xl">
                 Review-urile mele
               </h1>
               <p className="mt-4 text-base leading-7 text-muted-foreground">
@@ -57,7 +57,7 @@ export default async function AccountReviewsPage() {
         <section className="py-8 sm:py-12">
           <div className="mx-auto grid w-full max-w-[1440px] gap-5 px-5 sm:px-8 lg:grid-cols-2 lg:px-10">
             <article className="rounded-[1.5rem] border border-border bg-card p-5 shadow-soft-sm">
-              <h2 className="text-xl font-black text-foreground">
+              <h2 className="text-xl font-semibold text-foreground">
                 Primite
               </h2>
               <div className="mt-5">
@@ -69,7 +69,7 @@ export default async function AccountReviewsPage() {
               </div>
             </article>
             <article className="rounded-[1.5rem] border border-border bg-card p-5 shadow-soft-sm">
-              <h2 className="text-xl font-black text-foreground">Scrise</h2>
+              <h2 className="text-xl font-semibold text-foreground">Scrise</h2>
               <div className="mt-5">
                 <ReviewList
                   reviews={overview.written}

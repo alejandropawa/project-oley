@@ -13,17 +13,17 @@ export function CategorySection() {
       <div className="mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
           <div>
-            <p className="text-sm font-bold uppercase text-primary">
+            <p className="text-sm font-semibold uppercase text-primary">
               Categorii
             </p>
-            <h2 className="mt-2 text-3xl font-black tracking-normal text-foreground sm:text-4xl">
+            <h2 className="mt-2 text-3xl font-semibold tracking-normal text-foreground sm:text-4xl">
               Alege unde vrei să cauți
             </h2>
           </div>
           <Button
             asChild
             variant="outline"
-            className="h-11 rounded-full border-border bg-card px-5 font-bold"
+            className="h-11 rounded-full border-border bg-card px-5 font-semibold"
           >
             <Link href="/categorii">
               Toate categoriile
@@ -47,11 +47,11 @@ export function CategorySection() {
                   <span className="grid size-10 place-items-center rounded-[0.9rem] bg-muted text-primary transition group-hover:bg-primary group-hover:text-primary-foreground">
                     <Icon className="size-4" aria-hidden="true" />
                   </span>
-                  <Badge className="rounded-full bg-secondary px-2 py-0.5 text-[0.7rem] font-bold text-warm-foreground">
+                  <Badge className="rounded-full bg-secondary px-2 py-0.5 text-[0.7rem] font-semibold text-warm-foreground">
                     {count}
                   </Badge>
                 </div>
-                <h3 className="mt-4 text-base font-black leading-5 text-foreground">
+                <h3 className="mt-4 text-base font-semibold leading-5 text-foreground">
                   {category.name}
                 </h3>
                 <p className="mt-2 line-clamp-2 text-xs leading-5 text-muted-foreground">

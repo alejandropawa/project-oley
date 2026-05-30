@@ -20,7 +20,7 @@ export function LocationPrecisionField({
 }) {
   return (
     <fieldset>
-      <legend className="text-sm font-bold text-foreground">
+      <legend className="text-sm font-semibold text-foreground">
         Precizia locației
       </legend>
       <div className="mt-3 grid gap-3 sm:grid-cols-3">
@@ -40,7 +40,7 @@ export function LocationPrecisionField({
                   : "border-border bg-background",
               )}
             >
-              <span className="block text-sm font-black text-foreground">
+              <span className="block text-sm font-semibold text-foreground">
                 {locationPrecisionLabels[option]}
               </span>
               <span className="mt-1 block text-xs leading-5 text-muted-foreground">

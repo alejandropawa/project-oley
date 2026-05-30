@@ -28,7 +28,7 @@ export function ReportFilters({ filters }: { filters: ReportFilters }) {
           </option>
         ))}
       </Field>
-      <button className="h-12 self-end rounded-full bg-action px-5 text-sm font-bold text-action-foreground hover:bg-action-hover">
+      <button className="h-12 self-end rounded-full bg-action px-5 text-sm font-semibold text-action-foreground hover:bg-action-hover">
         Filtrează
       </button>
     </form>
@@ -48,7 +48,7 @@ function Field({
 }) {
   return (
     <label className="block">
-      <span className="mb-1.5 block text-sm font-bold text-foreground">
+      <span className="mb-1.5 block text-sm font-semibold text-foreground">
         {label}
       </span>
       <select

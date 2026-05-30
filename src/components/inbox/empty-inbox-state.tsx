@@ -17,14 +17,14 @@ export function EmptyInboxState({
       <div className="mx-auto grid size-16 place-items-center rounded-full bg-muted text-primary">
         <MessageCircle className="size-7" aria-hidden="true" />
       </div>
-      <h2 className="mt-5 text-2xl font-black text-foreground">{title}</h2>
+      <h2 className="mt-5 text-2xl font-semibold text-foreground">{title}</h2>
       <p className="mx-auto mt-2 max-w-md text-sm leading-6 text-muted-foreground">
         {description}
       </p>
       {showCta ? (
         <Button
           asChild
-          className="mt-6 h-11 rounded-full bg-primary px-5 font-bold text-primary-foreground"
+          className="mt-6 h-11 rounded-full bg-primary px-5 font-semibold text-primary-foreground"
         >
           <Link href="/anunturi">Explorează anunțuri</Link>
         </Button>

@@ -13,6 +13,7 @@ import {
 import type { LucideIcon } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
+import { Checkbox } from "@/components/ui/checkbox";
 import {
   AUTH_FIELD_LIMITS,
   AUTH_PRIVACY_VERSION,
@@ -171,7 +172,7 @@ export function RegisterForm({ onLogin }: { onLogin?: () => void }) {
   }
 
   return (
-    <form onSubmit={onSubmit} className="authForm grid gap-2.5 min-[1800px]:gap-3">
+    <form onSubmit={onSubmit} className="authForm grid gap-3">
       <Field
         id={nameId}
         label="Nume"
@@ -266,20 +267,20 @@ export function RegisterForm({ onLogin }: { onLogin?: () => void }) {
 
       <div
         className={cn(
-          "flex items-start gap-3 rounded-[0.75rem] border border-[#D5E4DF] bg-[#F7FBF8] p-2.5",
+          "flex items-start gap-3 rounded-sm border border-brand-border bg-brand-surface p-3",
           errors.terms && "border-destructive/40 bg-destructive/5",
         )}
         data-invalid={errors.terms ? true : undefined}
       >
-        <input
+        <Checkbox
           id={termsId}
-          type="checkbox"
           required
           checked={terms}
-          onChange={(event) => {
-            setTerms(event.target.checked);
+          onCheckedChange={(checked) => {
+            const nextTerms = checked === true;
+            setTerms(nextTerms);
 
-            if (event.target.checked && errors.terms) {
+            if (nextTerms && errors.terms) {
               setErrors((currentErrors) => ({
                 ...currentErrors,
                 terms: undefined,
@@ -289,7 +290,7 @@ export function RegisterForm({ onLogin }: { onLogin?: () => void }) {
           aria-invalid={errors.terms ? true : undefined}
           aria-labelledby={termsTextId}
           aria-describedby={errors.terms ? termsErrorId : undefined}
-          className="mt-1 size-4 rounded border-[#B8C9C4] accent-[#2F6F65] outline-none focus-visible:ring-3 focus-visible:ring-[#2F6F65]/30"
+          className="mt-0.5"
         />
         <div className="text-sm leading-5 text-[#52645F]">
           <p id={termsTextId}>
@@ -326,7 +327,7 @@ export function RegisterForm({ onLogin }: { onLogin?: () => void }) {
 
       <Button
         disabled={pending || !terms}
-        className="h-10 rounded-[0.65rem] bg-[#005F3F] text-[0.9rem] font-bold text-white shadow-[0_12px_28px_rgba(0,95,63,0.18)] hover:bg-[#0F4A43] disabled:bg-[#89B29E] disabled:text-white disabled:opacity-100 min-[1800px]:h-11 min-[1800px]:text-[0.95rem]"
+        className="h-12 rounded-sm bg-primary text-sm font-semibold text-white hover:bg-brand-hover disabled:bg-brand-disabled disabled:text-white disabled:opacity-100"
       >
         {pending ? "Se creează contul..." : "Înregistrează-te"}
       </Button>
@@ -408,13 +409,13 @@ function Field({
     <div className="authField grid gap-1.5">
       <label
         htmlFor={id}
-        className="flex min-w-0 items-center justify-between gap-3 text-xs font-black text-[#052F28]"
+        className="flex min-w-0 items-center justify-between gap-3 text-xs font-semibold text-[#052F28]"
       >
         <span className="shrink-0">{label}</span>
         {error ? (
           <span
             id={errorId}
-            className="min-w-0 truncate text-right font-bold text-destructive"
+            className="min-w-0 truncate text-right font-semibold text-destructive"
           >
             {error}
           </span>
@@ -422,7 +423,7 @@ function Field({
       </label>
       <div
         className={cn(
-          "authFieldControl flex h-10 items-center gap-2.5 rounded-[0.65rem] border border-[#D9DFDA] bg-white px-3 shadow-[inset_0_1px_2px_rgba(15,74,67,0.04)] transition focus-within:border-[#2F6F65] focus-within:ring-3 focus-within:ring-[#2F6F65]/15 min-[1800px]:h-11 min-[1800px]:gap-3",
+          "authFieldControl flex h-12 items-center gap-3 rounded-sm border border-input bg-white px-3.5 shadow-[inset_0_1px_2px_rgba(7,22,19,0.03)] transition focus-within:border-primary focus-within:ring-3 focus-within:ring-primary/15",
           error && "border-destructive/40 focus-within:border-destructive/60",
         )}
       >

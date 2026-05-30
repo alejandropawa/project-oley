@@ -28,7 +28,7 @@ export function ViewToggle({
             key={item.value}
             href={buildSearchHref(params, { view: item.value }, path)}
             className={cn(
-              "inline-flex h-9 items-center gap-1.5 rounded-full px-3 text-sm font-bold transition",
+              "inline-flex h-9 items-center gap-1.5 rounded-full px-3 text-sm font-semibold transition",
               active
                 ? "bg-primary text-primary-foreground"
                 : "text-muted-foreground hover:text-primary",
