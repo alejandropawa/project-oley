@@ -47,12 +47,12 @@ export function SearchFilters({
   return (
     <>
       <details className="rounded-[1.5rem] border border-border bg-card p-4 shadow-soft-sm lg:hidden">
-        <summary className="flex cursor-pointer list-none items-center justify-between gap-3 text-sm font-black text-foreground">
+        <summary className="flex cursor-pointer list-none items-center justify-between gap-3 text-sm font-semibold text-foreground">
           <span className="inline-flex items-center gap-2">
             <SlidersHorizontal className="size-4 text-primary" aria-hidden="true" />
             Filtre
           </span>
-          <span className="rounded-full bg-muted px-3 py-1 text-xs font-bold text-primary">
+          <span className="rounded-full bg-muted px-3 py-1 text-xs font-semibold text-primary">
             Deschide
           </span>
         </summary>
@@ -62,14 +62,14 @@ export function SearchFilters({
             lockedCategory={lockedCategory}
             lockedCitySlug={lockedCitySlug}
           />
-          <Button className="h-11 rounded-full bg-action px-5 font-bold text-action-foreground hover:bg-action-hover">
+          <Button className="h-11 rounded-full bg-action px-5 font-semibold text-action-foreground hover:bg-action-hover">
             Aplică filtrele
           </Button>
         </form>
       </details>
 
       <aside className="hidden rounded-[1.75rem] border border-border bg-card p-5 shadow-soft-sm lg:block">
-        <div className="mb-4 flex items-center gap-2 text-sm font-black text-foreground">
+        <div className="mb-4 flex items-center gap-2 text-sm font-semibold text-foreground">
           <SlidersHorizontal className="size-4 text-primary" aria-hidden="true" />
           Filtre
         </div>
@@ -79,7 +79,7 @@ export function SearchFilters({
             lockedCategory={lockedCategory}
             lockedCitySlug={lockedCitySlug}
           />
-          <Button className="h-11 rounded-full bg-action px-5 font-bold text-action-foreground hover:bg-action-hover">
+          <Button className="h-11 rounded-full bg-action px-5 font-semibold text-action-foreground hover:bg-action-hover">
             Aplică filtrele
           </Button>
         </form>
@@ -252,7 +252,7 @@ function FilterFields({
 
       <section className="grid gap-3 rounded-[1.25rem] border border-border bg-background p-3">
         <div>
-          <p className="text-sm font-black text-foreground">Aproape de mine</p>
+          <p className="text-sm font-semibold text-foreground">Aproape de mine</p>
           <p className="mt-1 text-xs leading-5 text-muted-foreground">
             Activează locația sau alege un oraș și o rază.
           </p>
@@ -330,7 +330,7 @@ function FilterFields({
 
       {attributeDefinitions.length > 0 ? (
         <section className="grid gap-3 border-t border-border pt-4">
-          <p className="text-xs font-black uppercase text-primary">
+          <p className="text-xs font-semibold uppercase text-primary">
             Detalii categorie
           </p>
           {attributeDefinitions.map((definition) => {
@@ -350,7 +350,7 @@ function FilterFields({
                     defaultChecked={value === true || value === "true"}
                     className="mt-1 size-4 accent-brand"
                   />
-                  <span className="text-sm font-bold text-foreground">
+                  <span className="text-sm font-semibold text-foreground">
                     {definition.label}
                   </span>
                 </label>
@@ -416,7 +416,7 @@ function Field({
 }) {
   return (
     <label className="block">
-      <span className="mb-1.5 block text-xs font-bold text-muted-foreground">
+      <span className="mb-1.5 block text-xs font-semibold text-muted-foreground">
         {label}
       </span>
       {children}

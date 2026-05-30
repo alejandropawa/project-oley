@@ -24,7 +24,7 @@ export function ModerationTimeline({
           key={event.id}
           className="rounded-[1.25rem] border border-border bg-background p-4"
         >
-          <p className="text-sm font-black text-foreground">
+          <p className="text-sm font-semibold text-foreground">
             {moderationActionLabels[event.action]}
           </p>
           <p className="mt-1 text-xs font-semibold text-muted-foreground">

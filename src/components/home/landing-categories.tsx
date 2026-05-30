@@ -80,7 +80,7 @@ export function LandingCategories() {
                   />
                 </span>
 
-                <span className="landingCategoryLabel flex min-h-7 w-full max-w-[6.25rem] items-start justify-center text-center text-[0.66rem] font-bold leading-tight text-brand-ink [text-shadow:0_1px_14px_rgba(255,254,252,0.96)] min-[390px]:text-[0.7rem] sm:text-[0.72rem] xl:max-w-[5.5rem]">
+                <span className="landingCategoryLabel flex min-h-7 w-full max-w-[6.25rem] items-start justify-center text-center text-[0.66rem] font-semibold leading-tight text-brand-ink [text-shadow:0_1px_14px_rgba(255,254,252,0.96)] min-[390px]:text-[0.7rem] sm:text-[0.72rem] xl:max-w-[5.5rem]">
                   {label}
                 </span>
               </Link>

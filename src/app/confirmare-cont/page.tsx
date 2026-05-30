@@ -41,10 +41,10 @@ export default async function AccountConfirmationPage({
               )}
             </div>
 
-            <p className="mt-5 text-sm font-bold uppercase text-primary">
+            <p className="mt-5 text-sm font-semibold uppercase text-primary">
               Confirmare cont
             </p>
-            <h1 className="mt-2 text-3xl font-black leading-tight text-foreground sm:text-4xl">
+            <h1 className="mt-2 text-3xl font-semibold leading-tight text-foreground sm:text-4xl">
               {isSuccess
                 ? "Contul a fost activat cu succes."
                 : "Activarea contului nu a reușit."}
@@ -57,7 +57,7 @@ export default async function AccountConfirmationPage({
 
             <Button
               asChild
-              className="mt-7 h-12 rounded-full bg-action px-6 font-bold text-action-foreground hover:bg-action-hover"
+              className="mt-7 h-12 rounded-full bg-action px-6 font-semibold text-action-foreground hover:bg-action-hover"
             >
               <Link href="/?auth=login">Mergi la homepage și intră în cont</Link>
             </Button>

@@ -45,7 +45,7 @@ export default async function AccountSavedSearchesPage() {
                 { label: "Căutări salvate" },
               ]}
             />
-            <h1 className="mt-8 text-3xl font-black text-foreground sm:text-4xl min-[1800px]:text-5xl">
+            <h1 className="mt-8 text-3xl font-semibold text-foreground sm:text-4xl min-[1800px]:text-5xl">
               Căutări salvate
             </h1>
             <p className="mt-4 max-w-2xl text-base leading-7 text-muted-foreground">
@@ -71,7 +71,7 @@ export default async function AccountSavedSearchesPage() {
                         key={savedSearch.id}
                         className="rounded-[1.25rem] border border-border bg-background p-4"
                       >
-                        <h2 className="font-black text-foreground">
+                        <h2 className="font-semibold text-foreground">
                           {savedSearch.name}
                         </h2>
                         <p className="mt-1 text-sm leading-6 text-muted-foreground">
@@ -80,7 +80,7 @@ export default async function AccountSavedSearchesPage() {
                         <Button
                           asChild
                           variant="outline"
-                          className="mt-3 h-10 rounded-full border-border bg-card px-4 text-sm font-bold"
+                          className="mt-3 h-10 rounded-full border-border bg-card px-4 text-sm font-semibold"
                         >
                           <Link href={buildSearchHref(filters)}>
                             Deschide căutarea
@@ -99,7 +99,7 @@ export default async function AccountSavedSearchesPage() {
 
               <Button
                 asChild
-                className="mt-5 h-11 rounded-full bg-primary px-5 font-bold text-primary-foreground"
+                className="mt-5 h-11 rounded-full bg-primary px-5 font-semibold text-primary-foreground"
               >
                 <Link href="/anunturi">Caută anunțuri</Link>
               </Button>

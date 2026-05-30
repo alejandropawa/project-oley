@@ -5,6 +5,7 @@ import {
   type ListingAttributes,
 } from "@/lib/categories/attribute-definitions";
 import type { ListingLocationPrecision } from "@/lib/locations/types";
+import { z } from "zod";
 
 export type CreateListingStep = 0 | 1 | 2 | 3;
 
@@ -72,6 +73,29 @@ export const createListingSteps = [
   "Preview și publicare",
 ] as const;
 
+const listingTypeSchema = z.enum(["sell", "buy", "rent", "swap"]);
+
+const categoryStepSchema = z.object({
+  type: listingTypeSchema,
+  categorySlug: z.string().trim().min(1, "Alege categoria anunțului."),
+});
+
+const detailsStepTextSchema = z.object({
+  title: z
+    .string()
+    .trim()
+    .min(1, "Titlul este obligatoriu.")
+    .min(8, "Titlul trebuie să aibă cel puțin 8 caractere."),
+  description: z
+    .string()
+    .trim()
+    .min(1, "Descrierea este obligatorie.")
+    .min(30, "Descrierea trebuie să aibă cel puțin 30 de caractere."),
+  subcategory: z.string().trim().min(1, "Alege o subcategorie."),
+  city: z.string().trim().min(1, "Alege localitatea."),
+  county: z.string().trim().min(1, "Alege localitatea."),
+});
+
 export function validateCreateListingStep(
   step: CreateListingStep,
   values: CreateListingValues,
@@ -101,6 +125,24 @@ export function validateAll(values: CreateListingValues) {
 
 function validateCategoryStep(values: CreateListingValues) {
   const errors: CreateListingErrors = {};
+  const result = categoryStepSchema.safeParse({
+    type: values.type,
+    categorySlug: values.categorySlug,
+  });
+
+  if (!result.success) {
+    for (const issue of result.error.issues) {
+      const field = issue.path[0];
+
+      if (field === "type") {
+        errors.type = "Alege tipul anunțului.";
+      }
+
+      if (field === "categorySlug") {
+        errors.categorySlug = issue.message;
+      }
+    }
+  }
 
   if (!values.categorySlug) {
     errors.categorySlug = "Alege categoria anunțului.";
@@ -111,14 +153,23 @@ function validateCategoryStep(values: CreateListingValues) {
 
 function validateDetailsStep(values: CreateListingValues) {
   const errors: CreateListingErrors = {};
-  const title = values.title.trim();
-  const description = values.description.trim();
   const price = values.price.trim();
+  const textResult = detailsStepTextSchema.safeParse(values);
 
-  if (!title) {
-    errors.title = "Titlul este obligatoriu.";
-  } else if (title.length < 8) {
-    errors.title = "Titlul trebuie să aibă cel puțin 8 caractere.";
+  if (!textResult.success) {
+    for (const issue of textResult.error.issues) {
+      const field = issue.path[0];
+
+      if (
+        field === "title" ||
+        field === "description" ||
+        field === "subcategory" ||
+        field === "city" ||
+        field === "county"
+      ) {
+        errors[field] = issue.message;
+      }
+    }
   }
 
   if (!values.categorySlug) {
@@ -154,12 +205,6 @@ function validateDetailsStep(values: CreateListingValues) {
     errors.attributes = "Completează detaliile obligatorii ale categoriei.";
   }
 
-  if (!description) {
-    errors.description = "Descrierea este obligatorie.";
-  } else if (description.length < 30) {
-    errors.description = "Descrierea trebuie să aibă cel puțin 30 de caractere.";
-  }
-
   if ((values.type === "sell" || values.type === "rent") && !price) {
     errors.price =
       values.type === "rent"
@@ -173,14 +218,6 @@ function validateDetailsStep(values: CreateListingValues) {
     if (!numericPrice || numericPrice <= 0) {
       errors.price = "Prețul trebuie să fie un număr pozitiv.";
     }
-  }
-
-  if (!values.city) {
-    errors.city = "Alege localitatea.";
-  }
-
-  if (!values.county) {
-    errors.county = "Alege localitatea.";
   }
 
   return errors;

@@ -62,7 +62,7 @@ export default async function NotificationsPage({
           >
             <Link
               href="/notificari"
-              className={`rounded-full px-4 py-2 text-sm font-bold ${
+              className={`rounded-full px-4 py-2 text-sm font-semibold ${
                 !unreadOnly
                   ? "bg-primary text-primary-foreground"
                   : "text-muted-foreground hover:text-foreground"
@@ -72,7 +72,7 @@ export default async function NotificationsPage({
             </Link>
             <Link
               href="/notificari?tab=necitite"
-              className={`rounded-full px-4 py-2 text-sm font-bold ${
+              className={`rounded-full px-4 py-2 text-sm font-semibold ${
                 unreadOnly
                   ? "bg-primary text-primary-foreground"
                   : "text-muted-foreground hover:text-foreground"
@@ -111,7 +111,7 @@ function NotificationsFrame({ children }: { children: React.ReactNode }) {
             <Breadcrumbs
               items={[{ label: "Acasă", href: "/" }, { label: "Notificări" }]}
             />
-            <h1 className="mt-8 text-3xl font-black text-foreground sm:text-4xl min-[1800px]:text-5xl">
+            <h1 className="mt-8 text-3xl font-semibold text-foreground sm:text-4xl min-[1800px]:text-5xl">
               Notificări
             </h1>
             <p className="mt-4 max-w-2xl text-base leading-7 text-muted-foreground">
@@ -121,7 +121,7 @@ function NotificationsFrame({ children }: { children: React.ReactNode }) {
             <Button
               asChild
               variant="outline"
-              className="mt-5 h-11 rounded-full border-border bg-card px-5 font-bold"
+              className="mt-5 h-11 rounded-full border-border bg-card px-5 font-semibold"
             >
               <Link href="/cont/notificari">Setări notificări</Link>
             </Button>
@@ -140,7 +140,7 @@ function NotificationsFrame({ children }: { children: React.ReactNode }) {
 function SetupState() {
   return (
     <div className="rounded-[1.75rem] border border-warm/45 bg-secondary p-6 shadow-soft-sm">
-      <h2 className="text-2xl font-black text-foreground">
+      <h2 className="text-2xl font-semibold text-foreground">
         Notificările vor fi disponibile după configurarea Supabase.
       </h2>
       <p className="mt-2 text-sm leading-6 text-warm-foreground">

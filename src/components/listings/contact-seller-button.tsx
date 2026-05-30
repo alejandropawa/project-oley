@@ -32,7 +32,7 @@ export function ContactSellerButton({
   if (!isAuthenticated) {
     return (
       <div className="grid gap-2">
-        <Button className="h-12 rounded-full bg-action px-5 font-bold text-action-foreground hover:bg-action-hover" asChild>
+        <Button className="h-12 rounded-full bg-action px-5 font-semibold text-action-foreground hover:bg-action-hover" asChild>
           <Link href={loginHref}>
             <MessageCircle className="size-4" aria-hidden="true" />
             Trimite mesaj
@@ -50,7 +50,7 @@ export function ContactSellerButton({
       <Button
         asChild
         variant="outline"
-        className="h-12 rounded-full border-border bg-background px-5 font-bold"
+        className="h-12 rounded-full border-border bg-background px-5 font-semibold"
       >
         <Link href="/cont/anunturi">
           <Store className="size-4" aria-hidden="true" />
@@ -93,7 +93,7 @@ export function ContactSellerButton({
         type="button"
         onClick={startConversation}
         disabled={isPending}
-        className="h-12 rounded-full bg-primary px-5 font-bold text-primary-foreground"
+        className="h-12 rounded-full bg-primary px-5 font-semibold text-primary-foreground"
       >
         {isPending ? (
           <Loader2 className="size-4 animate-spin" aria-hidden="true" />

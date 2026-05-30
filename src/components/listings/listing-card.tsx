@@ -60,7 +60,7 @@ export function ListingCard({ listing }: { listing: Listing }) {
               <Badge
                 variant="outline"
                 className={cn(
-                  "h-7 rounded-full px-3 text-xs font-black shadow-soft-sm",
+                  "h-7 rounded-full px-3 text-xs font-semibold shadow-soft-sm",
                   typeStyles[listing.type],
                 )}
               >
@@ -68,7 +68,7 @@ export function ListingCard({ listing }: { listing: Listing }) {
               </Badge>
             </div>
           </div>
-          <div className="absolute right-3 top-3 rounded-full bg-white/70 px-2.5 py-1 text-xs font-bold text-foreground backdrop-blur-md">
+          <div className="absolute right-3 top-3 rounded-full bg-white/70 px-2.5 py-1 text-xs font-semibold text-foreground backdrop-blur-md">
             {category.name}
           </div>
           {!firstImage ? (
@@ -80,18 +80,18 @@ export function ListingCard({ listing }: { listing: Listing }) {
         </div>
 
         <CardHeader className="px-2 pb-0 pt-4">
-          <CardTitle className="line-clamp-2 min-h-12 text-lg font-black leading-6">
+          <CardTitle className="line-clamp-2 min-h-12 text-lg font-semibold leading-6">
             {listing.title}
           </CardTitle>
         </CardHeader>
 
         <CardContent className="px-2 pb-3 pt-3">
           <div className="flex flex-wrap items-center gap-2">
-            <p className="text-xl font-black text-primary">
+            <p className="text-xl font-semibold text-primary">
               {formatListingPrice(listing)}
             </p>
             {listing.isNegotiable ? (
-              <Badge className="rounded-full bg-secondary px-2 py-0.5 text-xs font-bold text-warm-foreground">
+              <Badge className="rounded-full bg-secondary px-2 py-0.5 text-xs font-semibold text-warm-foreground">
                 Negociabil
               </Badge>
             ) : null}
@@ -104,7 +104,7 @@ export function ListingCard({ listing }: { listing: Listing }) {
               {attributeSnippets.map((snippet) => (
                 <span
                   key={snippet}
-                  className="rounded-full bg-muted px-2.5 py-1 text-xs font-bold text-muted-foreground"
+                  className="rounded-full bg-muted px-2.5 py-1 text-xs font-semibold text-muted-foreground"
                 >
                   {snippet}
                 </span>
@@ -116,7 +116,7 @@ export function ListingCard({ listing }: { listing: Listing }) {
             {listing.city}, {listing.county}
           </div>
           {distanceLabel ? (
-            <p className="mt-1 text-xs font-bold text-primary">
+            <p className="mt-1 text-xs font-semibold text-primary">
               {distanceLabel}
             </p>
           ) : null}

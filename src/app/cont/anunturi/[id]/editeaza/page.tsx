@@ -53,7 +53,7 @@ export default async function EditListingPage({
                 { label: "Editează" },
               ]}
             />
-            <h1 className="mt-8 text-3xl font-black text-foreground sm:text-4xl min-[1800px]:text-5xl">
+            <h1 className="mt-8 text-3xl font-semibold text-foreground sm:text-4xl min-[1800px]:text-5xl">
               Editează detaliile
             </h1>
             <p className="mt-4 max-w-2xl text-base leading-7 text-muted-foreground">
@@ -65,7 +65,7 @@ export default async function EditListingPage({
         <section className="py-8 sm:py-12">
           <div className="mx-auto grid w-full max-w-4xl gap-5 px-4 sm:px-8 lg:px-10">
             <div className="rounded-[1.5rem] border border-border bg-card p-5 shadow-soft-sm">
-              <h2 className="text-xl font-black text-foreground">
+              <h2 className="text-xl font-semibold text-foreground">
                 {listing.title}
               </h2>
               <p className="mt-1 text-sm font-semibold text-muted-foreground">
@@ -74,7 +74,7 @@ export default async function EditListingPage({
               <Button
                 asChild
                 variant="outline"
-                className="mt-4 h-10 rounded-full border-border bg-background px-4 text-sm font-bold"
+                className="mt-4 h-10 rounded-full border-border bg-background px-4 text-sm font-semibold"
               >
                 <Link href={`/anunturi/${listing.slug}`}>Vezi anunțul</Link>
               </Button>

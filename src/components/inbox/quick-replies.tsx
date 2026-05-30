@@ -20,7 +20,7 @@ export function QuickReplies({
           key={reply}
           type="button"
           onClick={() => onSelect(reply)}
-          className="shrink-0 rounded-full border border-border bg-background px-3 py-2 text-xs font-bold text-muted-foreground transition hover:border-primary/40 hover:text-primary"
+          className="shrink-0 rounded-full border border-border bg-background px-3 py-2 text-xs font-semibold text-muted-foreground transition hover:border-primary/40 hover:text-primary"
         >
           {reply}
         </button>

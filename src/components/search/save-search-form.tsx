@@ -28,7 +28,7 @@ export function SaveSearchForm({ params }: { params: SearchListingsParams }) {
       ) : null}
       <Button
         variant="outline"
-        className="h-11 rounded-full border-border bg-card px-5 font-bold"
+        className="h-11 rounded-full border-border bg-card px-5 font-semibold"
       >
         Salvează căutarea
       </Button>

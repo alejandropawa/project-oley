@@ -87,7 +87,7 @@ export function ListingsBrowseExperience({
         />
 
         <div className="mt-5 max-w-3xl">
-          <h1 className="font-serif text-4xl font-semibold leading-none text-brand sm:text-5xl min-[1800px]:text-6xl">
+          <h1 className="font-heading text-4xl font-semibold leading-none text-brand sm:text-5xl min-[1800px]:text-6xl">
             {title}
           </h1>
           <p className="mt-4 max-w-2xl text-base leading-7 text-brand-ink">
@@ -108,7 +108,7 @@ export function ListingsBrowseExperience({
         <section className="mt-5 grid gap-7 xl:grid-cols-[minmax(0,1.12fr)_minmax(420px,0.78fr)] xl:items-start">
           <div className="min-w-0">
             <div className="mb-4 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
-              <p className="text-base font-black text-brand">
+              <p className="text-base font-semibold text-brand">
                 {new Intl.NumberFormat("ro-RO").format(result.totalCount)}{" "}
                 anunțuri găsite
               </p>
@@ -214,20 +214,20 @@ function ListingsFilterBar({ params }: { params: SearchListingsParams }) {
           ]}
           icon={<MapPin className="size-4" aria-hidden="true" />}
         />
-        <Button className="h-12 rounded-full bg-action px-8 text-sm font-bold text-action-foreground shadow-[0_14px_34px_rgba(0,95,63,0.18)] hover:bg-action-hover">
+        <Button className="h-12 rounded-full bg-action px-8 text-sm font-semibold text-action-foreground shadow-[0_14px_34px_rgba(0,95,63,0.18)] hover:bg-action-hover">
           Caută
         </Button>
       </div>
 
       <div className="mt-4 flex flex-wrap items-center gap-2">
-        <span className="inline-flex items-center gap-2 rounded-full bg-brand-soft px-3 py-1.5 text-xs font-bold text-brand-ink">
+        <span className="inline-flex items-center gap-2 rounded-full bg-brand-soft px-3 py-1.5 text-xs font-semibold text-brand-ink">
           <SlidersHorizontal className="size-3.5" aria-hidden="true" />
           Filtre rapide
         </span>
         {(params.category || params.citySlug || params.q) ? (
           <Link
             href="/anunturi"
-            className="text-xs font-bold text-brand hover:text-brand"
+            className="text-xs font-semibold text-brand hover:text-brand"
           >
             Resetează filtrele
           </Link>
@@ -308,7 +308,7 @@ function SortMiniForm({ params }: { params: SearchListingsParams }) {
           </option>
         ))}
       </select>
-      <Button className="h-10 rounded-full bg-action px-4 text-xs font-bold text-action-foreground hover:bg-action-hover">
+      <Button className="h-10 rounded-full bg-action px-4 text-xs font-semibold text-action-foreground hover:bg-action-hover">
         Aplică
       </Button>
     </form>
@@ -349,26 +349,26 @@ function CompactListingRow({ listing }: { listing: Listing }) {
       </div>
 
       <div className="min-w-0 py-1">
-        <h2 className="line-clamp-2 text-lg font-black leading-6 text-brand-ink">
+        <h2 className="line-clamp-2 text-lg font-semibold leading-6 text-brand-ink">
           {listing.title}
         </h2>
         <p className="mt-2 flex items-center gap-1.5 text-sm font-medium text-brand-muted">
           <MapPin className="size-4 text-brand" aria-hidden="true" />
           {listing.city}, {listing.county}
         </p>
-        <div className="mt-3 flex flex-wrap items-center gap-x-3 gap-y-2 text-xs font-bold text-brand-muted">
+        <div className="mt-3 flex flex-wrap items-center gap-x-3 gap-y-2 text-xs font-semibold text-brand-muted">
           <span>{category.name}</span>
           {snippets.map((snippet) => (
             <span key={snippet}>• {snippet}</span>
           ))}
         </div>
-        <span className="mt-3 inline-flex rounded-full bg-brand-soft px-3 py-1 text-xs font-bold text-brand">
+        <span className="mt-3 inline-flex rounded-full bg-brand-soft px-3 py-1 text-xs font-semibold text-brand">
           {listingTypeLabels[listing.type]}
         </span>
       </div>
 
       <div className="flex flex-row items-end justify-between gap-4 sm:min-w-32 sm:flex-col sm:items-end sm:py-4">
-        <p className="text-xl font-black text-brand">
+        <p className="text-xl font-semibold text-brand">
           {formatListingPrice(listing)}
         </p>
         <span className="text-xs font-medium text-brand-muted">
@@ -440,10 +440,10 @@ export function ListingsMapPanel({
           Caută în hartă
         </div>
         <div className="absolute right-5 top-5 grid overflow-hidden rounded-full border border-border bg-card/95 text-brand shadow-sm">
-          <button className="grid size-10 place-items-center border-b border-border text-lg font-bold">
+          <button className="grid size-10 place-items-center border-b border-border text-lg font-semibold">
             +
           </button>
-          <button className="grid size-10 place-items-center text-lg font-bold">
+          <button className="grid size-10 place-items-center text-lg font-semibold">
             −
           </button>
         </div>
@@ -451,7 +451,7 @@ export function ListingsMapPanel({
         {markers.map((marker) => (
           <div
             key={marker.slug}
-            className="absolute grid size-8 -translate-x-1/2 -translate-y-1/2 place-items-center rounded-full bg-brand text-xs font-black text-white shadow-[0_10px_24px_rgba(15,70,61,0.28)]"
+            className="absolute grid size-8 -translate-x-1/2 -translate-y-1/2 place-items-center rounded-full bg-brand text-xs font-semibold text-white shadow-[0_10px_24px_rgba(15,70,61,0.28)]"
             style={{ left: `${marker.x}%`, top: `${marker.y}%` }}
             title={marker.label}
           >
@@ -460,7 +460,7 @@ export function ListingsMapPanel({
         ))}
 
         <div className="absolute inset-x-5 bottom-5 rounded-[1.15rem] bg-card/92 p-4 shadow-sm backdrop-blur">
-          <p className="text-sm font-black text-brand">
+          <p className="text-sm font-semibold text-brand">
             Rezultate în {locationLabel}
           </p>
           <p className="mt-1 text-xs leading-5 text-brand-muted">

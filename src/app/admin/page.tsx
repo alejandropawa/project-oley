@@ -109,7 +109,7 @@ export default async function AdminPage() {
         </section>
 
         <section className="rounded-[1.75rem] border border-border bg-card p-5 shadow-soft-sm">
-          <h2 className="text-2xl font-black text-foreground">
+          <h2 className="text-2xl font-semibold text-foreground">
             Linkuri rapide
           </h2>
           <div className="mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-6">
@@ -117,7 +117,7 @@ export default async function AdminPage() {
               <Link
                 key={link.href}
                 href={link.href}
-                className="rounded-[1.25rem] border border-border bg-background p-4 text-sm font-black text-foreground transition hover:border-primary/40 hover:text-primary"
+                className="rounded-[1.25rem] border border-border bg-background p-4 text-sm font-semibold text-foreground transition hover:border-primary/40 hover:text-primary"
               >
                 {link.label}
               </Link>

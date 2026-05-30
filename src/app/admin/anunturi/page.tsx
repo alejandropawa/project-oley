@@ -68,7 +68,7 @@ export default async function AdminListingsPage({
       <div className="grid gap-5">
         <form className="grid gap-3 rounded-[1.5rem] border border-border bg-card p-4 shadow-soft-sm sm:grid-cols-4">
           <label className="block">
-            <span className="mb-1.5 block text-sm font-bold text-foreground">
+            <span className="mb-1.5 block text-sm font-semibold text-foreground">
               Status
             </span>
             <select
@@ -84,7 +84,7 @@ export default async function AdminListingsPage({
             </select>
           </label>
           <label className="block">
-            <span className="mb-1.5 block text-sm font-bold text-foreground">
+            <span className="mb-1.5 block text-sm font-semibold text-foreground">
               Categorie
             </span>
             <select
@@ -101,7 +101,7 @@ export default async function AdminListingsPage({
             </select>
           </label>
           <label className="block">
-            <span className="mb-1.5 block text-sm font-bold text-foreground">
+            <span className="mb-1.5 block text-sm font-semibold text-foreground">
               Oraș
             </span>
             <input
@@ -119,11 +119,11 @@ export default async function AdminListingsPage({
               defaultChecked={filters.reportedOnly}
               className="size-4 accent-brand"
             />
-            <span className="text-sm font-bold text-foreground">
+            <span className="text-sm font-semibold text-foreground">
               Doar raportate
             </span>
           </label>
-          <button className="h-12 rounded-full bg-action px-5 text-sm font-bold text-action-foreground hover:bg-action-hover sm:col-span-4 sm:w-fit">
+          <button className="h-12 rounded-full bg-action px-5 text-sm font-semibold text-action-foreground hover:bg-action-hover sm:col-span-4 sm:w-fit">
             Filtrează
           </button>
         </form>
@@ -132,7 +132,7 @@ export default async function AdminListingsPage({
           <AdminSetupState title="Anunțurile nu sunt disponibile încă." />
         ) : listings.listings.length === 0 ? (
           <div className="rounded-[1.75rem] border border-dashed border-border bg-card p-8 text-center shadow-soft-sm">
-            <h2 className="text-2xl font-black text-foreground">
+            <h2 className="text-2xl font-semibold text-foreground">
               Nu există anunțuri pentru filtrele selectate.
             </h2>
           </div>

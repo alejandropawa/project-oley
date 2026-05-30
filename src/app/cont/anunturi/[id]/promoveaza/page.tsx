@@ -80,7 +80,7 @@ export default async function PromoteListingPage({
           <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
             <div className="min-w-0">
               <div className="flex flex-wrap items-center gap-2">
-                <span className="rounded-full bg-muted px-3 py-1 text-xs font-black text-primary">
+                <span className="rounded-full bg-muted px-3 py-1 text-xs font-semibold text-primary">
                   Status: {listing.status ?? "active"}
                 </span>
                 {activePromotion ? (
@@ -90,7 +90,7 @@ export default async function PromoteListingPage({
                   </>
                 ) : null}
               </div>
-              <h2 className="mt-3 text-2xl font-black text-foreground">
+              <h2 className="mt-3 text-2xl font-semibold text-foreground">
                 {listing.title}
               </h2>
               <p className="mt-1 text-sm font-semibold text-muted-foreground">
@@ -100,7 +100,7 @@ export default async function PromoteListingPage({
             <Button
               asChild
               variant="outline"
-              className="h-11 rounded-full border-border bg-background px-5 font-bold"
+              className="h-11 rounded-full border-border bg-background px-5 font-semibold"
             >
               <Link href={`/anunturi/${listing.slug}`}>Vezi anunț</Link>
             </Button>
@@ -121,10 +121,10 @@ export default async function PromoteListingPage({
 
         <section className="grid gap-4">
           <div>
-            <p className="text-sm font-black uppercase text-primary">
+            <p className="text-sm font-semibold uppercase text-primary">
               Pachete promovare
             </p>
-            <h2 className="mt-1 text-2xl font-black text-foreground">
+            <h2 className="mt-1 text-2xl font-semibold text-foreground">
               Alege vizibilitatea dorită
             </h2>
           </div>
@@ -161,7 +161,7 @@ function PromoteFrame({
                 { label: title },
               ]}
             />
-            <h1 className="mt-8 text-3xl font-black text-foreground sm:text-4xl min-[1800px]:text-5xl">
+            <h1 className="mt-8 text-3xl font-semibold text-foreground sm:text-4xl min-[1800px]:text-5xl">
               {title}
             </h1>
             <p className="mt-4 max-w-2xl text-base leading-7 text-muted-foreground">
@@ -182,7 +182,7 @@ function PromoteFrame({
 function SetupState() {
   return (
     <div className="rounded-[1.75rem] border border-warm/45 bg-secondary p-6 shadow-soft-sm">
-      <h2 className="text-2xl font-black text-foreground">
+      <h2 className="text-2xl font-semibold text-foreground">
         Promovarea reală are nevoie de configurarea Supabase.
       </h2>
       <p className="mt-2 text-sm leading-6 text-warm-foreground">
@@ -191,7 +191,7 @@ function SetupState() {
       </p>
       <Button
         asChild
-        className="mt-5 h-11 rounded-full bg-primary px-5 font-bold text-primary-foreground"
+        className="mt-5 h-11 rounded-full bg-primary px-5 font-semibold text-primary-foreground"
       >
         <Link href="/promovare">Vezi pachetele</Link>
       </Button>

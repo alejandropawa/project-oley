@@ -32,10 +32,10 @@ export function TrustSection() {
     <section id="siguranta" className="bg-brand-soft py-12 sm:py-16">
       <div className="mx-auto grid w-full max-w-7xl gap-8 px-4 sm:px-6 lg:grid-cols-[0.9fr_1.1fr] lg:px-8">
         <div className="flex flex-col justify-center">
-          <p className="text-sm font-bold uppercase text-primary">
+          <p className="text-sm font-semibold uppercase text-primary">
             Siguranță pe primul loc
           </p>
-          <h2 className="mt-2 text-3xl font-black text-foreground sm:text-4xl">
+          <h2 className="mt-2 text-3xl font-semibold text-foreground sm:text-4xl">
             Mai puțină presiune, mai mult control
           </h2>
           <p className="mt-4 text-base leading-7 text-muted-foreground">
@@ -58,7 +58,7 @@ export function TrustSection() {
                 <span className="grid size-11 place-items-center rounded-[1rem] bg-secondary text-primary">
                   <Icon className="size-5" aria-hidden="true" />
                 </span>
-                <h3 className="mt-4 text-lg font-black text-foreground">
+                <h3 className="mt-4 text-lg font-semibold text-foreground">
                   {item.title}
                 </h3>
                 <p className="mt-2 text-sm leading-6 text-muted-foreground">

@@ -64,10 +64,10 @@ export default async function TrustCenterPage() {
               ]}
             />
             <div className="mt-8 max-w-3xl">
-              <p className="text-sm font-bold uppercase text-primary">
+              <p className="text-sm font-semibold uppercase text-primary">
                 Semnale de incredere
               </p>
-              <h1 className="mt-2 text-3xl font-black leading-tight text-foreground sm:text-4xl min-[1800px]:text-5xl">
+              <h1 className="mt-2 text-3xl font-semibold leading-tight text-foreground sm:text-4xl min-[1800px]:text-5xl">
                 Centrul de incredere
               </h1>
               <p className="mt-4 text-base leading-7 text-muted-foreground">
@@ -88,7 +88,7 @@ export default async function TrustCenterPage() {
               <article className="rounded-[1.5rem] border border-border bg-card p-5 shadow-soft-sm">
                 <div className="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
                   <div>
-                    <h2 className="text-xl font-black text-foreground">
+                    <h2 className="text-xl font-semibold text-foreground">
                       Badge-uri
                     </h2>
                     <p className="mt-1 text-sm leading-6 text-muted-foreground">
@@ -96,7 +96,7 @@ export default async function TrustCenterPage() {
                     </p>
                   </div>
                   {profileResult.profile?.slug ? (
-                    <Button asChild variant="outline" className="h-10 rounded-full font-bold">
+                    <Button asChild variant="outline" className="h-10 rounded-full font-semibold">
                       <Link href={`/profil/${profileResult.profile.slug}`}>
                         Vezi profilul public
                       </Link>
@@ -109,7 +109,7 @@ export default async function TrustCenterPage() {
               </article>
 
               <article className="rounded-[1.5rem] border border-border bg-card p-5 shadow-soft-sm">
-                <h2 className="text-xl font-black text-foreground">
+                <h2 className="text-xl font-semibold text-foreground">
                   Verificari
                 </h2>
                 <p className="mt-1 text-sm leading-6 text-muted-foreground">
@@ -123,12 +123,12 @@ export default async function TrustCenterPage() {
                         key={request.id}
                         className="rounded-[1rem] border border-border bg-background p-3"
                       >
-                        <p className="text-sm font-black text-foreground">
+                        <p className="text-sm font-semibold text-foreground">
                           {request.type === "phone"
                             ? "Telefon"
                             : "Verificare vanzator"}
                         </p>
-                        <p className="mt-1 text-xs font-bold uppercase text-primary">
+                        <p className="mt-1 text-xs font-semibold uppercase text-primary">
                           {verificationStatusLabels[request.status]}
                         </p>
                         {request.admin_note ? (
@@ -144,13 +144,13 @@ export default async function TrustCenterPage() {
                     </div>
                   )}
                 </div>
-                <Button asChild className="mt-4 h-11 rounded-full bg-action px-5 font-bold text-action-foreground hover:bg-action-hover">
+                <Button asChild className="mt-4 h-11 rounded-full bg-action px-5 font-semibold text-action-foreground hover:bg-action-hover">
                   <Link href="/cont/profil">Editează profilul</Link>
                 </Button>
               </article>
 
               <article className="rounded-[1.5rem] border border-border bg-card p-5 shadow-soft-sm">
-                <h2 className="text-xl font-black text-foreground">
+                <h2 className="text-xl font-semibold text-foreground">
                   Review-uri primite
                 </h2>
                 <div className="mt-5">

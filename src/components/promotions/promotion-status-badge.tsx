@@ -14,7 +14,7 @@ export function PromotionOrderStatusBadge({
   return (
     <Badge
       className={cn(
-        "rounded-full px-3 py-1 text-xs font-black",
+        "rounded-full px-3 py-1 text-xs font-semibold",
         status === "pending_review" && "bg-secondary text-warm-foreground",
         status === "approved" && "bg-brand-soft text-brand",
         status === "rejected" && "bg-destructive/10 text-destructive",
@@ -35,7 +35,7 @@ export function ListingPromotionStatusBadge({
   return (
     <Badge
       className={cn(
-        "rounded-full px-3 py-1 text-xs font-black",
+        "rounded-full px-3 py-1 text-xs font-semibold",
         status === "active" && "bg-brand-soft text-brand",
         status === "scheduled" && "bg-secondary text-warm-foreground",
         status === "expired" && "bg-background text-muted-foreground",

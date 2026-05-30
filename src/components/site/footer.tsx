@@ -98,7 +98,7 @@ export function Footer() {
                     {Icon ? (
                       <Icon className="size-4" aria-hidden="true" />
                     ) : (
-                      <span className="text-base font-black" aria-hidden="true">
+                      <span className="text-base font-semibold" aria-hidden="true">
                         {social.content}
                       </span>
                     )}
@@ -114,7 +114,7 @@ export function Footer() {
           >
             {footerColumns.map((column) => (
               <div key={column.title}>
-                <h2 className="text-xs font-black uppercase tracking-normal text-brand">
+                <h2 className="text-xs font-semibold uppercase tracking-normal text-brand">
                   {column.title}
                 </h2>
                 <ul className="mt-5 space-y-3">
@@ -136,7 +136,7 @@ export function Footer() {
           <section aria-labelledby="footer-newsletter">
             <h2
               id="footer-newsletter"
-              className="text-xs font-black uppercase tracking-normal text-brand"
+              className="text-xs font-semibold uppercase tracking-normal text-brand"
             >
               Fii la curent
             </h2>
@@ -157,7 +157,7 @@ export function Footer() {
                 type="button"
                 className={cn(
                   primaryActionButtonClassName,
-                  "inline-flex h-12 w-full items-center justify-center gap-3 px-5 text-sm font-bold focus-visible:outline-none focus-visible:ring-3",
+                  "inline-flex h-12 w-full items-center justify-center gap-3 px-5 text-sm font-semibold focus-visible:outline-none focus-visible:ring-3",
                 )}
               >
                 Abonează-te

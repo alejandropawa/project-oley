@@ -30,11 +30,11 @@ export function SellerTrustSummary({
   return (
     <div>
       <div className="flex flex-wrap items-center gap-2">
-        <h2 className="font-black text-foreground">
+        <h2 className="font-semibold text-foreground">
           {summary.displayName || fallbackName}
         </h2>
         {summary.isVerifiedSeller ? (
-          <Badge className="rounded-full bg-muted px-2 py-0.5 text-xs font-bold text-primary">
+          <Badge className="rounded-full bg-muted px-2 py-0.5 text-xs font-semibold text-primary">
             <UserRoundCheck className="size-3" aria-hidden="true" />
             verificat partial
           </Badge>
@@ -44,7 +44,7 @@ export function SellerTrustSummary({
         {summary.publicLocationLabel || summary.city || "Romania"} · membru din{" "}
         {formatTrustDate(summary.memberSince)}
       </p>
-      <p className="mt-2 inline-flex items-center gap-1.5 text-sm font-bold text-primary">
+      <p className="mt-2 inline-flex items-center gap-1.5 text-sm font-semibold text-primary">
         <Star className="size-4 fill-current" aria-hidden="true" />
         {summary.averageRating
           ? `${summary.averageRating.toFixed(1)}/5 din ${summary.reviewsCount} review-uri`
@@ -60,7 +60,7 @@ export function SellerTrustSummary({
         <Button
           asChild
           variant="ghost"
-          className="mt-4 h-10 rounded-full px-4 font-bold text-primary"
+          className="mt-4 h-10 rounded-full px-4 font-semibold text-primary"
         >
           <Link href={profileHref}>Vezi profilul</Link>
         </Button>

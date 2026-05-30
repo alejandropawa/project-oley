@@ -36,7 +36,7 @@ export function MarkAllReadButton({ disabled }: { disabled?: boolean }) {
         onClick={markAll}
         disabled={disabled || isPending}
         variant="outline"
-        className="h-10 rounded-full border-border bg-card px-4 text-sm font-bold"
+        className="h-10 rounded-full border-border bg-card px-4 text-sm font-semibold"
       >
         {isPending ? "Se marchează..." : "Marchează toate ca citite"}
       </Button>
@@ -96,7 +96,7 @@ export function NotificationItemActions({
             onClick={markRead}
             disabled={isPending}
             variant="outline"
-            className="h-9 rounded-full border-border bg-background px-3 text-xs font-bold"
+            className="h-9 rounded-full border-border bg-background px-3 text-xs font-semibold"
           >
             {isPending ? "Se marchează..." : "Marchează citită"}
           </Button>
@@ -106,7 +106,7 @@ export function NotificationItemActions({
           onClick={remove}
           disabled={isPending}
           variant="ghost"
-          className="h-9 rounded-full px-3 text-xs font-bold text-muted-foreground"
+          className="h-9 rounded-full px-3 text-xs font-semibold text-muted-foreground"
         >
           Șterge
         </Button>

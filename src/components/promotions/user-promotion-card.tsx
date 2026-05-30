@@ -25,7 +25,7 @@ export function ActivePromotionCard({
       <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
         <div>
           <ListingPromotionStatusBadge status={promotion.status} />
-          <h3 className="mt-3 text-lg font-black text-foreground">
+          <h3 className="mt-3 text-lg font-semibold text-foreground">
             {promotion.listing?.title ?? "Anunț indisponibil"}
           </h3>
           <p className="mt-1 text-sm font-semibold text-muted-foreground">
@@ -37,7 +37,7 @@ export function ActivePromotionCard({
           <Button
             asChild
             variant="outline"
-            className="h-10 rounded-full border-border bg-background px-4 text-sm font-bold"
+            className="h-10 rounded-full border-border bg-background px-4 text-sm font-semibold"
           >
             <Link href={`/anunturi/${promotion.listing.slug}`}>Vezi anunț</Link>
           </Button>
@@ -61,7 +61,7 @@ export function PromotionOrderCard({
       <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
         <div>
           <PromotionOrderStatusBadge status={order.status} />
-          <h3 className="mt-3 text-lg font-black text-foreground">
+          <h3 className="mt-3 text-lg font-semibold text-foreground">
             {order.listing?.title ?? "Anunț indisponibil"}
           </h3>
           <p className="mt-1 text-sm font-semibold text-muted-foreground">
@@ -73,7 +73,7 @@ export function PromotionOrderCard({
           <Button
             asChild
             variant="outline"
-            className="h-10 rounded-full border-border bg-background px-4 text-sm font-bold"
+            className="h-10 rounded-full border-border bg-background px-4 text-sm font-semibold"
           >
             <Link href={`/anunturi/${order.listing.slug}`}>Vezi anunț</Link>
           </Button>

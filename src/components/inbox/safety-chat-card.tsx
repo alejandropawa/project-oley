@@ -24,7 +24,7 @@ export function SafetyChatCard({
           <ShieldAlert className="size-5" aria-hidden="true" />
         </span>
         <div>
-          <h2 className="font-black text-foreground">Discută în siguranță</h2>
+          <h2 className="font-semibold text-foreground">Discută în siguranță</h2>
           <ul className="mt-2 grid gap-1.5 text-sm leading-6 text-muted-foreground">
             {safetyBullets.map((item) => (
               <li key={item}>{item}</li>

@@ -31,7 +31,7 @@ export function StaticMapCard({
         <span className="inline-flex size-11 items-center justify-center rounded-full bg-card text-primary shadow-soft-sm">
           <MapPin className="size-5" aria-hidden="true" />
         </span>
-        <h2 className="mt-4 text-xl font-black text-foreground">{title}</h2>
+        <h2 className="mt-4 text-xl font-semibold text-foreground">{title}</h2>
         <p className="mt-2 text-sm leading-6 text-muted-foreground">
           {description}
         </p>
@@ -47,7 +47,7 @@ export function StaticMapCard({
               transform: `translate(${index % 2 === 0 ? 0 : 8}px, ${index * 2}px)`,
             }}
           >
-            <p className="line-clamp-1 text-sm font-black text-foreground">
+            <p className="line-clamp-1 text-sm font-semibold text-foreground">
               {listing.title}
             </p>
             <p className="mt-1 text-xs font-semibold text-muted-foreground">

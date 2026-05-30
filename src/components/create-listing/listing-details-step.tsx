@@ -1,6 +1,7 @@
 import type { ReactNode } from "react";
 
 import { CategoryAttributeFields } from "@/components/create-listing/category-attribute-fields";
+import { Checkbox } from "@/components/ui/checkbox";
 import { listingTypeLabels } from "@/lib/listing-utils";
 import { categories } from "@/lib/mock-data";
 import { romanianLocations } from "@/lib/romanian-locations";
@@ -75,7 +76,7 @@ export function ListingDetailsStep({
   return (
     <div>
       <div className="mb-5">
-        <h2 className="text-xl font-black text-foreground">
+        <h2 className="text-2xl font-semibold text-foreground">
           2. Completează detaliile anunțului
         </h2>
         <p className="mt-2 text-sm leading-6 text-muted-foreground">
@@ -110,8 +111,8 @@ export function ListingDetailsStep({
                 onClick={() => onTypeChange(type)}
                 className={
                   values.type === type
-                    ? "h-11 rounded-[0.7rem] bg-primary px-3 text-sm font-black text-primary-foreground shadow-[0_10px_24px_rgba(0,95,63,0.18)]"
-                    : "h-11 rounded-[0.7rem] border border-input bg-background px-3 text-sm font-bold text-foreground transition hover:bg-muted"
+                    ? "h-12 rounded-sm bg-primary px-3 text-sm font-semibold text-primary-foreground shadow-soft-sm"
+                    : "h-12 rounded-sm border border-input bg-white px-3 text-sm font-semibold text-foreground transition hover:bg-brand-soft hover:text-primary"
                 }
               >
                 {listingTypeLabels[type]}
@@ -179,7 +180,7 @@ export function ListingDetailsStep({
               onChange={(event) => onFieldChange("price", event.target.value)}
               inputMode="decimal"
               placeholder="Ex: 2.500"
-              className="h-11 min-w-0 rounded-l-lg border border-input bg-background px-3 text-sm outline-none focus-visible:border-ring focus-visible:ring-3 focus-visible:ring-ring/50"
+              className="h-12 min-w-0 rounded-l-sm border border-input bg-white px-3 text-sm outline-none focus-visible:border-primary focus-visible:ring-3 focus-visible:ring-primary/20"
             />
             <select
               value={values.currency}
@@ -190,7 +191,7 @@ export function ListingDetailsStep({
                 )
               }
               aria-label="Monedă"
-              className="h-11 min-w-0 rounded-r-lg border border-l-0 border-input bg-background px-3 text-sm outline-none focus-visible:border-ring focus-visible:ring-3 focus-visible:ring-ring/50"
+              className="h-12 min-w-0 rounded-r-sm border border-l-0 border-input bg-white px-3 text-sm outline-none focus-visible:border-primary focus-visible:ring-3 focus-visible:ring-primary/20"
             >
               <option value="EUR">EUR</option>
               <option value="RON">RON</option>
@@ -259,7 +260,7 @@ export function ListingDetailsStep({
               placeholder="Descrie produsul sau serviciul tău în detaliu..."
               rows={5}
               maxLength={2000}
-              className="min-h-32 w-full resize-y rounded-lg border border-input bg-background px-3 py-3 pb-8 text-sm leading-6 outline-none focus-visible:border-ring focus-visible:ring-3 focus-visible:ring-ring/50"
+              className="min-h-36 w-full resize-y rounded-sm border border-input bg-white px-3.5 py-3 pb-8 text-sm leading-6 outline-none focus-visible:border-primary focus-visible:ring-3 focus-visible:ring-primary/20"
             />
             <span className="absolute bottom-3 right-3 text-xs font-semibold text-muted-foreground">
               {descriptionCount} / 2000
@@ -268,15 +269,13 @@ export function ListingDetailsStep({
         </Field>
 
         <label className="flex items-center gap-3 lg:col-span-2">
-          <input
-            type="checkbox"
+          <Checkbox
             checked={values.negotiable}
-            onChange={(event) =>
-              onFieldChange("negotiable", event.target.checked)
+            onCheckedChange={(checked) =>
+              onFieldChange("negotiable", checked === true)
             }
-            className="size-4 accent-brand"
           />
-          <span className="text-sm font-bold text-muted-foreground">
+          <span className="text-sm font-semibold text-muted-foreground">
             Preț negociabil
           </span>
         </label>
@@ -299,7 +298,7 @@ export function ListingDetailsStep({
 }
 
 const controlClassName =
-  "h-11 w-full rounded-lg border border-input bg-background px-3 text-sm outline-none focus-visible:border-ring focus-visible:ring-3 focus-visible:ring-ring/50 disabled:opacity-60";
+  "h-12 w-full rounded-sm border border-input bg-white px-3.5 text-sm outline-none focus-visible:border-primary focus-visible:ring-3 focus-visible:ring-primary/20 disabled:bg-brand-soft disabled:opacity-70";
 
 function Field({
   label,
@@ -316,7 +315,7 @@ function Field({
 }) {
   return (
     <label className={className}>
-      <span className="mb-1.5 block text-xs font-black text-foreground">
+      <span className="mb-1.5 block text-sm font-semibold text-foreground">
         {label}
         {required ? <span className="text-destructive"> *</span> : null}
       </span>

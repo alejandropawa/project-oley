@@ -9,7 +9,7 @@ export function MessageThread({
   if (messages.length === 0) {
     return (
       <div className="rounded-[1.5rem] border border-dashed border-border bg-card p-6 text-center shadow-soft-sm">
-        <h2 className="text-xl font-black text-foreground">
+        <h2 className="text-xl font-semibold text-foreground">
           Începe conversația
         </h2>
         <p className="mx-auto mt-2 max-w-md text-sm leading-6 text-muted-foreground">

@@ -32,7 +32,7 @@ export function LandingSearch() {
         type="submit"
         className={cn(
           primaryActionButtonClassName,
-          "h-10 min-w-[5.1rem] px-4 text-sm font-bold sm:h-12 sm:min-w-32 sm:px-7",
+          "h-10 min-w-[5.1rem] px-4 text-sm font-semibold sm:h-12 sm:min-w-32 sm:px-7",
         )}
       >
         Caută

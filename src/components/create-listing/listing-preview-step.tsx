@@ -22,7 +22,7 @@ export function ListingPreviewStep({ values }: { values: CreateListingValues }) 
   return (
     <div>
       <div className="mb-5">
-        <h2 className="text-xl font-black text-foreground">
+        <h2 className="text-2xl font-semibold text-foreground">
           4. Preview și publicare
         </h2>
         <p className="mt-2 text-sm leading-6 text-muted-foreground">
@@ -52,17 +52,17 @@ export function ListingPreviewStep({ values }: { values: CreateListingValues }) 
                 <Camera className="size-12" aria-hidden="true" />
               </div>
             ) : null}
-            <Badge className="absolute bottom-3 right-3 rounded-md bg-foreground/80 px-2 py-1 text-xs font-black text-background">
+            <Badge className="absolute bottom-3 right-3 rounded-md bg-foreground/80 px-2 py-1 text-xs font-semibold text-background">
               <Camera className="size-3" aria-hidden="true" />
               {values.photos.length} imagini
             </Badge>
           </div>
 
           <div className="p-4">
-            <h1 className="text-lg font-black leading-tight text-foreground">
+            <h1 className="text-lg font-semibold leading-tight text-foreground">
               {values.title || "Apartament 2 camere, central, renovat"}
             </h1>
-            <p className="mt-2 text-xl font-black text-primary">
+            <p className="mt-2 text-xl font-semibold text-primary">
               {formatDraftPrice(values)}
             </p>
             <p className="mt-2 flex items-center gap-1.5 text-sm font-semibold text-muted-foreground">
@@ -77,12 +77,12 @@ export function ListingPreviewStep({ values }: { values: CreateListingValues }) 
               </p>
             ) : null}
             {category ? (
-              <Badge className="mt-2 rounded-md bg-brand-soft px-2 py-1 text-xs font-bold text-primary">
+              <Badge className="mt-2 rounded-md bg-brand-soft px-2 py-1 text-xs font-semibold text-primary">
                 {category.name}
               </Badge>
             ) : null}
             {values.subcategory ? (
-              <Badge className="ml-2 mt-2 rounded-md bg-background px-2 py-1 text-xs font-bold text-muted-foreground">
+              <Badge className="ml-2 mt-2 rounded-md bg-background px-2 py-1 text-xs font-semibold text-muted-foreground">
                 {values.subcategory}
               </Badge>
             ) : null}
@@ -94,7 +94,7 @@ export function ListingPreviewStep({ values }: { values: CreateListingValues }) 
                 {attributeSnippets.map((snippet) => (
                   <Badge
                     key={snippet}
-                    className="rounded-md bg-background px-2 py-1 text-xs font-bold text-muted-foreground"
+                    className="rounded-md bg-background px-2 py-1 text-xs font-semibold text-muted-foreground"
                   >
                     {snippet}
                   </Badge>
@@ -107,7 +107,7 @@ export function ListingPreviewStep({ values }: { values: CreateListingValues }) 
             </p>
             <button
               type="button"
-              className="mt-3 text-xs font-black text-primary"
+              className="mt-3 text-xs font-semibold text-primary"
             >
               Mai mult
             </button>
@@ -115,7 +115,7 @@ export function ListingPreviewStep({ values }: { values: CreateListingValues }) 
         </section>
 
         <aside className="rounded-lg border border-border bg-card p-4 shadow-soft-sm">
-          <h3 className="text-base font-black text-foreground">
+          <h3 className="text-base font-semibold text-foreground">
             Detalii anunț
           </h3>
           <dl className="mt-4 divide-y divide-border text-sm">
@@ -140,7 +140,7 @@ export function ListingPreviewStep({ values }: { values: CreateListingValues }) 
             <DetailRow label="Adresă" value={values.locationLabel || "-"} />
             <DetailRow label="Stare" value={values.condition || "-"} />
             <div className="grid grid-cols-[7rem_1fr] gap-4 py-2.5">
-              <dt className="text-xs font-bold text-muted-foreground">
+              <dt className="text-xs font-semibold text-muted-foreground">
                 Descriere
               </dt>
               <dd className="max-h-16 overflow-hidden text-right text-xs leading-5 text-muted-foreground">
@@ -158,7 +158,7 @@ export function ListingPreviewStep({ values }: { values: CreateListingValues }) 
 function DetailRow({ label, value }: { label: string; value: string }) {
   return (
     <div className="grid grid-cols-[7rem_1fr] gap-4 py-2.5">
-      <dt className="text-xs font-bold text-muted-foreground">{label}</dt>
+      <dt className="text-xs font-semibold text-muted-foreground">{label}</dt>
       <dd className="text-right text-xs font-semibold text-muted-foreground">
         {value}
       </dd>

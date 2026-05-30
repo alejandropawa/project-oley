@@ -11,10 +11,10 @@ export function FeaturedListings() {
       <div className="mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
           <div>
-            <p className="text-sm font-bold uppercase text-primary">
+            <p className="text-sm font-semibold uppercase text-primary">
               Preview
             </p>
-            <h2 className="mt-2 text-3xl font-black text-foreground sm:text-4xl">
+            <h2 className="mt-2 text-3xl font-semibold text-foreground sm:text-4xl">
               Câteva anunțuri de pornire
             </h2>
             <p className="mt-2 max-w-2xl text-sm leading-6 text-muted-foreground">
@@ -25,7 +25,7 @@ export function FeaturedListings() {
           <Button
             asChild
             variant="outline"
-            className="h-11 rounded-full border-border bg-background px-5 font-bold hover:bg-muted"
+            className="h-11 rounded-full border-border bg-background px-5 font-semibold hover:bg-muted"
           >
             <Link href="/anunturi">
               Vezi toate

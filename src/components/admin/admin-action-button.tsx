@@ -42,8 +42,8 @@ export function ReportStatusActionButton({
         variant={status === "dismissed" ? "outline" : undefined}
         className={
           status === "dismissed"
-            ? "h-11 rounded-full border-border bg-background px-4 font-bold"
-            : "h-11 rounded-full bg-primary px-4 font-bold text-primary-foreground"
+            ? "h-11 rounded-full border-border bg-background px-4 font-semibold"
+            : "h-11 rounded-full bg-primary px-4 font-semibold text-primary-foreground"
         }
       >
         {isPending ? "Se salvează..." : children}
@@ -97,8 +97,8 @@ export function ListingModerationButton({
         variant={action === "reactivate" ? undefined : "outline"}
         className={
           action === "reactivate"
-            ? "h-10 rounded-full bg-primary px-4 text-sm font-bold text-primary-foreground"
-            : "h-10 rounded-full border-border bg-background px-4 text-sm font-bold"
+            ? "h-10 rounded-full bg-primary px-4 text-sm font-semibold text-primary-foreground"
+            : "h-10 rounded-full border-border bg-background px-4 text-sm font-semibold"
         }
       >
         {isPending ? "Se salvează..." : children}
@@ -137,7 +137,7 @@ export function ModerationNoteForm({ reportId }: { reportId: string }) {
   return (
     <form onSubmit={submitNote} className="grid gap-3">
       <label className="block">
-        <span className="mb-1.5 block text-sm font-bold text-foreground">
+        <span className="mb-1.5 block text-sm font-semibold text-foreground">
           Notă internă
         </span>
         <textarea
@@ -153,7 +153,7 @@ export function ModerationNoteForm({ reportId }: { reportId: string }) {
       {message ? <p className="text-sm font-semibold text-primary">{message}</p> : null}
       <Button
         disabled={isPending}
-        className="h-11 w-fit rounded-full bg-primary px-5 font-bold text-primary-foreground"
+        className="h-11 w-fit rounded-full bg-primary px-5 font-semibold text-primary-foreground"
       >
         {isPending ? "Se salvează..." : "Adaugă notă internă"}
       </Button>

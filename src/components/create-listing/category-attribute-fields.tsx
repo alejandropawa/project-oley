@@ -24,7 +24,7 @@ export function CategoryAttributeFields({
   return (
     <section className="rounded-[1.15rem] border border-border bg-background/70 p-4 shadow-sm">
       <div>
-        <h3 className="text-base font-black text-foreground">
+        <h3 className="text-base font-semibold text-foreground">
           Detalii specifice categoriei
         </h3>
         <p className="mt-1 text-sm leading-6 text-muted-foreground">
@@ -53,7 +53,7 @@ export function CategoryAttributeFields({
                   className="mt-1 size-4 accent-brand"
                 />
                 <span>
-                  <span className="block text-sm font-bold text-foreground">
+                  <span className="block text-sm font-semibold text-foreground">
                     {definition.label}
                     {definition.isRequired ? (
                       <span className="text-destructive"> *</span>
@@ -141,7 +141,7 @@ function Field({
 }) {
   return (
     <label className="block">
-      <span className="mb-1.5 block text-xs font-black text-foreground">
+      <span className="mb-1.5 block text-xs font-semibold text-foreground">
         {label}
         {required ? <span className="text-destructive"> *</span> : null}
       </span>

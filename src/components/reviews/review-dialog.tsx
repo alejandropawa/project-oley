@@ -47,7 +47,7 @@ export function ReviewDialog({
     <div className="rounded-[1.5rem] border border-border bg-card p-5 shadow-soft-sm">
       <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
         <div>
-          <h2 className="font-black text-foreground">Ai finalizat interactiunea?</h2>
+          <h2 className="font-semibold text-foreground">Ai finalizat interactiunea?</h2>
           <p className="mt-1 text-sm leading-6 text-muted-foreground">
             Review-urile ajuta comunitatea TROKO sa cumpere si sa vanda mai in
             siguranta.
@@ -56,7 +56,7 @@ export function ReviewDialog({
         <Button
           type="button"
           onClick={() => setOpen((value) => !value)}
-          className="h-11 rounded-full bg-primary px-5 font-bold text-primary-foreground"
+          className="h-11 rounded-full bg-primary px-5 font-semibold text-primary-foreground"
         >
           <MessageSquareText className="size-4" aria-hidden="true" />
           Scrie review
@@ -66,11 +66,11 @@ export function ReviewDialog({
       {open ? (
         <div className="mt-5 grid gap-4 rounded-[1.25rem] border border-border bg-background p-4">
           <div>
-            <p className="mb-2 text-sm font-bold text-foreground">Rating</p>
+            <p className="mb-2 text-sm font-semibold text-foreground">Rating</p>
             <RatingStars rating={rating} onChange={setRating} />
           </div>
           <label className="block">
-            <span className="mb-1.5 block text-sm font-bold text-foreground">
+            <span className="mb-1.5 block text-sm font-semibold text-foreground">
               Comentariu optional
             </span>
             <textarea
@@ -91,7 +91,7 @@ export function ReviewDialog({
             type="button"
             disabled={isPending}
             onClick={submitReview}
-            className="h-11 rounded-full bg-primary px-5 font-bold text-primary-foreground"
+            className="h-11 rounded-full bg-primary px-5 font-semibold text-primary-foreground"
           >
             {isPending ? "Se trimite..." : "Trimite review"}
           </Button>

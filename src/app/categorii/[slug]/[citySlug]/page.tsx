@@ -129,7 +129,7 @@ export default async function CategoryCityPage({
                 <span className="grid size-14 place-items-center rounded-[1.25rem] border border-border bg-card/88 text-brand shadow-[0_14px_34px_rgba(15,70,61,0.1)]">
                   <Icon className="size-6" aria-hidden="true" />
                 </span>
-                <h1 className="mt-5 font-serif text-4xl font-semibold leading-none text-brand sm:text-5xl min-[1800px]:text-6xl">
+                <h1 className="mt-5 font-heading text-4xl font-semibold leading-none text-brand sm:text-5xl min-[1800px]:text-6xl">
                   {category.name} în {city.name}
                 </h1>
                 <p className="mt-4 max-w-2xl text-base leading-7 text-brand-ink">
@@ -139,7 +139,7 @@ export default async function CategoryCityPage({
               </div>
 
               <div className="rounded-[1.5rem] border border-border/90 bg-card/88 p-4 shadow-[0_18px_48px_rgba(15,70,61,0.1)] backdrop-blur">
-                <p className="text-sm font-black text-brand-ink">
+                <p className="text-sm font-semibold text-brand-ink">
                   Subcategorii populare
                 </p>
                 <div className="mt-3 flex flex-wrap gap-2">
@@ -161,16 +161,16 @@ export default async function CategoryCityPage({
           <div className="mx-auto grid w-full max-w-[1440px] gap-8 px-5 sm:px-8 lg:px-10">
             <div className="flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
               <div>
-                <p className="text-sm font-bold uppercase text-primary">
+                <p className="text-sm font-semibold uppercase text-primary">
                   {searchResult.totalCount} rezultate
                 </p>
-                <h2 className="mt-1 text-2xl font-black text-foreground">
+                <h2 className="mt-1 text-2xl font-semibold text-foreground">
                   Anunțuri {category.name} în {city.name}
                 </h2>
               </div>
               <Button
                 asChild
-                className="h-11 rounded-full bg-primary px-5 font-bold text-primary-foreground"
+                className="h-11 rounded-full bg-primary px-5 font-semibold text-primary-foreground"
               >
                 <Link href="/publica">Publică anunț în {city.name}</Link>
               </Button>
@@ -187,7 +187,7 @@ export default async function CategoryCityPage({
 
             <div className="grid gap-4 lg:grid-cols-2">
               <aside className="rounded-[1.5rem] border border-border bg-card p-5 shadow-soft-sm">
-                <h2 className="text-lg font-black text-foreground">
+                <h2 className="text-lg font-semibold text-foreground">
                   {category.name} în alte orașe
                 </h2>
                 <div className="mt-3 flex flex-wrap gap-2">
@@ -196,7 +196,7 @@ export default async function CategoryCityPage({
                       key={candidate.slug}
                       href={`/categorii/${category.slug}/${candidate.slug}`}
                     >
-                      <Badge className="rounded-full bg-muted px-3 py-1.5 text-sm font-bold text-primary transition hover:bg-primary hover:text-primary-foreground">
+                      <Badge className="rounded-full bg-muted px-3 py-1.5 text-sm font-semibold text-primary transition hover:bg-primary hover:text-primary-foreground">
                         {candidate.name}
                       </Badge>
                     </Link>
@@ -205,7 +205,7 @@ export default async function CategoryCityPage({
               </aside>
 
               <aside className="rounded-[1.5rem] border border-border bg-card p-5 shadow-soft-sm">
-                <h2 className="text-lg font-black text-foreground">
+                <h2 className="text-lg font-semibold text-foreground">
                   Alte categorii în {city.name}
                 </h2>
                 <div className="mt-3 flex flex-wrap gap-2">
@@ -214,7 +214,7 @@ export default async function CategoryCityPage({
                       key={candidate.slug}
                       href={`/categorii/${candidate.slug}/${city.slug}`}
                     >
-                      <Badge className="rounded-full bg-muted px-3 py-1.5 text-sm font-bold text-primary transition hover:bg-primary hover:text-primary-foreground">
+                      <Badge className="rounded-full bg-muted px-3 py-1.5 text-sm font-semibold text-primary transition hover:bg-primary hover:text-primary-foreground">
                         {candidate.name}
                       </Badge>
                     </Link>

@@ -25,7 +25,7 @@ export function LegalLink({
   return (
     <Link
       href={href}
-      className="font-bold text-[#0F4A43] underline-offset-4 transition-colors hover:text-[#2F6F65] hover:underline focus-visible:rounded-sm focus-visible:outline-none focus-visible:ring-3 focus-visible:ring-[#2F6F65]/25"
+      className="font-semibold text-primary underline-offset-4 transition-colors hover:text-brand-hover hover:underline focus-visible:rounded-sm focus-visible:outline-none focus-visible:ring-3 focus-visible:ring-primary/20"
     >
       {children}
     </Link>
@@ -37,9 +37,9 @@ export function AuthLogo() {
     <Link
       href="/"
       aria-label="TROKO.ro acasă"
-      className="shrink-0 text-[1.45rem] font-black leading-none text-[#005F3F] min-[1800px]:text-[1.6rem]"
+      className="shrink-0 text-[1.45rem] font-bold leading-none text-primary"
     >
-      TROKO<span className="text-[#E9B44C]">.ro</span>
+      TROKO<span className="text-accent">.ro</span>
     </Link>
   );
 }
@@ -64,17 +64,17 @@ export function AuthDivider() {
 
 export function AuthFooterQuote() {
   return (
-    <div className="authFooterQuote relative shrink-0 overflow-hidden rounded-[0.8rem] bg-[#F2F3DF] px-4 py-3 text-[#0F4A43]">
+    <div className="authFooterQuote relative shrink-0 overflow-hidden rounded-sm border border-brand-border bg-brand-soft px-4 py-3 text-primary">
       <div className="relative z-10 flex items-center gap-3">
-        <span className="grid size-8 shrink-0 place-items-center rounded-full bg-[#DDEBD8] text-[#0F4A43]">
-          <HeartHandshake className="size-5 fill-[#0F4A43]/15" aria-hidden="true" />
+        <span className="grid size-8 shrink-0 place-items-center rounded-full bg-white text-primary">
+          <HeartHandshake className="size-5 fill-primary/15" aria-hidden="true" />
         </span>
         <p className="text-sm font-medium leading-5 sm:whitespace-nowrap">
           Construim o comunitate mai bună, anunț cu anunț.
         </p>
       </div>
       <Leaf
-        className="absolute bottom-1.5 right-3 size-11 rotate-12 text-[#8AAE79] opacity-90"
+        className="absolute bottom-1.5 right-3 size-11 rotate-12 text-[#9FB7A4] opacity-90"
         aria-hidden="true"
       />
     </div>
@@ -91,7 +91,7 @@ export function SocialAuthButtons() {
         type="button"
         variant="outline"
         aria-disabled="true"
-        className="h-10 cursor-default rounded-[0.65rem] border-[#D9DFDA] bg-white text-sm font-bold text-[#123F37] shadow-sm hover:bg-white"
+        className="h-12 cursor-default rounded-sm border-input bg-white text-sm font-semibold text-foreground shadow-soft-sm hover:bg-white"
       >
         <GoogleLogo />
         Continuă cu Google
@@ -100,7 +100,7 @@ export function SocialAuthButtons() {
         type="button"
         variant="outline"
         aria-disabled="true"
-        className="h-10 cursor-default rounded-[0.65rem] border-[#D9DFDA] bg-white text-sm font-bold text-[#123F37] shadow-sm hover:bg-white"
+        className="h-12 cursor-default rounded-sm border-input bg-white text-sm font-semibold text-foreground shadow-soft-sm hover:bg-white"
       >
         <FacebookLogo />
         Continuă cu Facebook

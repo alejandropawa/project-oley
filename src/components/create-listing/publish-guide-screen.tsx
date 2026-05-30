@@ -1,7 +1,6 @@
 "use client";
 
 import Image from "next/image";
-import Link from "next/link";
 import { useState } from "react";
 import {
   ArrowLeft,
@@ -183,17 +182,15 @@ export function PublishGuideScreen({ onContinue }: { onContinue: () => void }) {
 
   return (
     <div
-      className="mx-auto flex w-full flex-col overflow-hidden rounded-[1rem] border border-[#DDE3DF] bg-[#FFFEFC] text-[#102A27] shadow-[0_22px_72px_rgba(15,70,61,0.10)] animate-in fade-in-0 zoom-in-95 duration-300"
+      className="mx-auto flex w-full flex-col overflow-hidden rounded-[1rem] border border-[#DDE3DF] bg-[#FFFEFC] text-[#102A27] shadow-[0_22px_72px_rgba(15,70,61,0.10)]"
       style={{
-        fontFamily:
-          'var(--font-guide-inter), Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
         WebkitFontSmoothing: "antialiased",
         textRendering: "optimizeLegibility",
       }}
     >
       <header className="flex min-h-[4.6rem] items-center justify-between gap-4 border-b border-[#DDE3DF] bg-[#FFFEFC]/98 px-5 py-3 sm:px-8">
         <div>
-          <h1 className="text-[18px] font-bold leading-[24px] tracking-[-0.015em] text-[#0E2522]">
+          <h1 className="text-[18px] font-semibold leading-[24px] text-[#0E2522]">
             Ghid de publicare
           </h1>
           <p className="text-[14px] font-normal leading-[20px] text-[#66736F]">
@@ -201,28 +198,25 @@ export function PublishGuideScreen({ onContinue }: { onContinue: () => void }) {
           </p>
         </div>
         <Button
-          asChild
+          type="button"
           variant="outline"
-          className="h-10 rounded-[0.45rem] border-[#DDE3DF] bg-white px-4 text-[14px] font-bold leading-[20px] text-[#102A27] shadow-sm transition hover:border-[#89B29E] hover:bg-[#F5FAF7] hover:text-[#0B4A3E]"
+          onClick={onContinue}
+          aria-label="Închide ghidul"
+          className="h-10 rounded-[0.45rem] border-[#DDE3DF] bg-white px-4 text-[14px] font-semibold leading-[20px] text-[#102A27] shadow-sm transition hover:border-[#89B29E] hover:bg-[#F5FAF7] hover:text-[#0B4A3E]"
         >
-          <Link href="/">
-            <span className="hidden sm:inline">Închide</span>
-            <X className="size-4" aria-hidden="true" />
-          </Link>
+          <span className="hidden sm:inline">Închide ghidul</span>
+          <X className="size-4" aria-hidden="true" />
         </Button>
       </header>
 
       <div className="grid lg:grid-cols-[14.5rem_1fr]">
-        <aside className="border-b border-[#DDE3DF] bg-[#FFFEFC]/92 px-6 py-9 animate-in fade-in-0 slide-in-from-left-3 duration-300 lg:border-b-0 lg:border-r">
+        <aside className="border-b border-[#DDE3DF] bg-[#FFFEFC]/92 px-6 py-9 lg:border-b-0 lg:border-r">
           <GuideSteps />
         </aside>
 
         <main className="grid xl:grid-cols-[minmax(0,1fr)_23.5rem]">
           <section className="px-5 py-6 sm:px-8 lg:px-8">
-            <div
-              key={activePage}
-              className="animate-in fade-in-0 slide-in-from-bottom-2 duration-300"
-            >
+            <div key={activePage}>
               {renderGuidePage(activePage, setActivePage)}
             </div>
           </section>
@@ -285,7 +279,7 @@ export function PublishGuideScreen({ onContinue }: { onContinue: () => void }) {
                   type="button"
                   variant="outline"
                   onClick={() => setActivePage("safety")}
-                  className="mt-5 h-9 w-full rounded-[0.45rem] border-[#DDE3DF] bg-white text-[14px] font-bold leading-[20px] text-[#102A27] shadow-sm transition hover:border-[#89B29E] hover:bg-[#F5FAF7] hover:text-[#0B4A3E]"
+                  className="mt-5 h-9 w-full rounded-[0.45rem] border-[#DDE3DF] bg-white text-[14px] font-semibold leading-[20px] text-[#102A27] shadow-sm transition hover:border-[#89B29E] hover:bg-[#F5FAF7] hover:text-[#0B4A3E]"
                 >
                   Află mai multe
                   <ExternalLink className="size-4" aria-hidden="true" />
@@ -293,7 +287,7 @@ export function PublishGuideScreen({ onContinue }: { onContinue: () => void }) {
               </SidePanel>
 
               <div className="rounded-[0.65rem] border border-[#EFE4D4] bg-[#F6EEE2] p-4 shadow-sm">
-                <h3 className="text-[16px] font-bold leading-[22px] text-[#0E2522]">
+                <h3 className="text-[16px] font-semibold leading-[22px] text-[#0E2522]">
                   Ai nevoie de ajutor?
                 </h3>
                 <p className="mt-2 text-[13px] font-normal leading-[20px] text-[#66736F]">
@@ -317,22 +311,21 @@ export function PublishGuideScreen({ onContinue }: { onContinue: () => void }) {
       <footer className="border-t border-[#DDE3DF] bg-[#FFFEFC]/98 px-6 py-3.5">
         <div className="flex flex-wrap items-center justify-between gap-3">
           <Button
-            asChild
+            type="button"
             variant="outline"
-            className="h-10 rounded-[0.45rem] border-[#DDE3DF] bg-white px-6 text-[14px] font-bold leading-[20px] text-[#0B4A3E] shadow-sm transition hover:border-[#89B29E] hover:bg-[#F5FAF7]"
+            onClick={onContinue}
+            className="h-10 rounded-[0.45rem] border-[#DDE3DF] bg-white px-6 text-[14px] font-semibold leading-[20px] text-[#0B4A3E] shadow-sm transition hover:border-[#89B29E] hover:bg-[#F5FAF7]"
           >
-            <Link href="/">
-              <ArrowLeft className="size-4" aria-hidden="true" />
-              Înapoi
-            </Link>
+            <ArrowLeft className="size-4" aria-hidden="true" />
+            Înapoi la editor
           </Button>
-          <Link
-            href="/publica?editor=1"
+          <button
+            type="button"
             onClick={onContinue}
             className={cn(
               "inline-flex shrink-0 cursor-pointer items-center justify-center gap-2 whitespace-nowrap border border-transparent outline-none transition focus-visible:ring-3 focus-visible:ring-[#0F7A57]/25 disabled:pointer-events-none disabled:opacity-50",
               primaryActionButtonClassName,
-              "h-10 min-w-[17.5rem] rounded-[0.45rem] px-8 text-[14px] font-bold leading-[20px]",
+              "h-10 min-w-[17.5rem] rounded-[0.45rem] px-8 text-[14px] font-semibold leading-[20px]",
             )}
           >
             Continuă spre publicare
@@ -340,7 +333,7 @@ export function PublishGuideScreen({ onContinue }: { onContinue: () => void }) {
               className={cn("size-4", primaryActionIconClassName)}
               aria-hidden="true"
             />
-          </Link>
+          </button>
         </div>
       </footer>
     </div>
@@ -354,7 +347,7 @@ function renderGuidePage(
   if (activePage === "overview") {
     return (
       <>
-        <h2 className="text-[24px] font-bold leading-[32px] tracking-[-0.025em] text-[#0E2522]">
+        <h2 className="text-[24px] font-semibold leading-[32px] text-[#0E2522]">
           Cum creezi un anunț eficient
         </h2>
         <p className="mt-1 text-[14px] font-normal leading-[22px] text-[#66736F]">
@@ -362,8 +355,8 @@ function renderGuidePage(
         </p>
 
         <div className="mt-5 grid gap-2.5">
-          {guideSections.map((section, index) => (
-            <GuideSection key={section.title} section={section} index={index} />
+          {guideSections.map((section) => (
+            <GuideSection key={section.title} section={section} />
           ))}
         </div>
       </>
@@ -525,7 +518,7 @@ function GuideSteps() {
             ) : null}
             <span
               className={cn(
-                "relative z-10 grid size-7 shrink-0 place-items-center rounded-full border text-[13px] font-bold leading-[20px] shadow-sm",
+                "relative z-10 grid size-7 shrink-0 place-items-center rounded-full border text-[13px] font-semibold leading-[20px] shadow-sm",
                 isCurrent
                   ? "border-[#0B4A3E] bg-[#0B4A3E] text-white"
                   : "border-[#DDE3DF] bg-[#FFFEFC] text-[#8A9691]",
@@ -537,7 +530,7 @@ function GuideSteps() {
               <p
                 className={cn(
                   isCurrent
-                    ? "text-[14px] font-bold leading-[20px] text-[#0B4A3E]"
+                    ? "text-[14px] font-semibold leading-[20px] text-[#0B4A3E]"
                     : "text-[13px] font-medium leading-[20px] text-[#8A9691]",
                 )}
               >
@@ -556,23 +549,20 @@ function GuideSteps() {
 
 function GuideSection({
   section,
-  index,
 }: {
   section: (typeof guideSections)[number];
-  index: number;
 }) {
   const Icon = section.icon;
 
   return (
     <article
-      className="grid gap-4 rounded-[0.55rem] border border-[#DDE3DF] bg-white p-4 shadow-[0_8px_24px_rgba(15,70,61,0.035)] animate-in fade-in-0 slide-in-from-bottom-2 duration-300 md:grid-cols-[3.35rem_minmax(0,1fr)_minmax(13.5rem,0.4fr)]"
-      style={{ animationDelay: `${index * 45}ms` }}
+      className="grid gap-4 rounded-[0.55rem] border border-[#DDE3DF] bg-white p-4 shadow-[0_8px_24px_rgba(15,70,61,0.035)] md:grid-cols-[3.35rem_minmax(0,1fr)_minmax(13.5rem,0.4fr)]"
     >
       <span className="grid size-11 place-items-center rounded-full bg-[#EAF4EA] text-[#0B4A3E]">
         <Icon className="size-5" aria-hidden="true" />
       </span>
       <div>
-        <h3 className="text-[17px] font-bold leading-[24px] tracking-[-0.01em] text-[#0E2522]">
+        <h3 className="text-[17px] font-semibold leading-[24px] text-[#0E2522]">
           {section.title}
         </h3>
         <ul className="mt-2 grid gap-1">
@@ -611,12 +601,12 @@ function GuideArticlePage({
       <button
         type="button"
         onClick={onBack}
-        className="mb-4 inline-flex items-center gap-2 text-[14px] font-bold leading-[20px] text-[#0B4A3E] transition hover:text-[#063B32]"
+        className="mb-4 inline-flex items-center gap-2 text-[14px] font-semibold leading-[20px] text-[#0B4A3E] transition hover:text-[#063B32]"
       >
         <ArrowLeft className="size-4" aria-hidden="true" />
         Înapoi la ghid
       </button>
-      <h2 className="text-[24px] font-bold leading-[32px] tracking-[-0.025em] text-[#0E2522]">
+      <h2 className="text-[24px] font-semibold leading-[32px] text-[#0E2522]">
         {title}
       </h2>
       <p className="mt-1 text-[14px] font-normal leading-[22px] text-[#66736F]">
@@ -630,7 +620,7 @@ function GuideArticlePage({
 function GuideChecklist({ items, title }: { items: string[]; title: string }) {
   return (
     <section className="mt-4 rounded-[0.65rem] border border-[#DDE3DF] bg-white p-4 shadow-sm">
-      <h3 className="text-[17px] font-bold leading-[24px] tracking-[-0.01em] text-[#0E2522]">
+      <h3 className="text-[17px] font-semibold leading-[24px] text-[#0E2522]">
         {title}
       </h3>
       <ul className="mt-3 grid gap-2">
@@ -669,7 +659,7 @@ function InfoBox({
         tone === "warning" && "bg-[#FFF6E6] text-[#7A5718]",
       )}
     >
-      <p className="text-[13px] font-bold leading-[18px]">{title}</p>
+      <p className="text-[13px] font-semibold leading-[18px]">{title}</p>
       <p className="mt-1 text-[13px] font-normal leading-[20px]">{children}</p>
     </div>
   );
@@ -710,7 +700,7 @@ function PhotoExamples({ compact = false }: { compact?: boolean }) {
             </span>
             {!compact ? (
               <span className="block p-3">
-                <span className="block text-[13px] font-bold leading-[18px] text-[#0E2522]">
+                <span className="block text-[13px] font-semibold leading-[18px] text-[#0E2522]">
                   {example.title}
                 </span>
                 <span className="mt-1 block text-[13px] font-normal leading-[20px] text-[#66736F]">
@@ -727,7 +717,7 @@ function PhotoExamples({ compact = false }: { compact?: boolean }) {
           type="button"
           aria-label="Închide fotografia"
           onClick={() => setSelectedPhoto(null)}
-          className="fixed inset-0 z-[120] grid cursor-zoom-out place-items-center bg-[#061915]/72 p-4 backdrop-blur-sm animate-in fade-in-0 duration-150"
+          className="fixed inset-0 z-[120] grid cursor-zoom-out place-items-center bg-[#061915]/72 p-4 backdrop-blur-sm"
         >
           <span className="w-full max-w-3xl overflow-hidden rounded-[1rem] border border-white/60 bg-[#FFFEFC] p-2 shadow-[0_28px_90px_rgba(2,24,20,0.34)]">
             <span className="relative block aspect-[4/3] overflow-hidden rounded-[0.75rem]">
@@ -741,7 +731,7 @@ function PhotoExamples({ compact = false }: { compact?: boolean }) {
               />
             </span>
             <span className="block px-3 py-3 text-left">
-              <span className="block text-[14px] font-bold leading-[20px] text-[#0E2522]">
+              <span className="block text-[14px] font-semibold leading-[20px] text-[#0E2522]">
                 {selectedPhoto.title}
               </span>
               <span className="mt-1 block text-[13px] font-normal leading-[20px] text-[#66736F]">
@@ -764,7 +754,7 @@ function SidePanel({
 }) {
   return (
     <section className="rounded-[0.65rem] border border-[#DDE3DF] bg-white p-4 shadow-sm">
-      <h3 className="text-[16px] font-bold leading-[22px] text-[#0E2522]">
+      <h3 className="text-[16px] font-semibold leading-[22px] text-[#0E2522]">
         {title}
       </h3>
       <div className="mt-4">{children}</div>
@@ -790,7 +780,7 @@ function HelpAction({
         <Icon className="size-4" aria-hidden="true" />
       </span>
       <span>
-        <span className="block text-[13px] font-bold leading-[18px] text-[#0E2522]">
+        <span className="block text-[13px] font-semibold leading-[18px] text-[#0E2522]">
           {title}
         </span>
         <span className="mt-0.5 block text-[13px] font-normal leading-[20px] text-[#66736F]">

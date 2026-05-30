@@ -16,7 +16,7 @@ export function ReportStatusBadge({
   status: Enums<"report_status">;
 }) {
   return (
-    <Badge className={cn("rounded-full px-3 py-1 text-xs font-bold", styles[status])}>
+    <Badge className={cn("rounded-full px-3 py-1 text-xs font-semibold", styles[status])}>
       {reportStatusLabels[status]}
     </Badge>
   );

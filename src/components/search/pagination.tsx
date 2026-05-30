@@ -70,7 +70,7 @@ function PageLink({
 }) {
   if (disabled) {
     return (
-      <span className="rounded-full border border-border bg-card px-4 py-2 text-sm font-bold text-muted-foreground opacity-50">
+      <span className="rounded-full border border-border bg-card px-4 py-2 text-sm font-semibold text-muted-foreground opacity-50">
         {children}
       </span>
     );
@@ -82,8 +82,8 @@ function PageLink({
       aria-current={active ? "page" : undefined}
       className={
         active
-          ? "rounded-full bg-primary px-4 py-2 text-sm font-bold text-primary-foreground"
-          : "rounded-full border border-border bg-card px-4 py-2 text-sm font-bold text-muted-foreground transition hover:border-primary hover:text-primary"
+          ? "rounded-full bg-primary px-4 py-2 text-sm font-semibold text-primary-foreground"
+          : "rounded-full border border-border bg-card px-4 py-2 text-sm font-semibold text-muted-foreground transition hover:border-primary hover:text-primary"
       }
     >
       {children}

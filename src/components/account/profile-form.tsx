@@ -136,7 +136,7 @@ export function ProfileForm({
   return (
     <section className="rounded-[1.75rem] border border-border bg-card p-5 shadow-soft-sm">
       <div className="mb-5">
-        <h2 className="text-2xl font-black text-foreground">Profil</h2>
+        <h2 className="text-2xl font-semibold text-foreground">Profil</h2>
         <p className="mt-2 text-sm leading-6 text-muted-foreground">
           Datele publice și preferințele private sunt salvate în Supabase, cu
           protecție prin RLS.
@@ -233,14 +233,14 @@ export function ProfileForm({
             variant="outline"
             onClick={logout}
             disabled={logoutPending}
-            className="h-12 rounded-full border-border bg-background px-5 font-bold"
+            className="h-12 rounded-full border-border bg-background px-5 font-semibold"
           >
             <LogOut className="size-4" aria-hidden="true" />
             {logoutPending ? "Se deconectează..." : "Ieși din cont"}
           </Button>
           <Button
             disabled={pending}
-            className="h-12 rounded-full bg-primary px-5 font-bold text-primary-foreground"
+            className="h-12 rounded-full bg-primary px-5 font-semibold text-primary-foreground"
           >
             <Save className="size-4" aria-hidden="true" />
             {pending ? "Se salvează..." : "Salvează profilul"}
@@ -260,7 +260,7 @@ function Field({
 }) {
   return (
     <label className="block">
-      <span className="mb-1.5 block text-sm font-bold text-foreground">
+      <span className="mb-1.5 block text-sm font-semibold text-foreground">
         {label}
       </span>
       {children}

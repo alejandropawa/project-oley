@@ -12,10 +12,10 @@ export function NotificationDropdown({
   return (
     <div className="absolute right-0 top-12 w-[min(22rem,calc(100vw-2rem))] rounded-[1.5rem] border border-border bg-card p-3 shadow-soft">
       <div className="flex items-center justify-between gap-3 px-2 py-1">
-        <h2 className="text-sm font-black text-foreground">Notificări</h2>
+        <h2 className="text-sm font-semibold text-foreground">Notificări</h2>
         <Link
           href="/cont/notificari"
-          className="text-xs font-bold text-muted-foreground hover:text-primary"
+          className="text-xs font-semibold text-muted-foreground hover:text-primary"
         >
           Setări
         </Link>
@@ -38,7 +38,7 @@ export function NotificationDropdown({
       </div>
       <Button
         asChild
-        className="mt-3 h-10 w-full rounded-full bg-primary px-4 text-sm font-bold text-primary-foreground"
+        className="mt-3 h-10 w-full rounded-full bg-primary px-4 text-sm font-semibold text-primary-foreground"
       >
         <Link href="/notificari">Vezi toate notificările</Link>
       </Button>

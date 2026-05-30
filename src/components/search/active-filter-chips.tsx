@@ -25,14 +25,14 @@ export function ActiveFilterChips({
           key={chip.key}
           href={chip.href}
           aria-label={`Elimină filtrul ${chip.label}`}
-          className="rounded-full border border-border bg-card px-3 py-1.5 text-sm font-bold text-muted-foreground transition hover:border-primary hover:text-primary"
+          className="rounded-full border border-border bg-card px-3 py-1.5 text-sm font-semibold text-muted-foreground transition hover:border-primary hover:text-primary"
         >
           {chip.label} <span aria-hidden="true">×</span>
         </Link>
       ))}
       <Link
         href={resetHref}
-        className="rounded-full bg-primary px-3 py-1.5 text-sm font-bold text-primary-foreground transition hover:bg-primary/90"
+        className="rounded-full bg-primary px-3 py-1.5 text-sm font-semibold text-primary-foreground transition hover:bg-primary/90"
       >
         Resetează filtrele
       </Link>

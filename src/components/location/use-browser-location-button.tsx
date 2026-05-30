@@ -47,7 +47,7 @@ export function UseBrowserLocationButton({
         variant="outline"
         onClick={detectLocation}
         disabled={status === "loading"}
-        className="h-11 rounded-full border-border bg-card px-4 font-bold"
+        className="h-11 rounded-full border-border bg-card px-4 font-semibold"
       >
         <LocateFixed className="size-4" aria-hidden="true" />
         {status === "loading" ? "Se detectează locația..." : "Folosește locația mea"}

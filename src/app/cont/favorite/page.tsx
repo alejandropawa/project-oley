@@ -36,7 +36,7 @@ export default async function AccountFavoritesPage() {
       </p>
       <Button
         asChild
-        className="mt-5 h-11 rounded-full bg-primary px-5 font-bold text-primary-foreground"
+        className="mt-5 h-11 rounded-full bg-primary px-5 font-semibold text-primary-foreground"
       >
         <Link href="/anunturi">Explorează anunțuri</Link>
       </Button>
@@ -65,7 +65,7 @@ function AccountSimpleFrame({
                 { label: title },
               ]}
             />
-            <h1 className="mt-8 text-3xl font-black text-foreground sm:text-4xl min-[1800px]:text-5xl">
+            <h1 className="mt-8 text-3xl font-semibold text-foreground sm:text-4xl min-[1800px]:text-5xl">
               {title}
             </h1>
             <p className="mt-4 max-w-2xl text-base leading-7 text-muted-foreground">

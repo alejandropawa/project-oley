@@ -68,7 +68,7 @@ export function NotificationPreferencesForm({
   return (
     <div className="grid gap-5">
       <div className="overflow-hidden rounded-[1.75rem] border border-border bg-card shadow-soft-sm">
-        <div className="grid grid-cols-[1fr_auto_auto] gap-3 border-b border-border px-4 py-3 text-xs font-black uppercase text-muted-foreground sm:px-5">
+        <div className="grid grid-cols-[1fr_auto_auto] gap-3 border-b border-border px-4 py-3 text-xs font-semibold uppercase text-muted-foreground sm:px-5">
           <span>Tip</span>
           <span>Email</span>
           <span>În app</span>
@@ -79,7 +79,7 @@ export function NotificationPreferencesForm({
             className="grid grid-cols-[1fr_auto_auto] items-center gap-3 border-b border-border px-4 py-4 last:border-b-0 sm:px-5"
           >
             <div>
-              <h2 className="font-black text-foreground">{group.label}</h2>
+              <h2 className="font-semibold text-foreground">{group.label}</h2>
               <p className="mt-1 text-sm leading-5 text-muted-foreground">
                 Primești notificări relevante pentru această categorie.
               </p>
@@ -105,7 +105,7 @@ export function NotificationPreferencesForm({
         type="button"
         onClick={save}
         disabled={isPending}
-        className="h-11 w-fit rounded-full bg-primary px-5 font-bold text-primary-foreground"
+        className="h-11 w-fit rounded-full bg-primary px-5 font-semibold text-primary-foreground"
       >
         {isPending ? "Se salvează..." : "Salvează preferințele"}
       </Button>

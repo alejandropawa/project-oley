@@ -98,7 +98,7 @@ export default async function CityDetailPage({ params }: CityPageProps) {
         <section className="py-8 sm:py-12">
           <div className="mx-auto grid w-full max-w-[1440px] gap-8 px-5 sm:px-8 lg:px-10">
             <div className="rounded-[1.5rem] border border-border bg-card p-4 shadow-soft-sm">
-              <h2 className="text-lg font-black text-foreground">
+              <h2 className="text-lg font-semibold text-foreground">
                 Categorii active în {city.name}
               </h2>
               <div className="mt-3 flex flex-wrap gap-2">
@@ -108,7 +108,7 @@ export default async function CityDetailPage({ params }: CityPageProps) {
                       key={category.slug}
                       href={`/categorii/${category.slug}/${city.slug}`}
                     >
-                      <Badge className="rounded-full bg-muted px-3 py-1.5 text-sm font-bold text-primary transition hover:bg-primary hover:text-primary-foreground">
+                      <Badge className="rounded-full bg-muted px-3 py-1.5 text-sm font-semibold text-primary transition hover:bg-primary hover:text-primary-foreground">
                         {category.name} · {count}
                       </Badge>
                     </Link>
@@ -124,17 +124,17 @@ export default async function CityDetailPage({ params }: CityPageProps) {
 
             <div className="flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
               <div>
-                <p className="text-sm font-bold uppercase text-primary">
+                <p className="text-sm font-semibold uppercase text-primary">
                   {cityListings.length} rezultate
                 </p>
-                <h2 className="mt-1 text-2xl font-black text-foreground">
+                <h2 className="mt-1 text-2xl font-semibold text-foreground">
                   Anunțuri recomandate în {city.name}
                 </h2>
               </div>
               <Button
                 asChild
                 variant="outline"
-                className="h-11 rounded-full border-border bg-card px-5 font-bold"
+                className="h-11 rounded-full border-border bg-card px-5 font-semibold"
               >
                 <Link href={`/anunturi?oras=${city.slug}`}>
                   Vezi toate anunțurile
@@ -149,7 +149,7 @@ export default async function CityDetailPage({ params }: CityPageProps) {
               />
             ) : (
               <div className="rounded-[1.5rem] border border-dashed border-border bg-card p-8 text-center shadow-soft-sm">
-                <h2 className="text-xl font-black text-foreground">
+                <h2 className="text-xl font-semibold text-foreground">
                   Nu avem încă anunțuri active în {city.name}.
                 </h2>
                 <p className="mx-auto mt-2 max-w-lg text-sm leading-6 text-muted-foreground">
@@ -158,7 +158,7 @@ export default async function CityDetailPage({ params }: CityPageProps) {
                 </p>
                 <Button
                   asChild
-                  className="mt-5 h-11 rounded-full bg-primary px-5 font-bold text-primary-foreground"
+                  className="mt-5 h-11 rounded-full bg-primary px-5 font-semibold text-primary-foreground"
                 >
                   <Link href="/publica">Publică primul anunț în {city.name}</Link>
                 </Button>
@@ -166,7 +166,7 @@ export default async function CityDetailPage({ params }: CityPageProps) {
             )}
 
             <article className="rounded-[1.5rem] border border-border bg-card p-5 shadow-soft-sm">
-              <h2 className="text-xl font-black text-foreground">
+              <h2 className="text-xl font-semibold text-foreground">
                 Piață locală pentru {city.name}
               </h2>
               <p className="mt-3 text-sm leading-7 text-muted-foreground">

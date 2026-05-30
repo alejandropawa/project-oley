@@ -46,7 +46,7 @@ export function VerificationAdminActions({ requestId }: { requestId: string }) {
         type="button"
         disabled={isPending}
         onClick={() => run("approve")}
-        className="h-10 rounded-full bg-primary px-4 text-sm font-bold text-primary-foreground"
+        className="h-10 rounded-full bg-primary px-4 text-sm font-semibold text-primary-foreground"
       >
         Aproba
       </Button>
@@ -55,7 +55,7 @@ export function VerificationAdminActions({ requestId }: { requestId: string }) {
         disabled={isPending}
         onClick={() => run("reject")}
         variant="outline"
-        className="h-10 rounded-full px-4 text-sm font-bold"
+        className="h-10 rounded-full px-4 text-sm font-semibold"
       >
         Respinge
       </Button>
@@ -100,7 +100,7 @@ export function ReviewAdminActions({ reviewId }: { reviewId: string }) {
         type="button"
         disabled={isPending}
         onClick={() => run("published")}
-        className="h-10 rounded-full bg-primary px-4 text-sm font-bold text-primary-foreground"
+        className="h-10 rounded-full bg-primary px-4 text-sm font-semibold text-primary-foreground"
       >
         Publica
       </Button>
@@ -109,7 +109,7 @@ export function ReviewAdminActions({ reviewId }: { reviewId: string }) {
         disabled={isPending}
         onClick={() => run("hidden")}
         variant="outline"
-        className="h-10 rounded-full px-4 text-sm font-bold"
+        className="h-10 rounded-full px-4 text-sm font-semibold"
       >
         Ascunde
       </Button>
@@ -118,7 +118,7 @@ export function ReviewAdminActions({ reviewId }: { reviewId: string }) {
         disabled={isPending}
         onClick={() => run("removed")}
         variant="outline"
-        className="h-10 rounded-full px-4 text-sm font-bold"
+        className="h-10 rounded-full px-4 text-sm font-semibold"
       >
         Elimina
       </Button>
@@ -166,8 +166,8 @@ export function TrustedSellerBadgeButton({
         variant={mode === "award" ? undefined : "outline"}
         className={
           mode === "award"
-            ? "h-10 rounded-full bg-primary px-4 text-sm font-bold text-primary-foreground"
-            : "h-10 rounded-full px-4 text-sm font-bold"
+            ? "h-10 rounded-full bg-primary px-4 text-sm font-semibold text-primary-foreground"
+            : "h-10 rounded-full px-4 text-sm font-semibold"
         }
       >
         {mode === "award" ? "Acorda trusted seller" : "Scoate badge"}

@@ -89,7 +89,7 @@ export function MessageComposer({
         </p>
         <Button
           disabled={disabled || isPending}
-          className="h-11 rounded-full bg-primary px-5 font-bold text-primary-foreground"
+          className="h-11 rounded-full bg-primary px-5 font-semibold text-primary-foreground"
         >
           <Send className="size-4" aria-hidden="true" />
           {isPending ? "Se trimite..." : "Trimite"}

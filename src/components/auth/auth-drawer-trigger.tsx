@@ -3,7 +3,7 @@
 import dynamic from "next/dynamic";
 import { useState } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
-import { Dialog } from "radix-ui";
+import * as Dialog from "@radix-ui/react-dialog";
 import { LogIn, UserRound } from "lucide-react";
 
 import type { AuthMode } from "@/components/auth/auth-drawer-types";

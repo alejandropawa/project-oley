@@ -30,7 +30,7 @@ export function PromotionPackageCard({
       )}
     >
       {recommended ? (
-        <Badge className="absolute right-4 top-4 rounded-full bg-primary px-3 py-1 text-xs font-black text-primary-foreground">
+        <Badge className="absolute right-4 top-4 rounded-full bg-primary px-3 py-1 text-xs font-semibold text-primary-foreground">
           Recomandat
         </Badge>
       ) : null}
@@ -38,10 +38,10 @@ export function PromotionPackageCard({
         <Icon className="size-5" aria-hidden="true" />
       </span>
       <div className="mt-5">
-        <p className="text-sm font-black uppercase text-primary">
+        <p className="text-sm font-semibold uppercase text-primary">
           {promotionTypeLabels[promotionPackage.type]}
         </p>
-        <h3 className="mt-1 text-xl font-black text-foreground">
+        <h3 className="mt-1 text-xl font-semibold text-foreground">
           {promotionPackage.name}
         </h3>
         <p className="mt-2 min-h-12 text-sm leading-6 text-muted-foreground">
@@ -50,7 +50,7 @@ export function PromotionPackageCard({
       </div>
       <div className="mt-5 flex flex-wrap items-end justify-between gap-3">
         <div>
-          <p className="text-3xl font-black text-primary">
+          <p className="text-3xl font-semibold text-primary">
             {formatPromotionPrice(
               promotionPackage.price_cents,
               promotionPackage.currency,
@@ -62,7 +62,7 @@ export function PromotionPackageCard({
           </p>
         </div>
         {selected ? (
-          <span className="inline-flex items-center gap-1.5 text-sm font-bold text-primary">
+          <span className="inline-flex items-center gap-1.5 text-sm font-semibold text-primary">
             <CheckCircle2 className="size-4" aria-hidden="true" />
             Ales
           </span>
@@ -75,8 +75,8 @@ export function PromotionPackageCard({
           variant={selected ? "outline" : undefined}
           className={
             selected
-              ? "mt-5 h-11 rounded-full border-border bg-background px-5 font-bold"
-              : "mt-5 h-11 rounded-full bg-primary px-5 font-bold text-primary-foreground"
+              ? "mt-5 h-11 rounded-full border-border bg-background px-5 font-semibold"
+              : "mt-5 h-11 rounded-full bg-primary px-5 font-semibold text-primary-foreground"
           }
         >
           {actionLabel ?? "Alege pachetul"}

@@ -19,13 +19,13 @@ export function CategoryCard({ category }: { category: Category }) {
         <span className="grid size-12 place-items-center rounded-[1rem] bg-muted text-primary transition group-hover:bg-primary group-hover:text-primary-foreground">
           <Icon className="size-5" aria-hidden="true" />
         </span>
-        <Badge className="rounded-full bg-secondary px-2.5 py-1 text-xs font-bold text-secondary-foreground">
+        <Badge className="rounded-full bg-secondary px-2.5 py-1 text-xs font-semibold text-secondary-foreground">
           {count} {count === 1 ? "anunț" : "anunțuri"}
         </Badge>
       </div>
 
       <div className="mt-5 flex flex-1 flex-col">
-        <h3 className="text-xl font-black text-foreground">{category.name}</h3>
+        <h3 className="text-xl font-semibold text-foreground">{category.name}</h3>
         <p className="mt-2 text-sm leading-6 text-muted-foreground">
           {category.description}
         </p>
@@ -41,7 +41,7 @@ export function CategoryCard({ category }: { category: Category }) {
           ))}
         </div>
 
-        <span className="mt-5 inline-flex items-center gap-1.5 text-sm font-bold text-primary">
+        <span className="mt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-primary">
           Vezi categoria
           <ArrowRight
             className="size-4 transition-transform group-hover:translate-x-0.5"
